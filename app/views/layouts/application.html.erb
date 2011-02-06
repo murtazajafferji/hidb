@@ -74,7 +74,7 @@ _gaq.push(['_trackPageview']);
       </div>
       <% if current_user %>
       <div class='actions'>
-      	<%= link_to "Edit", edit_user_path(current_user) %>
+      	<%= link_to "Profile", current_user %>
 				<%= link_to "Logout", logout_path %>
       </div>
       <% end %>
