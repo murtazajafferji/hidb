@@ -1,5 +1,9 @@
 Hidb::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
+  
+  SITE_NAME = "Hiatt Internship Database"
+  SITE_URL = "http://www.hidb.heroku.com"
+  SITE_EMAIL = "noreply@amaltracker.com"
 
   # The production environment is meant for finished, "live" apps.
   # Code is not reloaded between requests
@@ -42,6 +46,7 @@ Hidb::Application.configure do
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found)
+  config.i18n.default_locale = :en
   config.i18n.fallbacks = true
 
   # Send deprecation notices to registered listeners

@@ -1,0 +1,5 @@
+connect:
+  google:
+    key: "amaltracker.com"
+    secret: "wHxsrJTzpQ9/z+3B3E4b6gQP"
+    label: "Google"

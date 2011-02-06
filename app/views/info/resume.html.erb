@@ -1,0 +1,29 @@
+<% title "Murtaza Jafferji - Resume" %>
+
+<div class="info">
+	<div class="resume">
+<h2>Resume</h2>
+<div id="download">	
+<%= button I18n.t("Download"), "#{SITE_URL}/files/Jafferji,Murtaza-resume.pdf", "btn download" %>
+</div>
+<p>
+Name: Murtaza Jafferji
+<br>
+Email: jafferji@brandeis.edu
+<br>
+LinkedIn: <a href="http://www.linkedin.com/in/jafferji">http://www.linkedin.com/in/jafferji</a>
+</p>
+<p>
+	<% if !is_mobile_device? %>
+	<iframe src= "http://docs.google.com/gview?url=http://amaltracker.com/files/Jafferji,Murtaza-resume.pdf&embedded=true&output=html" style="width:550px; height:730px;"></iframe>
+<% else !is_mobile_device? %>
+<iframe src= "http://docs.google.com/gview?url=http://amaltracker.com/files/Jafferji,Murtaza-resume.pdf&embedded=true&output=html" style="width:100%; height:200px;"></iframe>
+<% end %>
+
+<p>
+<h3>Updated: November 2010</h3>
+<h3>Copyright <%= Time.now.year %> <%= SITE_NAME %></h3>
+</p>
+
+</div>
+</div>

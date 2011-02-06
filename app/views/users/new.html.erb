@@ -1,0 +1,43 @@
+<% title "Sign up"%>
+
+<h2><%=I18n.t("Sign up as a new user")%></h2>
+<h1><%=I18n.t("Have an account?")%> <%= link_to I18n.t("Login instead"), login_path %></h1>
+<% @user.password = nil %>
+
+<div class="left" id="register-definitious">
+  <h3>Create a new <%= SITE_NAME %> account</h3>
+	<%= semantic_form_for @user, :url => signup_path do |form| %>
+	  <%# form.inputs "Basic", :id => "basic" do %>
+	  <% form.inputs do %>
+	    <%= form.input :email, :label => I18n.t("email"), :input_html => {:size => 20} %>
+	    <%= form.input :login, :label => I18n.t("Username"), :input_html => {:size => 20} %>
+			<%= form.input :password, :label => I18n.t("password"), :input_html => {:size => 20} %>
+	  <% end %>
+	  <%# form.inputs :name => "Advanced Options", :id => "advanced" do %>
+	    <%# form.input :slug, :label => "URL Title", :hint => "Created automatically if left blank", :required => false %>
+	  <%# end %>
+	  <% form.buttons do %>
+    	<%= form.commit_button :label => I18n.t("Sign up"), :button_html => { :class => "btn blue" } %>
+	  <% end %>
+	<% end %>
+</div>
+
+<div class="right" id="register-facebook">
+<h3><%="Or click on one of these to login or register!"%></h3>
+<%= form_for @user, :url => authenticate_path, :html => { :method => :post, :class => "authentication_form" } do |f| %>
+<!-- authentication_type should be "user" or "session", based on controller -->
+<%= oauth_login_hidden_input %>
+  <div class='oauth_providers'>
+    <ul>
+      <%# %w(google facebook twitter yahoo myspace github).each do |name| %>
+      <% %w(google facebook).each do |name| %>
+      <li class='oauth_provider'>
+        <%= image_tag "/images/icons/#{name}.png" %>
+        <%= radio_button_tag :oauth_provider, name %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+<% submit_tag "Login", :class => :submit %>
+<% end %>
+</div>

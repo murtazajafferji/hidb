@@ -1,0 +1,210 @@
+<% title "Keep Track of and Learn About Deeni Amal" %>
+
+<%= javascript_include_tag 'pt_prayTime' %>
+<%= javascript_include_tag 'http://j.maxmind.com/app/geoip.js' %>
+<%= javascript_include_tag 'pt_global' %>
+<%= javascript_include_tag 'pt_quran-data' %>
+<%= javascript_include_tag 'pt_countdown' %>
+<%= javascript_include_tag 'pt_astro' %>
+<%= javascript_include_tag 'pt_CalendarConversion' %>
+<%= javascript_include_tag 'pt_date' %>
+<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=true&amp;key=ABQIAAAAru248THsoOMtfTcYAQ_NFBR2Wq0Q4Z03SaxCFcKW99F6VyeWeBTAD97HX4ICe1kMdDVS8eH9261ZRQ" type="text/javascript"></script>
+<%= javascript_include_tag 'pt_wimpy_button_bridge' %>
+<%= javascript_include_tag 'ql_qlblog' %>
+<%= stylesheet_link_tag 'ql_qibla' %>
+<div class="homepage">
+	<div id="table-container">
+		<!-- hijri and gregorian date -->
+		<div id="table-row">
+
+			<div id="table-left">
+				<!-- <div class="sideTitle" align="center" style="width:100%; background-color:#660000;color:white;border:solid 2px #FBB829;"><%# link_to "Start Tracking", trackers_path %></div>
+								<%# render :partial => 'trackings/tracker_list' %> -->
+				<div class="sideTitle" align="center" style="width:100%; background-color:#660000;color:white;border:solid 2px #FBB829;">Today</div>
+				<div id="date">
+					<script>var tdy=new Date(); document.write(formatIslamicPersianDate(tdy));</script><br>   
+					<script type="text/javascript">document.write(dateFormat(curdate, "dddd, mmmm dS, yyyy"));</script>
+				</div>
+				<div id="events-today">
+					<table>
+						<% @events_today.each do |event| %>
+						<tr>
+							<td><%= link_to event.name, event %></td>
+							<td><%= event.date_hijri.gsub('-','/') if event.date_hijri %></td>
+						</tr>
+						<% if event.person %>
+						<tr>
+							<td>Person: <%= link_to event.person.name, event.person %></td>
+						</tr>
+						<% end %>
+						<% end %>
+					</table>
+				</div>
+			</div>
+
+			<div id="table-middle">
+				<% if current_user and !current_user.upcoming_trackings.blank? %>
+				<div id="events-today">
+				<div class="sideTitle" align="center" style="width:100%; background-color:#660000;color:white;border:solid 2px #FBB829;"><%= link_to "Upcoming Trackings", trackings_path, :remote => true %></div>
+				<table>
+					<% current_user.upcoming_trackings.each_with_index do |tracking, i|%>
+					<tr>
+						<td><%= "#{i + 1}. " %><%= tracking.trackable_type %></td>
+						<td><%= link_to tracking.trackable.name, edit_tracking_path(tracking) %></td>
+						<td><%= tracking.date_projected.strftime("%m/%d") %></td>
+					<tr>
+					<% end %>
+				</table>
+				</div>
+				<% else %>
+				<div class="sideTitle" align="center" style="width:100%; background-color:#660000;color:white;border:solid 2px #FBB829;">What is Amal Tracker?</div>
+				Amal (&#1593;&#1605;&#1604;) can mean deed, work, action, business, job, act, place, or task. Amal Tracker can help you keep track of your life. Create anything and then start tracking it! Set a projected date to finish the thing and it'll show up on the front page if it's due within a week.
+				<% end %>
+			</div>
+
+			<div id="table-right">				
+				<div class="sideTitle" align="center" style="width:100%; background-color:#660000;color:white;border:solid 2px #FBB829;">Countdown</div>
+				<div class="bannerInner" id="CountDown"></div>
+				<div id="wimpyTarget"></div>
+				<%# (mp3_player "/files/azan.mp3").html_safe %>
+				<img src="/wimpy/b_play.png" onClick="wimpyButtonPlayPause(GetAdanSound())">
+				<p align="right"><a href="javascript:showhide('AdanSetting')" class="statLink">Turn off azan </a>
+					<div id="AdanSetting">
+						<form name="adhanForm">
+							<input name="autoplay" type="checkbox" id="autoplay" checked>     
+							<strong>Auto Play ?</strong></p>
+						</form>    
+					</div>
+				</div>
+			</div>
+
+			<div id="table-row">
+
+				<div id="table-left">
+					<div class="sideTitle" align="center" style="width:100%; background-color:#660000;color:white;border:solid 2px #FBB829;">Salaat Timings for <script type="text/javascript">document.write(getCookie('gaddress'));</script></div>
+					<%= table(
+					['Salaat','Start', 'End'],
+					['<div id="prn1"></div>','','<div id="pr1c2"></div>'],
+					['<div id="prn2"></div>','<div id="pr2c1"></div>','<div id="pr2c2"></div>'],
+					['<div id="prn3"></div>','<div id="pr3c1"></div>','<div id="pr3c2"></div>'],
+					['<div id="prn4"></div>','<div id="pr4c1"></div>','<div id="pr4c2"></div>'],
+					['<div id="prn5"></div>','<div id="pr5c1"></div>',''],
+					['<div id="prn6"></div>','<div id="pr6c1"></div>','<div id="pr6c2"></div>'],
+					['<div id="prn7"></div>','<div id="pr7c1"></div>','<div id="pr7c2"></div>'],
+					['<div id="prn8"></div>','<div id="pr8c1"></div>','<div id="pr8c2"></div>'],
+					{:table=>"class='datagrid' id='small-chart'"}).html_safe %>
+					<p align="right">View <%= link_to I18n.t("Monthly Salaat Timings"), monthly_path %></p>
+				</div>
+
+				<div id="table-middle">
+					<% if !@trackings.blank? %>
+					<div id="events-today">
+					<div class="sideTitle" align="center" style="width:100%; background-color:#660000;color:white;border:solid 2px #FBB829;"><%= link_to "Your Trackings", trackings_path, :remote => true %></div>
+					<table>
+						<% @trackings.each_with_index do |tracking, i|%>
+						<tr>
+							<td><%= "#{i + 1}. " %><%= tracking.trackable_type %></td>
+							<td><%= link_to tracking.trackable.name, edit_tracking_path(tracking) %></td>
+						<tr>
+						<% end %>
+					</table>
+					</div>
+					<!-- <a href="javascript:showhide('qibla-direction')" class="statLink">Show Qibla Direction</a> -->
+						<% else %>
+						
+						<div class="sideTitle" align="center" style="width:100%; background-color:#660000;color:white;border:solid 2px #FBB829;">Qibla Direction</div>
+						<div class="entry">
+							<div id="qsearch">
+								<form id="searchform" onsubmit="locateAddress(); return false">
+									<input type="text" size="35" id="roundRect" class="address-bar" name="address" value="" onfocus="focusAddressBar();" onblur="leaveAddressBar();"/>
+									<input type="button" id="button" value="Locate" onclick="locateAddress();">
+									<input type="button" value="Save" onclick="setAddress(document.getElementById('roundRect').value);" />
+								</form>
+							</div>
+							<div id="map"><img src="/images/ql_spinner.gif" style="padding: 4px 5px 0px 5px;">Loading Maps... </div>
+							<div id="infoBar">
+								<div id="data">Latitude <br><span id="curLat">&nbsp; </span><br></div>
+								<div id="data">Longitude <br><span id="curLng">&nbsp; </span><br></div>
+								<div id="data">Direction <br><span id="direction">&nbsp; </span><br></div>
+								<div id="data">Distance <br><span id="distance">&nbsp; </span><br></div>
+								<div id="data"> <br><span id=""><input type="checkbox" id ="units" OnClick="mapDraw()" /> Miles</input></span></div><br><br>
+							</div>
+						</div>
+					<% end %>
+				</div>
+
+				<div id="table-right">
+					<div class="sideTitle" align="center" style="width:100%; background-color:#660000;color:white;border:solid 2px #FBB829;">Upcoming Events</div>
+					<div class="datagrid" id="small-chart"><div id="events-next"><%= render :partial => 'events/event_list', :locals => {:events => @events_next} %></div></div>
+				</div>
+
+			</div>
+
+			<div id="table-row">
+
+				<div id="table-left">
+					<div class="sideTitle" align="center" style="width:100%; background-color:#660000;color:white;border:solid 2px #FBB829;">Qibla Direction</div>
+					<div id="compass">        
+						<script language="javascript" src="javascripts/pt_wz_jsgraphics.js"></script>
+						<script language="javascript" src="javascripts/pt_GheblehCompass.js"></script>
+					</div>
+				</div>
+
+				<div id="table-middle">
+					<%# if current_user and !current_user.upcoming_trackings.blank? %>
+					<div class="sideTitle" align="center" style="width:100%; background-color:#660000;color:white;border:solid 2px #FBB829;"><%= link_to "Holy Quran", random_ayat_qurans_path, :remote => true %></div>
+					<div id="refreshbutton"><%= link_to "Holy Quran", random_ayat_qurans_path, :remote => true %></div>
+					<div id="random_ayat">
+						<%= render :partial => 'qurans/random_ayat', :locals => {:ayat => @ayat} %>
+					</div>
+					<%# end %>
+				</div>
+
+				<div id="table-right">
+					<div class="sideTitle" align="center" style="width:100%; background-color:#660000;color:white;border:solid 2px #FBB829;">Calculation Settings</div>
+					<div id="settings">        
+						Prayer times in: 
+						<b> <strong><font color="#00803A"> <script type="text/javascript">document.write(getCookie('gaddress'));</script></b> </font> </strong><br>
+						Time zone is: <b><font color="#00803A"><script type="text/javascript">document.write(' GMT '+getCookie('offset'));</script> </b></font><br>    
+						<input type="button" value="Reset Address" onclick="resetAddress();location.reload(true);" />
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+//hides the autoplay option onload
+showhide('AdanSetting');
+state = '';
+
+//initializes the qibla map
+<% if @trackings.blank? %>
+window.onload=init();
+<% end %>
+window.onunload=GUnload();
+
+//gets prayer times for table and sets up countdown
+GetPrayerTime();
+</script>
+
+<% content_for :sidebar do %>
+  <div class="section">
+    Coming soon:<br>
+		- Washeq, Dai, Imam, Dua, Ziyarat, and Tasbih data<br>
+		- Calendar for events<br>
+		- Better CSS for all forms<br>
+		- Follow users to select their stuff in your trackers<br>
+		- Updated profiles<br>
+		- Updated show pages for each thing<br>
+		- Separate lists for all your created things<br>
+		- Separate trackings pages for each type of your trackings<br>
+		- Updated Privacy and Terms of Service pages<br>
+		- Generate name if name not provided<br>
+		- Better redirects<br>
+    <p><b><%= Tracking.count %></b> things are being tracked. Start tracking!</p>
+
+  </div>
+<% end %>

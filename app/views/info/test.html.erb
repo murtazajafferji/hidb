@@ -1,0 +1,56 @@
+<% title "Test Page" %>
+
+<div id="table-container">
+	<!-- hijri and gregorian date -->
+	<div class="calTitle">
+		<script>var tdy=new Date(); document.write(formatIslamicPersianDate(tdy));</script>  ,   <script type="text/javascript">document.write(dateFormat(curdate, "dddd, dS mmmm, yyyy"));</script>
+		<div>
+			<div id="table-row">
+
+				<div id="table-left">
+					<h4>Left Col</h4>
+					<div class="sideTitle" align="center" style="width:100%; background-color:#660000;color:white; ">Calculation Settings</div>
+					<div id="settings">        
+						Prayer times in: 
+						<b> <strong><font color="#00803A"> <script type="text/javascript">document.write(getCookie('gaddress'));</script></b> </font> </strong><br>
+						Time zone is: <b><font color="#00803A"><script type="text/javascript">document.write(' GMT '+getCookie('offset'));</script> </b></font><br>    
+						<input type="button" value="Reset Address" onclick="resetAddress();location.reload(true);" />
+					</div>
+
+				</div>
+
+				<div id="table-middle">
+					<h4>Middle Col</h4>
+
+				</div>
+
+				<div id="table-right">
+					<h4>Right Col</h4>
+					<p>...</p>
+				</div>
+
+			</div>
+			
+			<div id="table-row">
+
+				<div id="table-left">
+					<h4>Left Col</h4>
+					<div class="sideTitle" align="center" style="width:100%; background-color:#660000;color:white; ">Qibla Direction</div>
+					<div id="compass">        
+						<script language="javascript" src="javascripts/pt_wz_jsgraphics.js"></script>
+						<script language="javascript" src="javascripts/pt_GheblehCompass.js"></script>
+					</div>
+				</div>
+
+				<div id="table-middle">
+					<h4>Middle Col</h4>
+					<p>...</p>
+				</div>
+
+				<div id="table-right">
+					<h4>Right Col</h4>
+					<p>...</p>
+				</div>
+
+			</div>
+		</div>

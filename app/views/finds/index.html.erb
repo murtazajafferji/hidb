@@ -1,0 +1,12 @@
+<% title "Search Results for \"#{$query}\"" %>
+
+<div class="search-result">
+	<p><%= "Search Results for \"#{$query}\"" %><p>
+	<% if !@results.blank? %>
+		<% @results.each_with_index do |result, i| %>
+		  <%= "#{i + 1}. " %><%= link_to result.name, result %><br>
+		<% end %>
+	<% else %>
+		<center><%= "Sorry. We did not find any results for \"#{$query}\"." %></center>
+	<% end %>
+</div>
