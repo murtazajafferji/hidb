@@ -1,2 +1,2 @@
 
-$.jGrowl('You must be logged in to access this page');
+$.jGrowl('You must be logged out to access this page');
