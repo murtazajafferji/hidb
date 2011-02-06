@@ -5,12 +5,12 @@
 <!-- authentication_type should be "user" or "session", based on controller -->
 <%= oauth_login_hidden_input %>
 <fieldset>
-  <legend>Login with your Brandeis email address</legend>
+  <p>Click on the logo to login with your Brandeis email address</p>
   <div class='oauth_providers'>
     <ul>
       <% %w(google).each do |name| %>
       <li class='oauth_provider'>
-        <%= image_tag "/images/icons/#{name}.png" %>
+        <%= image_tag "/images/icons/brandeis.png" %>
         <%= radio_button_tag :oauth_provider, name %>
       </li>
       <% end %>
@@ -18,5 +18,5 @@
     </ul>
   </div>
 </fieldset>
-<%= submit_tag "Login", :class => :submit %>
+<% submit_tag "Login", :class => :submit %>
 <% end %>

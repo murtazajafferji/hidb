@@ -1,6 +1,9 @@
 class AccessToken < ActiveRecord::Base
   belongs_to :user
   
+  validates_format_of  :key,  :with => /\A[\w\.%\+\-]+@brandeis.edu\z/i,  :message => "You must register with a Brandeis email address", :allow_nil => true
+  
+  
   def client
     self.class.client
   end

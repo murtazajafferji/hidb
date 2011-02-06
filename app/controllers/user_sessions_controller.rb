@@ -12,9 +12,8 @@ class UserSessionsController < ApplicationController
     # because oauth and openid use redirects
     @user_session.save do |result|
       if result
-        flash[:notice] = "Login successful!"
-        # redirect_to current_user ? profile_url(current_user) : login_url
-        redirect_to trackers_path
+        flash[:notice] = "You must login with a Brandeis email address."
+        redirect_to current_user ? profile_url(current_user) : login_url
       else
         if @user_session.errors.on(:user)
           # if we set error on the base object, likely it's because we didn't find a user

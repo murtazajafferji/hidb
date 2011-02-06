@@ -62,7 +62,7 @@ a:active {
 
 #logo {
 	width:154px;
-	height:50px;
+	height:80px;
 	margin:auto;
 	margin-bottom:20px;
 	text-align:center;
@@ -297,4 +297,7 @@ a:active.nice {
   position:absolute;
   top:0;
   right:0;
+}
+.content p{
+	text-align: center;
 }

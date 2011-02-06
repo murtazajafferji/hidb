@@ -28,8 +28,7 @@ class UsersController < ApplicationController
     @user.save do |result|
       if result
         flash[:notice] = "Account registered!"
-        # redirect_back_or_default profile_url(@user)
-        redirect_to trackers_path
+        redirect_back_or_default profile_url(@user)
       else
         flash[:notice] = "Registration failed. Try again."
         redirect_to register_url
