@@ -1,0 +1,7 @@
+<% title "Internship List" %>
+
+<h2>Internship List</h2>
+
+<p><%= link_to "Create a new internship!", new_internship_path %></p>
+
+<%= render :partial => 'internships/internship_list', :locals => {:internships => @internships} %>

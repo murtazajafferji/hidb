@@ -3,7 +3,7 @@
 /* with :focus and :hover for fieldset, input and textarea - special effects are not visible with ie, sorry */
 /* sabine brings - www.brings-online.com - a form with style - www.cssplay.co.uk */
 
-form#styled-form {background:#36802D; width:500px; padding:10px; border:1px solid #eee; font-size:1em; font-family:verdana, arial, helvetica, sans-serif;}
+form#styled-form {background:#7D7CB8; width:500px; padding:10px; border:2px solid #eee; font-size:1em; font-family:verdana, arial, helvetica, sans-serif;}
 form#styled-form p {font-size:.9em; color:#fff; text-align:left; padding:15px 5px 5px 0; margin:0;}
 form#styled-form fieldset#current p {padding:4px; margin:0;}
 
@@ -16,7 +16,7 @@ form#styled-form legend {font-size:1.1em; font-weight:bold; border-bottom:2px so
 
 /*form#styled-form label {clear:left; display:block; float:left; width:100px; text-align:left; padding-right:10px; color:#fff; margin-bottom:0.5em;}
 */
-form#styled-form label { text-align:left; }
+form#styled-form label { text-align:left; color: #EEE5F6;}
 
 form#styled-form input {border:1px solid #414d59; padding-left:0.5em; margin-bottom:0.6em;  background:#c5d3e0;}
 form#styled-form input:hover { border:1px solid #fff; color:#fff;}

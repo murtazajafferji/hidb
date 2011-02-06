@@ -1,0 +1,153 @@
+<% title "#{@internship.company_name}" if @internship.company_name %>
+
+<p id="notice"><%= notice %></p>
+
+<table class="datagrid">
+	
+	<tr>
+    <th>Student</th>
+		<td><%= link_to "#{@internship.user.first_name} #{@internship.user.last_name}", @internship.user if @internship.user %></td>
+  </tr>
+
+  <tr>
+    <th>How</th>
+		<td><%= @internship.how if @internship.how %></td>
+  </tr>
+
+  <tr>
+    <th>Semester</th>
+		<td><%= @internship.semester if @internship.semester %></td>
+  </tr>
+
+  <tr>
+    <th>Credit</th>
+		<td><%= "Yes" if @internship.credit %></td>
+  </tr>
+
+  <tr>
+    <th>Course</th>
+		<td><%= @internship.course if @internship.course %></td>
+  </tr>
+
+  <tr>
+    <th>Compensation</th>
+		<td><%= @internship.compensation if @internship.compensation %></td>
+  </tr>
+
+  <tr>
+    <th>Hours</th>
+		<td><%= @internship.hours if @internship.hours %></td>
+  </tr>
+
+  <tr>
+    <th>Industry</th>
+		<td><%= @internship.industry if @internship.industry %></td>
+  </tr>
+
+  <tr>
+    <th>Company Name</th>
+		<td><%= @internship.company_name if @internship.company_name %></td>
+  </tr>
+
+  <tr>
+    <th>Company Department</th>
+		<td><%= @internship.company_department if @internship.company_department %></td>
+  </tr>
+
+  <tr>
+    <th>City</th>
+		<td><%= @internship.city if @internship.city %></td>
+  </tr>
+
+  <tr>
+    <th>State</th>
+		<td><%= @internship.state if @internship.state %></td>
+  </tr>
+
+  <tr>
+    <th>Country</th>
+		<td><%= @internship.country if @internship.country %></td>
+  </tr>
+
+  <tr>
+    <th>Website</th>
+		<td><%= @internship.website if @internship.website %></td>
+  </tr>
+
+  <tr>
+    <th>Public Transport</th>
+		<td><%= "Yes" if @internship.website %></td>
+  </tr>
+
+  <tr>
+    <th>Supervision</th>
+		<td><%= @internship.supervision if @internship.supervision %></td>
+  </tr>
+
+  <tr>
+    <th>Supervisor Name</th>
+		<td><%= @internship.supervisor_name if @internship.supervisor_name %></td>
+  </tr>
+
+  <tr>
+    <th>Supervisor Phone</th>
+		<td><%= @internship.supervisor_phone if @internship.supervisor_phone %></td>
+  </tr>
+
+  <tr>
+    <th>Supervisor Email</th>
+		<td><%= @internship.supervisor_email if @internship.supervisor_email %></td>
+  </tr>
+
+  <tr>
+    <th>Responsibilities</th>
+		<td><%= @internship.responsibilities if @internship.responsibilities %></td>
+  </tr>
+
+  <tr>
+    <th>Satisfaction 1</th>
+		<td><%= @internship.satisfaction_1 if @internship.satisfaction_1 %></td>
+  </tr>
+
+  <tr>
+    <th>Satisfaction 2</th>
+		<td><%= @internship.satisfaction_2 if @internship.satisfaction_3 %></td>
+  </tr>
+
+  <tr>
+    <th>Satisfaction 3</th>
+		<td><%= @internship.satisfaction_2 if @internship.satisfaction_3 %></td>
+  </tr>
+
+  <tr>
+    <th>Outcome 1</th>
+		<td><%= @internship.outcome_1 if @internship.outcome_1 %></td>
+  </tr>
+
+  <tr>
+    <th>Outcome 2</th>
+		<td><%= @internship.outcome_2 if @internship.outcome_2 %></td>
+  </tr>
+
+  <tr>
+    <th>Outcome 3</th>
+		<td><%= @internship.outcome_3 if @internship.outcome_3 %></td>
+  </tr>
+
+  <tr>
+    <th>Offer</th>
+		<td><%= "Yes" if @internship.offer %></td>
+  </tr>
+
+  <tr>
+    <th>Recommendations</th>
+		<td><%= @internship.recommendations if @internship.recommendations %></td>
+  </tr>
+
+</table>
+
+<% if current_user and current_user.id = @internship.user_id %>
+	<%= link_to 'Edit', edit_internship_path(@internship) %>
+	<%= link_to 'Delete', @internship, :confirm => 'Are you sure?', :method => :delete %>
+<% end %>
+<%= link_to 'Back', internships_path %>

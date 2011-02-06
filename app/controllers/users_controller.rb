@@ -28,7 +28,8 @@ class UsersController < ApplicationController
     @user.save do |result|
       if result
         flash[:notice] = "Account registered!"
-        redirect_back_or_default profile_url(@user)
+        #redirect_back_or_default profile_url(@user)
+        redirect_to edit_user_path(@user)
       else
         flash[:notice] = "Registration failed. Try again."
         redirect_to register_url
@@ -38,6 +39,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = @current_user
+    @profile = @user.profile
   end
   
   def update
@@ -46,7 +48,8 @@ class UsersController < ApplicationController
     @user.update_attributes(params[:user]) do |result|
       if result
         flash[:notice] = "Account updated!"
-        redirect_to profile_url(@user)
+        #redirect_to profile_url(@user)
+        redirect_to new_internship_path
       else
         raise @user.errors.inspect
         render :action => :edit
@@ -59,12 +62,12 @@ class UsersController < ApplicationController
     if @user.nil?
       @user = User.find(params[:id])
     end
-    if current_user and @user.user_id == current_user.id
+    if current_user and @user.id == current_user.id
       @user.destroy
     end
 
     respond_to do |wants|
-      wants.html { redirect_to(users_path) }
+      wants.html { redirect_to(root_path) }
       wants.xml  { head :ok }
     end
   end

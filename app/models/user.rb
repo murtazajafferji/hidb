@@ -7,20 +7,126 @@ class User < ActiveRecord::Base
   end
     
   include Profile
+  
+  has_many :internships
 
   #before_create :make_slug
   
   after_create :signup_notification
-  before_update :email_changed_notification
+  # before_update :email_changed_notification
   
   before_create :make_activation_code
 
   # HACK HACK HACK -- how to do attr_accessible from here?
   # prevents a user from submitting a crafted form that bypasses activation
   # anything else you want your user to change should be added here.
-  attr_accessible :login, :email, :name, :password, :password_confirmation, :url, :preference 
+  attr_accessible :login, :email, :name, :password, :password_confirmation, :url, :preference, :first_name, :last_name, :major, :minor, :yog
   
   preference :comment_notification, :default => true
+  
+  MAJOR = 
+    ["Undeclared",
+  "African and Afro-American Studies",
+  "American Studies",
+  "Anthropology",
+  "Art History",
+  "Biochemistry",
+  "Biological Physics",
+  "Biology",
+  "Business",
+  "Chemistry",
+  "Classical Studies",
+  "Comparative Literature",
+  "Computer Science",
+  "Creative Writing",
+  "East Asian Studies",
+  "Economics",
+  "Education Studies",
+  "English and American Literature",
+  "Environmental Studies",
+  "European Cultural Studies",
+  "Film, Television, and Interactive Media",
+  "Fine Arts",
+  "French and Francophone Studies",
+  "German Language and Literature",
+  "Health: Science, Society, and Policy",
+  "Hebrew Language and Literature",
+  "Hispanic Studies",
+  "History",
+  "Independent Interdisciplinary",
+  "International and Global Studies",
+  "Islamic and Middle Eastern Studies",
+  "Italian Studies",
+  "Language and Linguistics",
+  "Latin American and Latino Studies",
+  "Music",
+  "Neuroscience",
+  "Philosophy",
+  "Physics",
+  "Psychology",
+  "Russian  Studies",
+  "Sociology",
+  "Studio Art",
+  "Theater Arts",
+  "Women's &and Gender Studies"]
+  
+  MINOR = 
+    ["Undeclared",
+  "African and Afro-American Studies",
+  "Art History",
+  "Business",
+  "Computer Science",
+  "Creative Writing",
+  "East Asian Studies",
+  "Economics",
+  "Education Studies",
+  "English and American Literature",
+  "Environmental Studies",
+  "Film, Television, and Interactive Media",
+  "Fine Arts",
+  "French and Francophone Studies",
+  "German Language and Literature",
+  "Hebrew Language and Literature",
+  "Hispanic Studies",
+  "History",
+  "History of Ideas",
+  "International and Global Studies",
+  "Internet Studies",
+  "Islamic and Middle Eastern Studies",
+  "Italian Studies",
+  "Journalism",
+  "Language and Linguistics",
+  "Latin American and Latino Studies",
+  "Legal Studies",
+  "Mathematics",
+  "Medieval and Renaissance Studies",
+  "Music",
+  "Near Eastern and Judaic Studies",
+  "Peace, Conflict and Coexistence",
+  "Philosophy",
+  "Physics",
+  "Politics",
+  "Religious Studies",
+  "Russian  Studies",
+  "Social Justice and Social Policy",
+  "South Asian Studies",
+  "Teacher Education",
+  "Theater Arts",
+  "Women's and Gender Studies",
+  "Yiddish and East European Jewish Culture"]
+  
+  YOG = [
+    "2010",
+    "2011",
+    "2012",
+    "2013",
+    "2014",
+    "2015",
+    "2016",
+    "2017",
+    "2018",
+    "2019",
+    "2020"]
 
   def login=(value)
     write_attribute :login, (value ? value.downcase : nil)

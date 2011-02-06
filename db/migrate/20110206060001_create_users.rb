@@ -21,8 +21,15 @@ class CreateUsers < ActiveRecord::Migration
       # authlogic-connect
       t.integer :active_token_id
       
-      t.string    :name,                :null => true,  :limit => 100
       t.string    :url
+      t.string    :name
+      
+      t.string    :first_name
+      t.string    :last_name
+      t.string    :email
+      t.string    :major
+      t.string    :minor
+      t.integer   :yog
       
       t.timestamps
     end

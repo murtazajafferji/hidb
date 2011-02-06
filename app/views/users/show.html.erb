@@ -1,0 +1,63 @@
+<% title (@user.first_name and @user.last_name) ? "#{@user.first_name} #{@user.last_name}'s profile" : "#{@profile[:name]}'s profile" %>
+
+<% if current_user.id == @user.id %>
+	<%= "<h2>Hi #{@profile[:name]}!</h2>".html_safe  %>
+	<% if @user.first_name.nil? or @user.last_name.nil? or @user.email.nil? or @user.major.nil? or @user.yog.nil? %>
+	<p>Please fill out some information about yourself before proceeding</p>
+	<%= render 'form' %>
+	<% end %>
+	
+<% else %>
+	<% if (@user.first_name and @user.last_name) %>
+		<%= "<h2>#{@user.first_name} #{@user.last_name}'s profile</h2>".html_safe %>
+	<% else %>
+		<%= "<h2>#{@profile[:name]}'s profile</h2>".html_safe %>
+	<% end %>
+<% end %><p>
+<%= link_to "View internships!", internships_path %>
+<%= link_to "Create a new internship!", new_internship_path %></p>
+<table class="datagrid">
+	
+	<tr>
+    <th>First Name</th>
+		<td><%= @user.first_name if @user.first_name %></td>
+  </tr>
+
+	<tr>
+    <th>Last Name</th>
+		<td><%= @user.last_name if @user.last_name %></td>
+  </tr>
+
+	<tr>
+    <th>Email</th>
+		<td><%= @user.email if @user.email %></td>
+  </tr>
+
+	<tr>
+    <th>Major</th>
+		<td><%= @user.major if @user.major %></td>
+  </tr>
+
+	<tr>
+    <th>Minor</th>
+		<td><%= @user.minor if @user.minor %></td>
+  </tr>
+
+	<tr>
+    <th>Graduation</th>
+		<td><%= @user.yog if @user.yog %></td>
+  </tr>
+
+	<tr>
+    <th>Internships</th>
+			<td><% @user.internships.each_with_index do |internship, i| %>
+				<%= link_to "#{i + 1}. #{internship.company_name}", internship %><br>
+			<% end %></td>
+  </tr>
+
+</table>
+
+<% if current_user and current_user.id = @user.id %>
+	<%= link_to 'Edit', edit_user_path(@user) %>
+	<%= link_to 'Delete', @user, :confirm => 'Are you sure?', :method => :delete %>
+<% end %>

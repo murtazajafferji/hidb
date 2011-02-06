@@ -12,32 +12,7 @@ class FindsController < ApplicationController
   	
   	if params[:word]
   	  $query = params[:word].lstrip.rstrip
-  	  @results = Event.find(:all, :conditions => ['LOWER(name) LIKE ? and user_id = ?', "%#{$query.downcase}%", User.find_by_login("amaltracker")])
-  	  @results += Event.find(:all, :conditions => ['LOWER(name) LIKE ? and user_id = ?', "%#{$query.downcase}%", current_user]) if current_user
-  	  @results += Person.find(:all, :conditions => ['LOWER(name) LIKE ? and user_id = ?', "%#{$query.downcase}%", User.find_by_login("amaltracker")])
-  	  @results += Person.find(:all, :conditions => ['LOWER(name) LIKE ? and user_id = ?', "%#{$query.downcase}%", current_user]) if current_user
-  	  @results += Namaz.find(:all, :conditions => ['LOWER(name) LIKE ? and user_id = ?', "%#{$query.downcase}%", User.find_by_login("amaltracker")])
-  	  @results += Namaz.find(:all, :conditions => ['LOWER(name) LIKE ? and user_id = ?', "%#{$query.downcase}%", current_user]) if current_user
-  	  @results += Tasbih.find(:all, :conditions => ['LOWER(name) LIKE ? and user_id = ?', "%#{$query.downcase}%", User.find_by_login("amaltracker")])
-  	  @results += Tasbih.find(:all, :conditions => ['LOWER(name) LIKE ? and user_id = ?', "%#{$query.downcase}%", current_user]) if current_user
-  	  @results += Exercise.find(:all, :conditions => ['LOWER(name) LIKE ? and user_id = ?', "%#{$query.downcase}%", User.find_by_login("amaltracker")])
-  	  @results += Exercise.find(:all, :conditions => ['LOWER(name) LIKE ? and user_id = ?', "%#{$query.downcase}%", current_user]) if current_user
-  	  @results += Task.find(:all, :conditions => ['LOWER(name) LIKE ? and user_id = ?', "%#{$query.downcase}%", User.find_by_login("amaltracker")])
-  	  @results += Task.find(:all, :conditions => ['LOWER(name) LIKE ? and user_id = ?', "%#{$query.downcase}%", current_user]) if current_user
-  	  @results += Homework.find(:all, :conditions => ['LOWER(name) LIKE ? and user_id = ?', "%#{$query.downcase}%", User.find_by_login("amaltracker")])
-  	  @results += Homework.find(:all, :conditions => ['LOWER(name) LIKE ? and user_id = ?', "%#{$query.downcase}%", current_user]) if current_user
-  	  @results += Quran.find(:all, :conditions => ['LOWER(name) LIKE ? and user_id = ?', "%#{$query.downcase}%", User.find_by_login("amaltracker")])
-  	  @results += Quran.find(:all, :conditions => ['LOWER(name) LIKE ? and user_id = ?', "%#{$query.downcase}%", current_user]) if current_user
-  	  @results += Dua.find(:all, :conditions => ['LOWER(name) LIKE ? and user_id = ?', "%#{$query.downcase}%", User.find_by_login("amaltracker")])
-  	  @results += Dua.find(:all, :conditions => ['LOWER(name) LIKE ? and user_id = ?', "%#{$query.downcase}%", current_user]) if current_user
-  	  @results += Roza.find(:all, :conditions => ['LOWER(name) LIKE ? and user_id = ?', "%#{$query.downcase}%", User.find_by_login("amaltracker")])
-  	  @results += Roza.find(:all, :conditions => ['LOWER(name) LIKE ? and user_id = ?', "%#{$query.downcase}%", current_user]) if current_user
-  	  @results += Ziyarat.find(:all, :conditions => ['LOWER(name) LIKE ? and user_id = ?', "%#{$query.downcase}%", User.find_by_login("amaltracker")])
-  	  @results += Ziyarat.find(:all, :conditions => ['LOWER(name) LIKE ? and user_id = ?', "%#{$query.downcase}%", current_user]) if current_user
-  	  @results += Hifz.find(:all, :conditions => ['LOWER(name) LIKE ? and user_id = ?', "%#{$query.downcase}%", User.find_by_login("amaltracker")])
-  	  @results += Hifz.find(:all, :conditions => ['LOWER(name) LIKE ? and user_id = ?', "%#{$query.downcase}%", current_user]) if current_user
-  	  @results += Expense.find(:all, :conditions => ['LOWER(name) LIKE ? and user_id = ?', "%#{$query.downcase}%", User.find_by_login("amaltracker")])
-    	@results += Expense.find(:all, :conditions => ['LOWER(name) LIKE ? and user_id = ?', "%#{$query.downcase}%", current_user]) if current_user
+  	  @results = Internship.find(:all, :conditions => ['LOWER(name) LIKE ?', "%#{$query.downcase}%"])
   	        
   	  @result = @results.size == 1? @results.first : nil
     end
@@ -93,32 +68,7 @@ class FindsController < ApplicationController
   
   def autocomplete
     if params[:term]
-      @autocomplete = Event.find(:all, :conditions => ['LOWER(name) LIKE ? and user_id = ?', "%#{params[:term].downcase}%", User.find_by_login("amaltracker")], :select => :name, :limit => 5).collect{|x| x.name}
-      @autocomplete += Event.find(:all, :conditions => ['LOWER(name) LIKE ? and user_id = ?', "%#{params[:term].downcase}%", current_user], :select => :name, :limit => 5).collect{|x| x.name} if current_user
-    	@autocomplete += Person.find(:all, :conditions => ['LOWER(name) LIKE ? and user_id = ?', "%#{params[:term].downcase}%", User.find_by_login("amaltracker")], :select => :name, :limit => 5).collect{|x| x.name}
-    	@autocomplete += Person.find(:all, :conditions => ['LOWER(name) LIKE ? and user_id = ?', "%#{params[:term].downcase}%", current_user], :select => :name, :limit => 5).collect{|x| x.name} if current_user
-    	@autocomplete += Namaz.find(:all, :conditions => ['LOWER(name) LIKE ? and user_id = ?', "%#{params[:term].downcase}%", User.find_by_login("amaltracker")], :select => :name, :limit => 5).collect{|x| x.name.capitalizer}
-    	@autocomplete += Namaz.find(:all, :conditions => ['LOWER(name) LIKE ? and user_id = ?', "%#{params[:term].downcase}%", current_user], :select => :name, :limit => 5).collect{|x| x.name.capitalizer} if current_user
-    	@autocomplete += Tasbih.find(:all, :conditions => ['LOWER(name) LIKE ? and user_id = ?', "%#{params[:term].downcase}%", User.find_by_login("amaltracker")], :select => :name, :limit => 5).collect{|x| x.name}
-    	@autocomplete += Tasbih.find(:all, :conditions => ['LOWER(name) LIKE ? and user_id = ?', "%#{params[:term].downcase}%", current_user], :select => :name, :limit => 5).collect{|x| x.name} if current_user
-    	@autocomplete += Exercise.find(:all, :conditions => ['LOWER(name) LIKE ? and user_id = ?', "%#{params[:term].downcase}%", User.find_by_login("amaltracker")], :select => :name, :limit => 5).collect{|x| x.name}
-    	@autocomplete += Exercise.find(:all, :conditions => ['LOWER(name) LIKE ? and user_id = ?', "%#{params[:term].downcase}%", current_user], :select => :name, :limit => 5).collect{|x| x.name} if current_user
-    	@autocomplete += Task.find(:all, :conditions => ['LOWER(name) LIKE ? and user_id = ?', "%#{params[:term].downcase}%", User.find_by_login("amaltracker")], :select => :name, :limit => 5).collect{|x| x.name}
-    	@autocomplete += Task.find(:all, :conditions => ['LOWER(name) LIKE ? and user_id = ?', "%#{params[:term].downcase}%", current_user], :select => :name, :limit => 5).collect{|x| x.name} if current_user
-    	@autocomplete += Homework.find(:all, :conditions => ['LOWER(name) LIKE ? and user_id = ?', "%#{params[:term].downcase}%", User.find_by_login("amaltracker")], :select => :name, :limit => 5).collect{|x| x.name}
-    	@autocomplete += Homework.find(:all, :conditions => ['LOWER(name) LIKE ? and user_id = ?', "%#{params[:term].downcase}%", current_user], :select => :name, :limit => 5).collect{|x| x.name} if current_user
-    	@autocomplete += Quran.find(:all, :conditions => ['LOWER(name) LIKE ? and user_id = ?', "%#{params[:term].downcase}%", User.find_by_login("amaltracker")], :select => :name, :limit => 5).collect{|x| x.name}
-    	@autocomplete += Quran.find(:all, :conditions => ['LOWER(name) LIKE ? and user_id = ?', "%#{params[:term].downcase}%", current_user], :select => :name, :limit => 5).collect{|x| x.name} if current_user
-    	@autocomplete += Dua.find(:all, :conditions => ['LOWER(name) LIKE ? and user_id = ?', "%#{params[:term].downcase}%", User.find_by_login("amaltracker")], :select => :name, :limit => 5).collect{|x| x.name}
-    	@autocomplete += Dua.find(:all, :conditions => ['LOWER(name) LIKE ? and user_id = ?', "%#{params[:term].downcase}%", current_user], :select => :name, :limit => 5).collect{|x| x.name} if current_user
-    	@autocomplete += Roza.find(:all, :conditions => ['LOWER(name) LIKE ? and user_id = ?', "%#{params[:term].downcase}%", User.find_by_login("amaltracker")], :select => :name, :limit => 5).collect{|x| x.name}
-    	@autocomplete += Roza.find(:all, :conditions => ['LOWER(name) LIKE ? and user_id = ?', "%#{params[:term].downcase}%", current_user], :select => :name, :limit => 5).collect{|x| x.name} if current_user
-    	@autocomplete += Ziyarat.find(:all, :conditions => ['LOWER(name) LIKE ? and user_id = ?', "%#{params[:term].downcase}%", User.find_by_login("amaltracker")], :select => :name, :limit => 5).collect{|x| x.name}
-    	@autocomplete += Ziyarat.find(:all, :conditions => ['LOWER(name) LIKE ? and user_id = ?', "%#{params[:term].downcase}%", current_user], :select => :name, :limit => 5).collect{|x| x.name} if current_user
-    	@autocomplete += Hifz.find(:all, :conditions => ['LOWER(name) LIKE ? and user_id = ?', "%#{params[:term].downcase}%", User.find_by_login("amaltracker")], :select => :name, :limit => 5).collect{|x| x.name}
-    	@autocomplete += Hifz.find(:all, :conditions => ['LOWER(name) LIKE ? and user_id = ?', "%#{params[:term].downcase}%", current_user], :select => :name, :limit => 5).collect{|x| x.name} if current_user
-    	@autocomplete += Expense.find(:all, :conditions => ['LOWER(name) LIKE ? and user_id = ?', "%#{params[:term].downcase}%", User.find_by_login("amaltracker")], :select => :name, :limit => 5).collect{|x| x.name}
-      @autocomplete += Expense.find(:all, :conditions => ['LOWER(name) LIKE ? and user_id = ?', "%#{params[:term].downcase}%", current_user], :select => :name, :limit => 5).collect{|x| x.name} if current_user
+      @autocomplete = Internship.find(:all, :conditions => ['LOWER(name) LIKE ?', "%#{params[:term].downcase}%"], :select => :name, :limit => 5).collect{|x| x.name}
     	
     end
 

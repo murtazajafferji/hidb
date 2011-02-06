@@ -1,0 +1,32 @@
+<%= semantic_form_for @internship, :html => { :id => "styled-form" } do |form| %>
+  <% form.inputs "Required", :id => "required" do %>	
+    <%= form.input :how, :label => "How did you find/identify this opportunity?", :as => :select, :collection => Internship::HOW %>
+		<%= form.input :semester, :hint => "Select all that apply", :as => :check_boxes, :collection => Internship::SEMESTER %>
+		<%= form.input :year, :as => :select, :collection => (((Date.today - 4.years).year)..((Date.today + 1.year).year)).to_a %>
+		<%= form.input :credit, :label => "For credit?", :as => :radio %>
+		<%= form.input :course, :label => "Course Name" %>
+		<%= form.input :compensation, :as => :select, :collection => Internship::COMPENSATION %>
+		<%= form.input :hours, :label => "Hours per week", :as => :select, :collection => Internship::HOURS %>
+		<%= form.input :industry, :as => :select, :collection => Internship::INDUSTRY %>
+		<%= form.input :company_name %>
+		<%= form.input :company_department %>
+		<%= form.input :city %>
+		<%= form.input :state, :as => :select, :collection => Internship::STATE %>
+		<%= form.input :country, :as => :select, :collection => Internship::COUNTRY %>
+		<%= form.input :website, :label => "Organization website" %>
+		<%= form.input :public_transport, :as => :radio %>
+		<%= form.input :supervision, :label => "Details of supervision" %>
+		<%= form.input :responsibilities %>
+		<%= form.input :satisfaction_1, :as => :select, :collection => (1..10).to_a %>
+		<%= form.input :offer, :label => "Offer?", :hint => "Did this internship result in an offer of extended/full-time work?", :as => :radio %>
+		<%= form.input :recommendations, :hint => "Recommendations for students interested in this internship" %>
+  <% end %>
+  <% form.inputs :name => "Optional", :id => "optional" do %>
+	<%= form.input :supervisor_name %>
+	<%= form.input :supervisor_phone %>
+	<%= form.input :supervisor_email %>
+  <% end %>
+  <% form.buttons do %>
+    <%= form.commit_button %>
+  <% end %>
+<% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110206060002) do
+ActiveRecord::Schema.define(:version => 20110206130646) do
 
   create_table "access_tokens", :force => true do |t|
     t.integer  "user_id",                    :null => false
@@ -25,6 +25,42 @@ ActiveRecord::Schema.define(:version => 20110206060002) do
 
   add_index "access_tokens", ["key"], :name => "index_access_tokens_on_key", :unique => true
 
+  create_table "internships", :force => true do |t|
+    t.string   "how"
+    t.string   "semester"
+    t.string   "year"
+    t.boolean  "credit"
+    t.string   "course"
+    t.string   "compensation"
+    t.string   "hours"
+    t.string   "industry"
+    t.string   "company_name"
+    t.string   "company_department"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
+    t.string   "website"
+    t.boolean  "public_transport"
+    t.string   "supervision"
+    t.string   "supervisor_name"
+    t.string   "supervisor_phone"
+    t.string   "supervisor_email"
+    t.text     "responsibilities"
+    t.string   "satisfaction_1"
+    t.string   "satisfaction_2"
+    t.string   "satisfaction_3"
+    t.string   "outcome_1"
+    t.string   "outcome_2"
+    t.string   "outcome_3"
+    t.boolean  "offer"
+    t.text     "recommendations"
+    t.integer  "user_id",            :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "internships", ["user_id"], :name => "index_internships_on_user_id"
+
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
     t.text     "data"
@@ -37,22 +73,27 @@ ActiveRecord::Schema.define(:version => 20110206060002) do
 
   create_table "users", :force => true do |t|
     t.string   "login",               :limit => 40
-    t.string   "email",               :limit => 100
+    t.string   "email"
     t.string   "crypted_password"
     t.string   "password_salt"
-    t.string   "persistence_token",                                 :null => false
-    t.string   "single_access_token",                               :null => false
-    t.string   "perishable_token",                                  :null => false
-    t.integer  "login_count",                        :default => 0, :null => false
-    t.integer  "failed_login_count",                 :default => 0, :null => false
+    t.string   "persistence_token",                                :null => false
+    t.string   "single_access_token",                              :null => false
+    t.string   "perishable_token",                                 :null => false
+    t.integer  "login_count",                       :default => 0, :null => false
+    t.integer  "failed_login_count",                :default => 0, :null => false
     t.datetime "last_request_at"
     t.datetime "current_login_at"
     t.datetime "last_login_at"
     t.string   "current_login_ip"
     t.string   "last_login_ip"
     t.integer  "active_token_id"
-    t.string   "name",                :limit => 100
     t.string   "url"
+    t.string   "name"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "major"
+    t.string   "minor"
+    t.integer  "yog"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

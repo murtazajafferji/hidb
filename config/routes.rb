@@ -1,5 +1,7 @@
 Hidb::Application.routes.draw do
   
+  resources :internships
+
   match 'logout' => 'user_sessions#destroy', :as => :logout
   match 'login' => 'user_sessions#new', :as => :login
   match 'authenticate' => 'user_sessions#create', :as => :authenticate, :via => :post

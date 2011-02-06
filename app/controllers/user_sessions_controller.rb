@@ -14,6 +14,7 @@ class UserSessionsController < ApplicationController
       if result
         flash[:notice] = "You must login with a Brandeis email address."
         redirect_to current_user ? profile_url(current_user) : login_url
+        #redirect_to edit_user_path(current_user)
       else
         if @user_session.errors.on(:user)
           # if we set error on the base object, likely it's because we didn't find a user
