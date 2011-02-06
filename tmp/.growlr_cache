@@ -1,2 +1,2 @@
 
-$.jGrowl('Internship was successfully created.');
+$.jGrowl('You must be logged in to access this page');

@@ -4,8 +4,28 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+tribune:
+  how: "Family Friend"
+  semester: "Fall"
+  year: "2010"
+  credit: true
+  course: "COSI classes"
+  compensation: "Hourly"
+  hours: "40"
+  industry: "Information Technology/Computers"
+  company_name: "Tribune"
+  company_department: "Technology"
+  city: "Chicago"
+  state: "IL"
+  country: "United States"
+  website: "http://chicagotribune.com"
+  public_transport: true
+  supervision: "A lot of freedome"
+  supervisor_name: "Huzaifa Tapal"
+  supervisor_phone: "555-555-5555"
+  supervisor_email: "fake@gmail.com"
+  responsibilities: "Programming"
+  satisfaction_1: 10
+  offer: true
+  recommendations: "DO IT!"
+  user: murtaza

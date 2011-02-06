@@ -16,7 +16,7 @@ class CreateInternships < ActiveRecord::Migration
       t.string :country
       t.string :website
       t.boolean :public_transport
-      t.string :supervision
+      t.text :supervision
       t.string :supervisor_name
       t.string :supervisor_phone
       t.string :supervisor_email
