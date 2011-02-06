@@ -1,3 +1,5 @@
+<% title "Log in" %>
+
 <h2>Login!</h2>
 <%= form_for @user_session, :url => authenticate_path, :html => { :method => :post, :class => "authentication_form" } do |f| %>
 <!-- authentication_type should be "user" or "session", based on controller -->

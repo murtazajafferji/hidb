@@ -1,5 +1,5 @@
 connect:
   google:
-    key: "amaltracker.com"
-    secret: "wHxsrJTzpQ9/z+3B3E4b6gQP"
+    key: "hidb.heroku.com"
+    secret: "DIVrmYpFVSPTMH/UOZGDa7PT"
     label: "Google"
