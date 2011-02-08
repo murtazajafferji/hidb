@@ -29,7 +29,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string    :email
       t.string    :major
       t.string    :minor
-      t.integer   :yog
+      t.string   :yog
       
       t.timestamps
     end
