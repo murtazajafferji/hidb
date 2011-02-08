@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(:version => 20110206130646) do
     t.string   "country"
     t.string   "website"
     t.boolean  "public_transport"
-    t.string   "supervision"
+    t.text     "supervision"
     t.string   "supervisor_name"
     t.string   "supervisor_phone"
     t.string   "supervisor_email"
@@ -93,7 +93,7 @@ ActiveRecord::Schema.define(:version => 20110206130646) do
     t.string   "last_name"
     t.string   "major"
     t.string   "minor"
-    t.integer  "yog"
+    t.string   "yog"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
