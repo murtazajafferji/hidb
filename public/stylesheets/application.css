@@ -62,7 +62,7 @@ a:active {
 }
 
 #logo {
-	width:154px;
+	width:auto;
 	height:80px;
 	margin:auto;
 	margin-bottom:20px;
@@ -325,4 +325,63 @@ a:active.nice {
 .datagrid td{
 	border: #000 solid 1px;
 	padding: 5px;
+}
+
+/* Search */
+.search { 
+height:29px; 
+margin:auto;
+margin-bottom:20px;
+width:260px; 
+}
+
+.search form { 
+	width:260px; 
+	margin:0; 
+}
+
+#word_search { 
+	width:210px; 
+	display:block; 
+	font-size:18px; 
+/*	color:#a9bac4; */
+	padding:8px 38px 8px 10px; 
+	float:left; 
+	border:0; 
+	height:20px;
+  background:#f1f1f1; 
+	border:solid 2px #a9bac4; 
+/*	border:solid 5px #BBBBBB;*/
+}
+
+#word_search:hover { 
+	border:solid 2px #00BFF3;
+	background:#fff;  
+}
+
+#word_search:focus { 
+/*	color:#333; */
+/*	border:solid 1px #1d2a32; */
+	border:solid 2px #66FF00;
+	background:#fff; 
+}
+
+#searchsubmit { 
+	width:20px; 
+	height:20px; 
+	display:block; 
+	position:relative; 
+	float:right; 
+	right:5px; 
+	top:-30px; 
+}
+
+/* User search */
+.search-user { 
+	height:29px; 
+}
+
+.search-user form { 
+	width:150px; 
+	margin:0; 
 }

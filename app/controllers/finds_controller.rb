@@ -1,5 +1,6 @@
 class FindsController < ApplicationController
   require 'lib/string.rb'
+  before_filter :require_user, :only => [:index]
   
   def index
     if params[:user]
@@ -12,7 +13,8 @@ class FindsController < ApplicationController
   	
   	if params[:word]
   	  $query = params[:word].lstrip.rstrip
-  	  @results = Internship.find(:all, :conditions => ['LOWER(name) LIKE ?', "%#{$query.downcase}%"])
+  	  @results = Internship.find(:all, :conditions => ['LOWER(semester) LIKE ? or LOWER(year) LIKE ? or LOWER(course) LIKE ? or LOWER(industry) LIKE ? or LOWER(company_name) LIKE ? or LOWER(company_department) LIKE ? or LOWER(city) LIKE ? or LOWER(state) LIKE ? or LOWER(country) LIKE ?', "%#{$query.downcase}%", "%#{$query.downcase}%", "%#{$query.downcase}%", "%#{$query.downcase}%", "%#{$query.downcase}%", "%#{$query.downcase}%", "%#{$query.downcase}%", "%#{$query.downcase}%", "%#{$query.downcase}%"]).to_a
+  	  @results += User.find(:all, :conditions => ['LOWER(email) LIKE ? or LOWER(first_name) LIKE ? or LOWER(last_name) LIKE ? or LOWER(major) LIKE ? or LOWER(minor) LIKE ? or LOWER(yog) LIKE ?', "%#{$query.downcase}%", "%#{$query.downcase}%", "%#{$query.downcase}%", "%#{$query.downcase}%", "%#{$query.downcase}%", "%#{$query.downcase}%"]).to_a
   	        
   	  @result = @results.size == 1? @results.first : nil
     end
