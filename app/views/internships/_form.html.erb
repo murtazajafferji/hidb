@@ -2,7 +2,7 @@
   <% form.inputs "Required", :id => "required" do %>	
     <%= form.input :how, :label => "How did you find/identify this opportunity?", :as => :select, :collection => Internship::HOW %>
 		<%= form.input :semester, :hint => "Select all that apply", :as => :check_boxes, :collection => Internship::SEMESTER %>
-		<%= form.input :year, :as => :select, :collection => (((Date.today - 4.years).year)..((Date.today + 1.year).year)).to_a %>
+		<%= form.input :year, :as => :select, :collection => Internship::YEAR %>
 		<%= form.input :credit, :label => "For credit?", :as => :radio %>
 		<%= form.input :course, :label => "Course Name" %>
 		<%= form.input :compensation, :as => :select, :collection => Internship::COMPENSATION %>
@@ -17,7 +17,12 @@
 		<%= form.input :public_transport, :as => :radio %>
 		<%= form.input :supervision, :label => "Details of supervision" %>
 		<%= form.input :responsibilities %>
-		<%= form.input :satisfaction_1, :as => :select, :collection => (1..10).to_a %>
+		<%= form.input :satisfaction_1, :label => "Satisfaction Question 1", :as => :radio, :collection => Internship::LIKERT %>
+		<%= form.input :satisfaction_2, :label => "Satisfaction Question 1", :as => :radio, :collection => Internship::LIKERT %>
+		<%= form.input :satisfaction_3,  :label => "Satisfaction Question 1",:as => :radio, :collection => Internship::LIKERT %>
+		<%= form.input :outcome_1, :label => "Outcome Question 1", :as => :radio, :collection => Internship::LIKERT %>
+		<%= form.input :outcome_2, :label => "Outcome Question 1", :as => :radio, :collection => Internship::LIKERT %>
+		<%= form.input :outcome_3, :label => "Outcome Question 1", :as => :radio, :collection => Internship::LIKERT %>
 		<%= form.input :offer, :label => "Offer?", :hint => "Did this internship result in an offer of extended/full-time work?", :as => :radio %>
 		<%= form.input :recommendations, :hint => "Recommendations for students interested in this internship" %>
   <% end %>

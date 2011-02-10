@@ -345,6 +345,10 @@ class Internship < ActiveRecord::Base
                           'WV', 
                           'WI', 
                           'WY']
+  YEAR = (((Date.today - 4.years).year)..((Date.today + 1.year).year)).to_a
+  
+  LIKERT = ["Strongly disagree", "Disagree", "Neither agree nor disagree", "Agree", "Strongly agree"]
+  
 
       
 end
