@@ -75,11 +75,11 @@ user_output.puts "murtaza:"
 # t.text     "recommendations"
 
   50.times do
-  first_name = FIRST_NAME[rand(299)]
-  last_name = LAST_NAME[rand(299)]
-  major = MAJOR[rand(43)]
-  minor = MINOR[rand(42)]
-  yog = YOG[rand(10)]
+  first_name = FIRST_NAME[rand(300)]
+  last_name = LAST_NAME[rand(300)]
+  major = MAJOR[rand(44)]
+  minor = MINOR[rand(43)]
+  yog = YOG[rand(11)]
   
   user_output.puts "#{first_name} #{last_name}:"
   user_output.puts "  email: \"#{first_name.downcase}#{last_name.downcase}@brandeis.edu\""
@@ -95,33 +95,33 @@ user_output.puts "murtaza:"
   i = rand(5) + 1
   i.times do
     
-  how = HOW[rand(13)]
-  semester = SEMESTER[rand(2)]
+  how = HOW[rand(14)]
+  semester = SEMESTER[rand(3)]
   year = YEAR[rand(5)]
-  credit = BOOLEAN[rand(1)]
-  course = COURSE[rand(9)]
-  compensation = COMPENSATION[rand(7)]
-  hours = HOURS[rand(24)]
-  industry = INDUSTRY[rand(37)]
-  company_name = COMPANY_NAME[rand(9)]
-  company_department = COMPANY_DEPARTMENT[rand(9)]
-  city = CITY[rand(9)]
-  state = STATE[rand(50)]
-  country = COUNTRY[rand(192)]
-  website = WEBSITE[rand(9)]
-  public_transport = BOOLEAN[rand(1)]
+  credit = BOOLEAN[rand(2)]
+  course = COURSE[rand(10)]
+  compensation = COMPENSATION[rand(8)]
+  hours = HOURS[rand(25)]
+  industry = INDUSTRY[rand(38)]
+  company_name = COMPANY_NAME[rand(10)]
+  company_department = COMPANY_DEPARTMENT[rand(10)]
+  city = CITY[rand(10)]
+  state = STATE[rand(51)]
+  country = COUNTRY[rand(193)]
+  website = WEBSITE[rand(10)]
+  public_transport = BOOLEAN[rand(2)]
   supervision = SUPERVISION
-  supervisor_name = "#{FIRST_NAME[rand(299)]} #{LAST_NAME[rand(299)]}"
+  supervisor_name = "#{FIRST_NAME[rand(300)]} #{LAST_NAME[rand(300)]}"
   supervisor_phone = "(#{rand.to_s[2..4]}) #{rand.to_s[2..4]}-#{rand.to_s[2..5]}"
   supervisor_email = "#{supervisor_name.gsub(/ /,'').downcase}@gmail.com"
   responsibilities = RESPONSIBILITIES
-  satisfaction_1 = LIKERT[rand(4)]
-  satisfaction_2 = LIKERT[rand(4)]
-  satisfaction_3 = LIKERT[rand(4)]
-  outcome_1 = LIKERT[rand(4)]
-  outcome_2 = LIKERT[rand(4)]
-  outcome_3 = LIKERT[rand(4)]
-  offer = BOOLEAN[rand(1)]
+  satisfaction_1 = LIKERT[rand(5)]
+  satisfaction_2 = LIKERT[rand(5)]
+  satisfaction_3 = LIKERT[rand(5)]
+  outcome_1 = LIKERT[rand(5)]
+  outcome_2 = LIKERT[rand(5)]
+  outcome_3 = LIKERT[rand(5)]
+  offer = BOOLEAN[rand(2)]
   recommendations = RECOMMENDATIONS
   
   internship_output.puts "#{count}:"
