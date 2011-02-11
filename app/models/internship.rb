@@ -363,8 +363,8 @@ class Internship < ActiveRecord::Base
               
       # Otherwise, check if the sorting parameter is the string date
     else
-        raise "invalid :sort parameter for Internship.list"
-      
+      order = "created_at DESC"
+        #raise "invalid :sort parameter for Internship.list"     
     end # params[:sort]
     
     
