@@ -2,8 +2,8 @@ class InternshipsController < ApplicationController
   before_filter :require_user, :only => [:create, :update, :destroy]
   # GET /internships
   # GET /internships.xml
-  def index
-    @internships = Internship.all
+  def index    
+    @internships = Internship.sort params
 
     respond_to do |format|
       format.html # index.html.erb

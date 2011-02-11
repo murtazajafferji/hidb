@@ -348,7 +348,40 @@ class Internship < ActiveRecord::Base
   YEAR = (((Date.today - 4.years).year)..((Date.today + 1.year).year)).to_a
   
   LIKERT = ["Strongly disagree", "Disagree", "Neither agree nor disagree", "Agree", "Strongly agree"]
+  PAGE_LIMIT = 100
   
+  def self.sort params = {}
+    
+    # Initialize empty query parts
+    select = ""
+    order = ""
+    where = ""
+    if params[:sort]
+      sort = params[:sort]
+      
+      order = "#{sort} ASC"
+              
+      # Otherwise, check if the sorting parameter is the string date
+    else
+        raise "invalid :sort parameter for Internship.list"
+      
+    end # params[:sort]
+    
+    
+    # Limit the query to 100 results
+    query_params = {:limit => PAGE_LIMIT}
+    
+    # Set the other query parameters
+    if !select.empty? then query_params[:select] = select end
+    if !order.empty? then query_params[:order] = order end
+    if !where.empty? then query_params[:conditions] = where end
+    if params[:page]
+      query_params[:offset] = (params[:page] - 1) * PAGE_LIMIT
+    end
+    
+    # Execute the query
+    self.all(query_params)
+  end
 
       
 end

@@ -136,6 +136,12 @@ module ApplicationHelper
     number
   end
   
+  def sort_url key, val
+    newparams = params.dup
+    newparams[key] = val
+    url_for(newparams)
+  end
+  
   # creates an html table with tr and td tags by passing in args. 
   # Each row is an array.
   # The first gets th tags unless :th=>false is specified
