@@ -21,7 +21,7 @@
 
   <tr>
     <th>Credit</th>
-		<td><%= "Yes" if @internship.credit %></td>
+		<td><%= @internship.credit ? "Yes" : "No" if !@internship.credit.nil? %></td>
   </tr>
 
   <tr>
@@ -76,7 +76,7 @@
 
   <tr>
     <th>Public Transport</th>
-		<td><%= "Yes" if @internship.website %></td>
+		<td><%= @internship.website ? "Yes" : "No" if !@internship.website.nil? %></td>
   </tr>
 
   <tr>
@@ -136,7 +136,7 @@
 
   <tr>
     <th>Offer</th>
-		<td><%= "Yes" if @internship.offer %></td>
+		<td><%= @internship.offer ? "Yes" : "No" if !@internship.offer.nil? %></td>
   </tr>
 
   <tr>

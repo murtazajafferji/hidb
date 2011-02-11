@@ -22,8 +22,9 @@ PERISHABLE_TOKEN = "NyuQw4yZYZOVsN5DzqVO"
 COURSE =["COSI12B", "COSI31A", "MATH140A", "HSSP96A", "UWS32A", "COSI21B", "ENG44A", "HIST78A", "BUS6A", "BUS10A"]
 COMPANY_NAME = ["Google", "Microsoft", "Bristol-Myers Squibb", "Apple", "BP", "Brandeis University", "Addidas", "Boston Children's Hospital", "RBS", "PWC"]
 COMPANY_DEPARTMENT = ["Human Resources", "Technology", "Marketing", "Information Technology", "Accounting", "Logistics", "Administration", "Communication", "Finance", "Consumer Affairs"]
-CITY = ["New York City", "Boston", "Chicago", "Dallas", "Stamford", "Seattle", "San Francisco", "Los Angeles", "Houston", "Philadelphia"]
-WEBSITE = ["www.brandeis.edu", "www.google.com", "www.pwc.org", "www.microsoft.com", "www.addidas.com", "www.bp.com", "www.bms.com", "www.rbs.com", "www.apple", "www.childrenshospital.org"]
+CITY = ["New York City", "Boston", "Chicago", "Dallas", "Irving", "Seattle", "San Francisco", "Los Angeles", "Houston", "Philadelphia"]
+CITY_HASH = {"New York City" => 'NY', "Boston" => 'MA', "Chicago" => 'IL', "Dallas" => 'TX', "Irving" => 'TX', "Seattle" => 'WA', "San Francisco" => 'CA', "Los Angeles" => 'CA', "Houston" => 'TX', "Philadelphia" => 'PA'}
+WEBSITE = ["www.google.com", "www.microsoft.com", "www.bms.com", "www.apple.com", "www.bp.com", "www.brandeis.edu", "www.addidas.com", "www.childrenshospital.org", "www.rbs.com", "www.pwc.org"]
 SUPERVISION = "The supervision of the company was very relaxed. The supervisor was always there to help and was always interested in my work. Most of the time I would work directly with the supervisor, but it wasn't like they chained a ball to my leg and monitored my every movements. The supervisor overall was very friendly and even took me out to lunch a few times!"
 RESPONSIBILITIES = "I had to show up on time, get coffee for people, assist in the given tasks, give weekly presentations on learning outcomes, and be energetic."
 RECOMMENDATIONS = "I would really recommend working at this company. They treat all of their interns with respect and integrity. My favorite part of working at this company was the on-hands experience and interaction with professionals. In addition,I have expanded my network by meeting new people, which will ultimately help me in the future."
@@ -103,12 +104,14 @@ user_output.puts "murtaza:"
   compensation = COMPENSATION[rand(8)]
   hours = HOURS[rand(25)]
   industry = INDUSTRY[rand(38)]
-  company_name = COMPANY_NAME[rand(10)]
+  company_name = COMPANY_NAME[j = rand(10)]
   company_department = COMPANY_DEPARTMENT[rand(10)]
   city = CITY[rand(10)]
-  state = STATE[rand(51)]
-  country = COUNTRY[rand(193)]
-  website = WEBSITE[rand(10)]
+  state = CITY_HASH[city]
+  #state = STATE[rand(51)]
+  #country = COUNTRY[rand(193)]
+  country = COUNTRY[0]
+  website = WEBSITE[j]
   public_transport = BOOLEAN[rand(2)]
   supervision = SUPERVISION
   supervisor_name = "#{FIRST_NAME[rand(300)]} #{LAST_NAME[rand(300)]}"
