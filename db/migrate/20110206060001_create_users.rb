@@ -23,6 +23,7 @@ class CreateUsers < ActiveRecord::Migration
       
       t.string    :url
       t.string    :name
+      t.boolean   :admin
       
       t.string    :first_name
       t.string    :last_name
