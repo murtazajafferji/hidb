@@ -104,7 +104,17 @@ private
     redirect_to(session[:return_to] || default)
     session[:return_to] = nil
   end
-  
+
+  def check_admin
+  	@user=current_user
+   if @user.getadmin == TRUE
+      flash[:notice] = "Welcome back Admin"
+   else
+   	  flash[:notice] = "You are not an admin..."
+    end
+      
+
+  end    
   # uncomment this for persistent locale
   #def default_url_options(options={})  
   #	logger.debug "default_url_options is passed options: #{options.inspect}\n"  

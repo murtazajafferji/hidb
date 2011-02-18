@@ -155,7 +155,7 @@ module ApplicationHelper
   # ['johan','smith'],
   # ['jim','jorgenson'], {:th=>false, :table=>"class='datagrid'", :tr=>"border='10'"}) %>
   
-  require "lib/array.rb"
+  #require "lib/array.rb"
   def table(*args)
    opts=args.last.is_a?(Hash) ? args.delete_at(args.length - 1) : {}
    rows=args

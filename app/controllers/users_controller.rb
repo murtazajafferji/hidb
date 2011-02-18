@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_filter :require_user, :only => [:follow, :unfollow, :show, :edit, :update]
   before_filter :require_no_user, :only => [:new, :create]
   before_filter :admin_only, :only => :detonate
-
+  before_filter :check_admin, :only => :edit
   def index
     @users = User.top
     

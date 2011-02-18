@@ -164,7 +164,11 @@ class User < ActiveRecord::Base
     self.perishable_token = nil
     save(false)
   end
-
+  
+  def getadmin
+    admin
+  end
+    
   def signup_notification
     if !email.blank?
       setup_email
@@ -221,6 +225,7 @@ class User < ActiveRecord::Base
       self.email = self.email_was
     end
   end
+  
   
   protected
     require 'digest/sha1'
