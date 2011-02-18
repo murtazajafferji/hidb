@@ -12,6 +12,7 @@
   </tr>
 
 <% internships.each do |internship| %>
+<% if internship %>
   <tr>
 		<td><%= internship.industry if internship.industry %>
 	<td><%= internship.city if internship.city %></td>
@@ -26,6 +27,7 @@
         <td><%# link_to 'Edit', edit_internship_path(internship) %></td>
         <td><%# link_to 'Destroy', internship, :confirm => 'Are you sure?', :method => :delete %></td> -->
   </tr>
+<% end %>
 <% end %>
 </table>
 
