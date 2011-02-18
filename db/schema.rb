@@ -54,7 +54,8 @@ ActiveRecord::Schema.define(:version => 20110206130646) do
     t.string   "outcome_3"
     t.boolean  "offer"
     t.text     "recommendations"
-    t.integer  "user_id",            :null => false
+    t.boolean  "approved",           :default => false
+    t.integer  "user_id",                               :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

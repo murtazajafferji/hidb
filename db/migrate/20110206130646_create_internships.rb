@@ -29,6 +29,7 @@ class CreateInternships < ActiveRecord::Migration
       t.string :outcome_3
       t.boolean :offer
       t.text :recommendations
+      t.boolean :approved, :default => false
       
       t.references :user,  :null => false
 
