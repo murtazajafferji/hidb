@@ -1,5 +1,9 @@
 <% title "Unapproved Internships" %>
 
-<h2>Internship List</h2>
+<h2>Unapproved Internships</h2>
 
+<% if @internships.blank? %>
+<p>There are no internships that currently need to be approved</p>
+<% else %>
 <%= render :partial => 'internships/unapproved_internship_list', :locals => {:internships => @internships} %>
+<% end %>
