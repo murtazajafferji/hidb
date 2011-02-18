@@ -1,0 +1,34 @@
+<table class="datagrid">
+  <tr>
+    <th><%= link_to "Field/Industry", sort_url("sort", "industry") %></th>
+    <th><%= link_to "City", sort_url("sort", "city") %></th>
+    <th><%= link_to "State", sort_url("sort", "state") %></th>
+<th><%= link_to "Company Name", sort_url("sort", "company_name") %></th>
+<th><%= link_to "Department/Program", sort_url("sort", "company_department") %></th>
+<th><%= link_to "Semester", sort_url("sort", "semester") %></th>
+<th><%= link_to "Year", sort_url("sort", "year") %></th>
+<th>Student</th>
+<th>More Info</th>
+  </tr>
+
+<% internships.each do |internship| %>
+  <tr>
+		<td><%= internship.industry if internship.industry %>
+	<td><%= internship.city if internship.city %></td>
+	<td><%= internship.state if internship.state %></td>
+	<td><%= internship.company_name if internship.company_name %></td>
+	<td><%= internship.company_department if internship.company_department %></td>
+	<td><%= internship.semester if internship.semester %></td>
+	<td><%= internship.year if internship.year %></td>
+	<td><%= link_to "#{internship.user.first_name} #{internship.user.last_name}", internship.user if internship.user %></td>
+	<td><%= link_to "Show", internship %></td>
+    <!-- <td><%# link_to 'Show', internship %></td>
+        <td><%# link_to 'Edit', edit_internship_path(internship) %></td>
+        <td><%# link_to 'Destroy', internship, :confirm => 'Are you sure?', :method => :delete %></td> -->
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%# link_to 'New Internship', new_internship_path %>

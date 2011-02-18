@@ -2,6 +2,19 @@
 
 <p id="notice"><%= notice %></p>
 
+<div id="approve-button">
+	<% if current_user and current_user.admin == true %>
+		<% if @internship.approved == false %>
+	  	<%= button_to "Approve", approve_internship_path(:internship => @internship), :method => :post, :remote => true, :class => "btn approve", :id => "approve", :onclick => "$('#approve').toggle();$('#unapprove').toggle();" %>
+	<%= button_to "Unapprove", approve_internship_path(:internship => @internship), :method => :post, :remote => true, :class => "btn unapprove", :id => "unapprove", :onclick => "$('#approve').toggle();$('#unapprove').toggle();", :style => "display:none;" %>
+			<% else %>
+			<%= button_to "Approve", approve_internship_path(:internship => @internship), :method => :post, :remote => true, :class => "btn approve", :id => "approve", :onclick => "$('#approve').toggle();$('#unapprove').toggle();", :style => "display:none;" %>
+			<%= button_to "Unapprove", approve_internship_path(:internship => @internship), :method => :post, :remote => true, :class => "btn unapprove", :id => "unapprove", :onclick => "$('#approve').toggle();$('#unapprove').toggle();" %>
+			<% end %>
+	<% end %>
+	<%# render :partial => 'users/approve_button', :locals => {:user => @user} %>
+</div>
+
 <table class="datagrid">
 	
 	<tr>

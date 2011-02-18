@@ -4,6 +4,7 @@ class InternshipsController < ApplicationController
   # GET /internships.xml
   def index    
     @internships = Internship.sort params
+    @internships = @internships.collect{|x| x if x.approved }
 
     respond_to do |format|
       format.html # index.html.erb
@@ -82,6 +83,39 @@ class InternshipsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(internships_url) }
       format.xml  { head :ok }
+    end
+  end
+  
+  def unapproved    
+    @internships = Internship.find(:all, :conditions => {:approved => false})
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @internships }
+    end
+  end
+  
+  def approve 
+    internship = Internship.find(params[:internship])
+    if internship.approved == false
+      internship.approved = true
+      if internship.save(false)
+        flash[:notice] = "You have approved this internship"
+      else
+        flash[:error] = 'Something has gone horribly wrong.'
+      end
+    else
+      internship.approved = false
+      if internship.save(false)
+        flash[:notice] = "You have unapproved this internship"
+      else
+        flash[:error] = 'Something has gone horribly wrong.'
+      end
+    end
+    respond_to do |wants|
+      wants.html { redirect_to :back }
+      wants.xml  { render :xml => @user }
+      #wants.js
     end
   end
 end
