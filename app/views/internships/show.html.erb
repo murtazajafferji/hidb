@@ -158,7 +158,7 @@
 
 </table>
 
-<% if current_user and current_user.id = @internship.user_id %>
+<% if current_user and current_user.id == @internship.user_id %>
 	<%= link_to 'Edit', edit_internship_path(@internship) %>
 	<%= link_to 'Delete', @internship, :confirm => 'Are you sure?', :method => :delete %>
 <% end %>
