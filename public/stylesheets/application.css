@@ -15,17 +15,17 @@ body {
 	color:#656565;
 	font-family:Tahoma, sans-serif;
 	font-size:13px;
-	height:367px;
+	height:317px;
 }
 
 #wrapper {
 	width:1060px;
 	margin:0 auto;
-	padding-top:110px;
+	padding-top:50px;
 	background-image:url(../images/blue-bg.jpg);
 	background-position: top;
 	background-repeat: no-repeat;
-	height:250px;
+	height:170px;
 }
 
 h2 {
@@ -48,7 +48,8 @@ a:link {
 } 
 
 a:visited {
-	color: #999;
+	/*color: #999;*/
+	color: #2a6888;
 }
 
 a:hover,a:focus {
@@ -82,8 +83,8 @@ a:active {
   width: 740px;
   height: auto;
   padding: 20px;
-  padding-left:0;
-  padding-right:0;
+  padding-left:10;
+  padding-right:10;
   margin:0 auto;
   z-index:3;
 }
@@ -309,6 +310,7 @@ a:active.nice {
 
 .datagrid{
 	margin: 0px auto;
+	background-color: #F0F0F0;
 }
 
 .datagrid th{
@@ -386,6 +388,57 @@ width:260px;
 	margin:0; 
 }
 
+#admin-button{
+	text-align: center;
+}
+
+#topbar {
+  /*background-color: #0e3b5a;*/
+	/*background-color: #0B3615;*/
+	background-color: #0E3B5A;
+  height: 30px;
+}
+
+#topbar a {
+  font-weight: bold;
+	text-decoration: none;
+	color: #CBD7E0;
+}
+
+#topbar a:hover {
+  /*background-color: #176092;*/
+	background-color: #176092;
+}
+
+#topbar ul {
+  
+}
+
+#topbar li {
+  float: left;
+}
+
+#topbar li a {
+  display: block;
+  padding: 6px 14px;
+  border: solid #214A67;
+  border-width: 0px;
+}
+
+#usernav {
+  float: right;
+}
+
+#usernav li a {border-left-width: 1px;}
+#topnav li a {border-right-width: 1px;}
+
+#homebutton a {
+  text-indent: -9999em;
+  overflow: hidden;
+  width: 30px;
+  background: url(../images/logo_small.png) center 4px no-repeat;
+}
+
 /*---------- left aligned button ----------*/
 .btn { position: relative; background: #aaa; padding: 2px; margin: 0px; color: #fff; text-decoration: none; cursor: pointer; }
 .btn * { font-style: normal; background-image: url('../images/btn2.png'); background-repeat: no-repeat; display: block; position: relative; }
@@ -417,6 +470,8 @@ width:260px;
 .btn.external { background: #2ae; padding: 0px; border: 1px solid #FFF;}
 .btn.approve { background: #2cda0b; padding: 3px; font-size: 12px; width: 80px;}
 .btn.unapprove { background: #e31b1b; padding: 3px; font-size: 12px; width: 80px;}
+.btn.make_admin { background: #2cda0b; padding: 3px; font-size: 12px; width: 110px;}
+.btn.remove_admin { background: #e31b1b; padding: 3px; font-size: 12px; width: 110px;}
 .btn.download { background: #e31b1b; padding: 0px;}
 .btn:hover { background-color: #a00; color: #fff; }
 .btn:active { background-color: #444; color: #fff; }

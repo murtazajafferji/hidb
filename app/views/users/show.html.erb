@@ -2,10 +2,10 @@
 
 <% if current_user.id == @user.id %>
 	<%= "<h2>Hi #{@profile[:name]}!</h2>".html_safe  %>
-	<% if @user.first_name.nil? or @user.last_name.nil? or @user.email.nil? or @user.major.nil? or @user.yog.nil? %>
-	<p>Please fill out some information about yourself before proceeding</p>
-	<%= render 'form' %>
-	<% end %>
+	<%# if @user.first_name.nil? or @user.last_name.nil? or @user.email.nil? or @user.major.nil? or @user.yog.nil? %>
+	<!-- <p>Please fill out some information about yourself before proceeding</p> -->
+	<%# render 'form' %>
+	<%# end %>
 	
 <% else %>
 	<% if (@user.first_name and @user.last_name) %>
@@ -19,6 +19,17 @@
 	<% end %>
 <%= link_to "View internships!", internships_path %>
 <%= link_to "Create a new internship!", new_internship_path %></p>
+<div id="admin-button">
+	<% if current_user and current_user.admin == true %>
+		<% if @user.admin == false %>
+	  	<%= button_to "Make Admin", make_admin_user_path(:user => @user), :method => :post, :remote => true, :class => "btn make_admin", :id => "approve", :onclick => "$('#approve').toggle();$('#unapprove').toggle();" %>
+	<%= button_to "Remove as Admin", make_admin_user_path(:user => @user), :method => :post, :remote => true, :class => "btn remove_admin", :id => "unapprove", :onclick => "$('#approve').toggle();$('#unapprove').toggle();", :style => "display:none;" %>
+			<% else %>
+			<%= button_to "Make Admin", make_admin_user_path(:user => @user), :method => :post, :remote => true, :class => "btn make_admin", :id => "approve", :onclick => "$('#approve').toggle();$('#unapprove').toggle();", :style => "display:none;" %>
+			<%= button_to "Remove as Admin", make_admin_user_path(:user => @user), :method => :post, :remote => true, :class => "btn remove_admin", :id => "unapprove", :onclick => "$('#approve').toggle();$('#unapprove').toggle();" %>
+			<% end %>
+	<% end %>
+</div>
 <table class="datagrid">
 	
 	<tr>
@@ -59,8 +70,9 @@
   </tr>
 
 </table>
-
 <% if current_user and current_user.id = @user.id %>
+<div class="actions">
 	<%= link_to 'Edit', edit_user_path(@user) %>
 	<%= link_to 'Delete', @user, :confirm => 'Are you sure?', :method => :delete %>
+	</div>
 <% end %>

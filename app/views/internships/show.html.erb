@@ -12,7 +12,6 @@
 			<%= button_to "Unapprove", approve_internship_path(:internship => @internship), :method => :post, :remote => true, :class => "btn unapprove", :id => "unapprove", :onclick => "$('#approve').toggle();$('#unapprove').toggle();" %>
 			<% end %>
 	<% end %>
-	<%# render :partial => 'users/approve_button', :locals => {:user => @user} %>
 </div>
 
 <table class="datagrid">

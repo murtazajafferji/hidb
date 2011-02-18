@@ -1,5 +1,6 @@
 class InternshipsController < ApplicationController
   before_filter :require_user, :only => [:create, :update, :destroy]
+  before_filter :require_admin, :only => [:unapproved]
   # GET /internships
   # GET /internships.xml
   def index    
@@ -27,6 +28,7 @@ class InternshipsController < ApplicationController
   # GET /internships/new.xml
   def new
     @internship = Internship.new
+    @user = current_user if current_user
 
     respond_to do |format|
       format.html # new.html.erb

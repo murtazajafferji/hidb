@@ -60,6 +60,34 @@ _gaq.push(['_trackPageview']);
     <%= render :partial => "shared/head" %>
   </head>
   <body>
+		<div id="topbar">
+			<div id="topnav">
+				<ul>
+					<li id="homebutton"><%= link_to "Home", root_path %></li>
+					<li><%= link_to "Hiatt", "http://www.brandeis.edu/hiatt/" %></li>
+					<li><%= link_to "Nacelink", "https://brandeisu-csm.symplicity.com/students/" %></li>
+					<% if current_user %>
+					<li><%= link_to "Internship List", internships_path %></li>
+					<% end %>
+					<% if current_user and current_user.admin %>
+					<li><%= link_to "Approve", unapproved_path %></li>
+					<% end %>
+					<!-- <li><%# link_to I18n.t("Games"), games_path %></li> -->
+				</ul>
+			</div>
+
+			<div id="usernav">
+				<ul>
+					<% if current_user %>
+					<li><%= link_to "New Internship", new_internship_path %></li>
+					<li><%= link_to current_user.profile[:name], current_user %></li>
+					<li><%= link_to "Logout", logout_path %></li>
+					<%# end %>
+					<% else %>
+					<% end %>
+				</ul>
+			</div>
+		</div>
     <div id='wrapper'>
       <%= render :partial => "shared/logo" %>
 			<%= render :partial => "shared/search" %>
@@ -75,8 +103,8 @@ _gaq.push(['_trackPageview']);
       </div>
       <% if current_user %>
       <div class='actions'>
-      	<%= link_to "Profile", current_user %>
-				<%= link_to "Logout", logout_path %>
+      	<%# link_to "Profile", current_user %>
+				<%# link_to "Logout", logout_path %>
       </div>
       <% end %>
     </div>

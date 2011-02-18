@@ -1,6 +1,11 @@
 <h2>Internship Form</h2>
+<% if current_user and current_user.required  %>
 <p>Please provide the details of your internship</p>
-
 <%= render 'form' %>
+<% else %>
+<p>Please fill out some information about yourself before proceeding</p>
+<%= render 'users/form' %>
+<% end %>
+
 
 <%= link_to 'Back', internships_path %>

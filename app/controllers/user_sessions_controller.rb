@@ -13,7 +13,8 @@ class UserSessionsController < ApplicationController
     @user_session.save do |result|
       if result
         flash[:notice] = "You must login with a Brandeis email address."
-        redirect_to current_user ? profile_url(current_user) : login_url
+        #redirect_to current_user ? profile_url(current_user) : login_url
+        redirect_to root_path
         #redirect_to edit_user_path(current_user)
       else
         if @user_session.errors.on(:user)

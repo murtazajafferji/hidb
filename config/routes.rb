@@ -42,7 +42,7 @@ Hidb::Application.routes.draw do
       get :top
     end
     member do
-      post :follow
+      post :make_admin
     end
   end
 

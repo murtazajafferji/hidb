@@ -146,5 +146,29 @@ class UsersController < ApplicationController
       #wants.js
     end
   end
+  
+  def make_admin 
+    user = User.find(params[:user])
+    if user.admin == false
+      user.admin = true
+      if user.save(false)
+        flash[:notice] = "You have made this user an admin"
+      else
+        flash[:error] = 'Something has gone horribly wrong.'
+      end
+    else
+      user.admin = false
+      if user.save(false)
+        flash[:notice] = "You have removed admin access for user"
+      else
+        flash[:error] = 'Something has gone horribly wrong.'
+      end
+    end
+    respond_to do |wants|
+      wants.html { redirect_to :back }
+      wants.xml  { render :xml => @user }
+      #wants.js
+    end
+  end
  
 end

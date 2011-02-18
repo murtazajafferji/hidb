@@ -90,8 +90,18 @@ private
   def require_no_user
     if current_user
       store_location
-      flash[:notice] = "You must be logged out to access this page"
-      redirect_to profile_url(current_user)
+      #flash[:notice] = "You must be logged out to access this page"
+      #redirect_to profile_url(current_user)
+      redirect_to internships_path
+      return false
+    end
+  end
+  
+  def require_admin
+    unless current_user.admin
+      store_location
+      flash[:notice] = "You must be admin in to access this page"
+      redirect_to internships_path
       return false
     end
   end

@@ -127,6 +127,10 @@ class User < ActiveRecord::Base
     "2018",
     "2019",
     "2020"]
+    
+  def required
+    !email.blank? and !major.blank? and !yog.blank? and !first_name.blank? and !last_name.blank?
+  end
 
   def login=(value)
     write_attribute :login, (value ? value.downcase : nil)
