@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(:version => 20110206130646) do
     t.string   "url"
     t.string   "name"
     t.boolean  "admin",                             :default => false
+    t.boolean  "super",                             :default => false
     t.string   "first_name"
     t.string   "last_name"
     t.string   "major"

@@ -87,6 +87,7 @@ a:active {
   padding-right:10;
   margin:0 auto;
   z-index:3;
+overflow: hidden;
 }
 
 .shadow {
@@ -317,7 +318,12 @@ a:active.nice {
 	background-color: #660000;
 	color: white;
 	border: #FBB829 solid 1px;
+	border-bottom: black solid 1px;
 	padding: 5px;
+}
+
+.datagrid th a{
+	color:white;
 }
 
 .datagrid tr{
@@ -438,6 +444,97 @@ width:260px;
   width: 30px;
   background: url(../images/logo_small.png) center 4px no-repeat;
 }
+
+#internship-wrapper{
+	width:740;
+	margin: 0 auto;
+}
+#internship-main {
+	background:#025D8C;
+	border: 2px solid  #0E3B5A;
+    float: right;
+    padding-right: 2px;
+    vertical-align: top;
+    width: 564px;
+	padding-left: 5px;
+	
+}
+
+#internship-main h1{
+	color:white;
+	font-size:25px;
+	font-style:bold;
+
+}
+#internship-main dt{
+	margin-top: 10px;
+	font-size:17px;
+	text-align:left;
+	/*color: #B3C7EB;*/
+	color: orange;
+	
+}
+
+
+#internship-main dl{
+	font-size:14px;
+	padding-left: 5px;
+	text-align:left;
+	color:white;
+}
+
+#internship-summary {
+    
+    padding: 0 2px;
+    width: 126px;
+	color: white;
+}
+
+#internship-summary a{
+	color:#FCFBE3;
+}
+#internship-summary h1 {
+    padding-top: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 14px;
+
+	
+}
+#internship-summary-container  {
+	background:#025D8C;
+	border: 2px solid  #0E3B5A;
+	color:white;
+    float: left;
+    vertical-align: top;
+    width: 176px;
+}
+
+#internship-summary h1{
+	font-style:bold;
+	font-style:italic;
+}
+#internship-summary hr{
+	color:black;
+	
+}
+#internship-summary dl {
+    font-size: 12px;
+    margin: 10px;
+}
+#internship-summary dt {
+    font-weight: bold;
+	color: #B3C7EB;
+    line-height: 1.25em;
+    margin-top: 10px;
+}
+#internship-summary dd {
+    font-weight: normal;
+    line-height: 1.25em;
+    margin: 0;
+}
+
+
 
 /*---------- left aligned button ----------*/
 .btn { position: relative; background: #aaa; padding: 2px; margin: 0px; color: #fff; text-decoration: none; cursor: pointer; }
