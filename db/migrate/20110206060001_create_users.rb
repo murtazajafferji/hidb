@@ -24,13 +24,14 @@ class CreateUsers < ActiveRecord::Migration
       t.string    :url
       t.string    :name
       t.boolean   :admin, :default => false
+      t.boolean   :super, :default => false
       
       t.string    :first_name
       t.string    :last_name
       t.string    :email
       t.string    :major
       t.string    :minor
-      t.string   :yog
+      t.string    :yog
       
       t.timestamps
     end
