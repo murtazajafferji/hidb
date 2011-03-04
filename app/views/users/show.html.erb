@@ -16,6 +16,7 @@
 <% end %><p>
 	<% if current_user.admin %>
 	<%= link_to "Approve internships!", unapproved_path %>
+	<%= link_to "Edit Items", items_path %>
 	<% end %>
 <%= link_to "View internships!", internships_path %>
 <%= link_to "Create a new internship!", new_internship_path %></p>
