@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110206130646) do
+ActiveRecord::Schema.define(:version => 20110206130647) do
 
   create_table "access_tokens", :force => true do |t|
     t.integer  "user_id",                    :null => false
@@ -24,6 +24,14 @@ ActiveRecord::Schema.define(:version => 20110206130646) do
   end
 
   add_index "access_tokens", ["key"], :name => "index_access_tokens_on_key", :unique => true
+
+  create_table "datas", :force => true do |t|
+    t.string   "collection"
+    t.string   "value"
+    t.integer  "number"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "internships", :force => true do |t|
     t.string   "how"
@@ -62,6 +70,14 @@ ActiveRecord::Schema.define(:version => 20110206130646) do
 
   add_index "internships", ["user_id"], :name => "index_internships_on_user_id"
 
+  create_table "items", :force => true do |t|
+    t.string   "collection"
+    t.string   "value"
+    t.integer  "number"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
     t.text     "data"
@@ -91,6 +107,7 @@ ActiveRecord::Schema.define(:version => 20110206130646) do
     t.string   "url"
     t.string   "name"
     t.boolean  "admin",                             :default => false
+    t.boolean  "super",                             :default => false
     t.string   "first_name"
     t.string   "last_name"
     t.string   "major"
