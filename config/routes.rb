@@ -1,5 +1,7 @@
 Hidb::Application.routes.draw do
   
+  resources :items
+  
   resources :internships
   match '/unapproved' => 'internships#unapproved', :as => :unapproved
   
