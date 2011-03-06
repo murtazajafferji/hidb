@@ -1,5 +1,56 @@
 class Internship < ActiveRecord::Base
   belongs_to :user
+  
+  comma do
+    user :login
+    user :email
+    user :login_count
+    user :url
+    user :name
+    user :admin
+    user :super
+    user :first_name
+    user :last_name
+    user :major
+    user :minor
+    user :yog
+    user :created_at
+    user :updated_at
+    how
+    semester
+    year
+    credit
+    course
+    compensation
+    hours
+    industry
+    company_name
+    company_department
+    city
+    state
+    country
+    website
+    public_transport
+    supervision
+    supervisor_name
+    supervisor_phone
+    supervisor_email
+    responsibilities
+    satisfaction_1
+    satisfaction_2
+    satisfaction_3
+    outcome_1
+    outcome_2
+    outcome_3
+    offer
+    recommendations
+    approved
+    user_id
+    created_at
+    updated_at
+  end
+
+
     HOW = [
     "Hiatt NACElink",
     "Hiatt Emails",

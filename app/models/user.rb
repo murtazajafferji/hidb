@@ -1,15 +1,32 @@
 class User < ActiveRecord::Base  
+  has_many :internships
+  
   acts_as_authentic do |config|
     config.validate_email_field    = false
     config.validate_login_field    = false
     config.validate_password_field = false
     config.login_field = 'email'
   end
+  
+  comma do
+    login
+    email
+    login_count
+    url
+    name
+    admin
+    self.super
+    first_name
+    last_name
+    major
+    minor
+    yog
+    created_at
+    updated_at
+  end
     
   include Profile
   
-  has_many :internships
-
   #before_create :make_slug
   
   after_create :signup_notification

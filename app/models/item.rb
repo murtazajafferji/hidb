@@ -1,6 +1,14 @@
 class Item < ActiveRecord::Base
   after_create :assign_number
   
+  comma do
+    collection
+    value
+    number
+    created_at
+    updated_at
+  end
+  
   def assign_number
     self.number = Item.find(:all, :conditions => {:collection => collection}).size if collection
     save(false)

@@ -4,17 +4,18 @@ class UsersController < ApplicationController
   before_filter :admin_only, :only => :detonate
 
   def index
-    @users = User.top
+    @users = User.all
     
-    if params[:term]
-      #@user_autocomplete = User.find(:all,:conditions => ['name LIKE ? OR login', "%#{params[:term]}%"], :select => "name, login", :limit => 10)
-      @user_autocomplete = User.find(:all,:conditions => ['LOWER(name) LIKE ? OR LOWER(login) LIKE ?', "%#{params[:term].downcase}%", "%#{params[:term].downcase}%"], :select => "name, login", :limit => 10)
-    end
+    # if params[:term]
+    #   #@user_autocomplete = User.find(:all,:conditions => ['name LIKE ? OR login', "%#{params[:term]}%"], :select => "name, login", :limit => 10)
+    #   @user_autocomplete = User.find(:all,:conditions => ['LOWER(name) LIKE ? OR LOWER(login) LIKE ?', "%#{params[:term].downcase}%", "%#{params[:term].downcase}%"], :select => "name, login", :limit => 10)
+    # end
     
     respond_to do |wants|
       wants.html
       wants.xml  { render :xml => @user_autocomplete }
       wants.json { render :json => @user_autocomplete.to_json }
+      wants.csv { send_data @users.to_comma if current_user.admin }
     end
   end
   
