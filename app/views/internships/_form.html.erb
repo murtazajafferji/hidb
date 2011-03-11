@@ -1,14 +1,14 @@
 <div class="internship-form">
 <%= semantic_form_for @internship, :html => { :id => "styled-form" } do |form| %>
   <% form.inputs "Required", :id => "required" do %>	
-    <%= form.input :how, :label => "How did you find/identify this opportunity?", :as => :select, :collection => Item.find(:all, :conditions => {:collection => "how"}, :order => :number) %>
-		<%= form.input :semester, :hint => "Select all that apply", :as => :check_boxes, :collection => Item.find(:all, :conditions => {:collection => "semester"}, :order => :number) %>
+    <%= form.input :how, :label => "How did you find/identify this opportunity?", :as => :select, :collection => Item.find(:all, :conditions => {:collection => "how"}, :order => :number), :input_html => { :style => 'width: 200px;' } %>
+		<%= form.input :semester, :as => :check_boxes, :collection => Item.find(:all, :conditions => {:collection => "semester"}, :order => :number) %>
 		<%= form.input :year, :as => :select, :collection => Internship::YEAR %>
 		<%= form.input :credit, :label => "For credit?", :as => :radio %>
 		<%= form.input :course, :label => "Course Name" %>
 		<%= form.input :compensation, :as => :select, :collection => Item.find(:all, :conditions => {:collection => "compensation"}, :order => :number) %>
 		<%= form.input :hours, :label => "Hours per week", :as => :select, :collection => Item.find(:all, :conditions => {:collection => "hours"}, :order => :number) %>
-		<%= form.input :industry, :as => :select, :collection => Item.find(:all, :conditions => {:collection => "industry"}, :order => :number) %>
+		<%= form.input :industry, :as => :select, :collection => Item.find(:all, :conditions => {:collection => "industry"}, :order => :number), :input_html => { :style => 'width: 200px;' } %>
 		<%= form.input :company_name %>
 		<%= form.input :company_department %>
 		<%= form.input :city %>

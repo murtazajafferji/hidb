@@ -2,8 +2,8 @@
 <% semantic_form_for @user, :html => { :id => "styled-form" } do |form| %>
   <% form.inputs "Required", :id => "required" do %>	
     <%= form.input :email %>
-		<%= form.input :major, :as => :select, :collection => Item.find(:all, :conditions => {:collection => "major"}, :order => :number) %>
-		<%= form.input :minor, :as => :select, :collection => Item.find(:all, :conditions => {:collection => "minor"}, :order => :number) %>
+		<%= form.input :major, :as => :select, :collection => Item.find(:all, :conditions => {:collection => "major"}, :order => :number), :input_html => { :style => 'width: 200px;' } %>
+		<%= form.input :minor, :as => :select, :collection => Item.find(:all, :conditions => {:collection => "minor"}, :order => :number), :input_html => { :style => 'width: 200px;' } %>
 		<%= form.input :yog, :label => "Year of graduation", :as => :select, :collection => Item.find(:all, :conditions => {:collection => "yog"}, :order => :number) %>
   <% end %>
   <% form.inputs :name => "Optional", :id => "optional" do %>
