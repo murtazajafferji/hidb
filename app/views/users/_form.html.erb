@@ -1,15 +1,20 @@
+<div class= "user-form">
 <% semantic_form_for @user, :html => { :id => "styled-form" } do |form| %>
   <% form.inputs "Required", :id => "required" do %>	
+	<div class="personal-info">
     <%= form.input :email %>
+		
 		<%= form.input :major, :as => :select, :collection => Item.find(:all, :conditions => {:collection => "major"}, :order => :number) %>
 		<%= form.input :minor, :as => :select, :collection => Item.find(:all, :conditions => {:collection => "minor"}, :order => :number) %>
 		<%= form.input :yog, :label => "Year of graduation", :as => :select, :collection => Item.find(:all, :conditions => {:collection => "yog"}, :order => :number) %>
+		</div>	
   <% end %>
   <% form.inputs :name => "Optional", :id => "optional" do %>
-		<%= form.input :first_name %>
-		<%= form.input :last_name %>
+		<%= form.input :first_name, :input_html => {:size => "15%"} %>
+		<%= form.input :last_name, :input_html => {:size=> "15%"} %>
   <% end %>
   <% form.buttons do %>
     <%= form.commit_button %>
   <% end %>
 <% end %>
+</div>

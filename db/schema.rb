@@ -25,14 +25,6 @@ ActiveRecord::Schema.define(:version => 20110206130647) do
 
   add_index "access_tokens", ["key"], :name => "index_access_tokens_on_key", :unique => true
 
-  create_table "datas", :force => true do |t|
-    t.string   "collection"
-    t.string   "value"
-    t.integer  "number"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "internships", :force => true do |t|
     t.string   "how"
     t.string   "semester"

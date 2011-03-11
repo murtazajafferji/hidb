@@ -1,3 +1,4 @@
+<div class="internship-form">
 <%= semantic_form_for @internship, :html => { :id => "styled-form" } do |form| %>
   <% form.inputs "Required", :id => "required" do %>	
     <%= form.input :how, :label => "How did you find/identify this opportunity?", :as => :select, :collection => Item.find(:all, :conditions => {:collection => "how"}, :order => :number) %>
@@ -35,3 +36,4 @@
     <%= form.commit_button %>
   <% end %>
 <% end %>
+</div>
