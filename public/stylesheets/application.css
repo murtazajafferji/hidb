@@ -443,15 +443,9 @@ width:260px;
   background: url(../images/logo_small.png) center 4px no-repeat;
 }
 
-<<<<<<< HEAD
-#internship-wrapper{
-	margin: 0 auto;
-}
-=======
->>>>>>> 0a7aaad6720bcc5b43580b7b49d6406a83ccb4d3
 #internship-main {
-/*	background:#025D8C;*/
-	background:#003366;
+	background:#025D8C;
+	/*background:#003366;*/
 	border: 2px solid  #0E3B5A;
     float: right;
     padding-right: 2px;
@@ -528,7 +522,6 @@ width:260px;
     margin: 0;
 }
 
-<<<<<<< HEAD
 .user-form li{
 	display: inline;
 	list-style-type: none;
@@ -557,11 +550,6 @@ width:260px;
 .internship-form #styled-form {width:98%;}
 .internship-form #styled-form fieldset { width: 98%;}
 
-
-
-
-=======
->>>>>>> 0a7aaad6720bcc5b43580b7b49d6406a83ccb4d3
 /*---------- left aligned button ----------*/
 .btn { position: relative; background: #aaa; padding: 2px; margin: 0px; color: #fff; text-decoration: none; cursor: pointer; }
 .btn * { font-style: normal; background-image: url('../images/btn2.png'); background-repeat: no-repeat; display: block; position: relative; }
