@@ -7,7 +7,7 @@ div#feedback {
   height: 100%;
   z-index: 100001;
 }
-			
+
 a#feedback_link {				
   position: fixed;
   z-index: 99999;
@@ -74,7 +74,7 @@ a#feedback_close_link {
 }
 
 div#feedback_modal_window {
-  width: 350px;
+  width: 400px;
   margin: 0 auto;				
   position: relative;
   background-color: #104467;		

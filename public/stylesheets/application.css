@@ -545,6 +545,20 @@ width:260px;
 .internship-form #styled-form {width:98%;}
 .internship-form #styled-form fieldset { width: 98%;}
 
+#feedback p{
+	text-align: left;
+	color: white;
+}
+
+#feedback label{
+	font-size: 14px;
+	color: #D9D7FC;
+}
+
+#feedback h2{
+	color: #D9D7FC;
+}
+
 /*---------- left aligned button ----------*/
 .btn { position: relative; background: #aaa; padding: 2px; margin: 0px; color: #fff; text-decoration: none; cursor: pointer; }
 .btn * { font-style: normal; background-image: url('../images/btn2.png'); background-repeat: no-repeat; display: block; position: relative; }
