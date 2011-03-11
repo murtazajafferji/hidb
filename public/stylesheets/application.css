@@ -70,17 +70,12 @@ a:active {
 	text-align:center;
 }
 
-#page-container {
-	width:80%;
-	margin:0 auto;
-}
-
 .container {
 	background-image:url(../images/page.png);
 	/*background-repeat: no-repeat;*/
   position: relative;
 	border: 1px solid #FFF;
-  width: 100%;
+  width: 80%;
   height: auto;
   padding: 20px;
   margin:0 auto;
