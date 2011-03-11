@@ -26,7 +26,9 @@ STATE = ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'DC', 'FL', 'GA', 'HI',
 #SUPERVISION = "The supervision of the company was very relaxed. The supervisor was always there to help and was always interested in my work. Most of the time I would work directly with the supervisor, but it wasn't like they chained a ball to my leg and monitored my every movements. The supervisor overall was very friendly and even took me out to lunch a few times!"
 #RESPONSIBILITIES = "I had to show up on time, get coffee for people, assist in the given tasks, give weekly presentations on learning outcomes, and be energetic."
 #RECOMMENDATIONS = "I would really recommend working at this company. They treat all of their interns with respect and integrity. My favorite part of working at this company was the on-hands experience and interaction with professionals. In addition,I have expanded my network by meeting new people, which will ultimately help me in the future."
-LIKERT = ["Strongly disagree", "Disagree", "Neither agree nor disagree", "Agree", "Strongly agree"]
+LIKERT = ["Strongly disagree", "Disagree", "Agree", "Strongly agree"]
+OUTCOME = ["Outcome question 1", "Outcome question 2", "Outcome question 3"]
+SATISFACTION = ["Satisfaction question 1", "Satisfaction question 2", "Satisfaction question 3"]
 
 #arrays = [MAJOR, MINOR, YOG, HOW, SEMESTER, COMPENSATION, INDUSTRY, HOURS, COUNTRY, STATE, LIKERT]
 Item.constants.each do |var|

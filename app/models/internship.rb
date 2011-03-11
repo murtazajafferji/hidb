@@ -398,7 +398,7 @@ class Internship < ActiveRecord::Base
                           'WY']
   YEAR = (((Date.today - 4.years).year)..((Date.today + 1.year).year)).to_a
   
-  LIKERT = ["Strongly disagree", "Disagree", "Neither agree nor disagree", "Agree", "Strongly agree"]
+  LIKERT = ["Strongly disagree", "Disagree", "Agree", "Strongly agree"]
   PAGE_LIMIT = 100
   
   def self.sort params = {}

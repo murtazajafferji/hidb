@@ -18,12 +18,12 @@
 		<%= form.input :public_transport, :as => :radio %>
 		<%= form.input :supervision, :label => "Details of supervision" %>
 		<%= form.input :responsibilities %>
-		<%= form.input :satisfaction_1, :label => "Satisfaction Question 1", :as => :radio, :collection => Item.find(:all, :conditions => {:collection => "likert"}, :order => :number) %>
-		<%= form.input :satisfaction_2, :label => "Satisfaction Question 1", :as => :radio, :collection => Item.find(:all, :conditions => {:collection => "likert"}, :order => :number) %>
-		<%= form.input :satisfaction_3,  :label => "Satisfaction Question 1",:as => :radio, :collection => Item.find(:all, :conditions => {:collection => "likert"}, :order => :number) %>
-		<%= form.input :outcome_1, :label => "Outcome Question 1", :as => :radio, :collection => Item.find(:all, :conditions => {:collection => "likert"}, :order => :number) %>
-		<%= form.input :outcome_2, :label => "Outcome Question 1", :as => :radio, :collection => Item.find(:all, :conditions => {:collection => "likert"}, :order => :number) %>
-		<%= form.input :outcome_3, :label => "Outcome Question 1", :as => :radio, :collection => Item.find(:all, :conditions => {:collection => "likert"}, :order => :number) %>
+		<%= form.input :satisfaction_1, :label => Item.find(:first, :conditions => {:collection => "satisfaction", :number => 1}).value, :as => :radio, :collection => Item.find(:all, :conditions => {:collection => "likert"}, :order => :number) %>
+		<%= form.input :satisfaction_2, :label => Item.find(:first, :conditions => {:collection => "satisfaction", :number => 2}).value, :as => :radio, :collection => Item.find(:all, :conditions => {:collection => "likert"}, :order => :number) %>
+		<%= form.input :satisfaction_3,  :label => Item.find(:first, :conditions => {:collection => "satisfaction", :number => 3}).value,:as => :radio, :collection => Item.find(:all, :conditions => {:collection => "likert"}, :order => :number) %>
+		<%= form.input :outcome_1, :label => Item.find(:first, :conditions => {:collection => "outcome", :number => 1}).value, :as => :radio, :collection => Item.find(:all, :conditions => {:collection => "likert"}, :order => :number) %>
+		<%= form.input :outcome_2, :label => Item.find(:first, :conditions => {:collection => "outcome", :number => 2}).value, :as => :radio, :collection => Item.find(:all, :conditions => {:collection => "likert"}, :order => :number) %>
+		<%= form.input :outcome_3, :label => Item.find(:first, :conditions => {:collection => "outcome", :number => 3}).value, :as => :radio, :collection => Item.find(:all, :conditions => {:collection => "likert"}, :order => :number) %>
 		<%= form.input :offer, :label => "Offer?", :hint => "Did this internship result in an offer of extended/full-time work?", :as => :radio %>
 		<%= form.input :recommendations, :hint => "Recommendations for students interested in this internship" %>
   <% end %>

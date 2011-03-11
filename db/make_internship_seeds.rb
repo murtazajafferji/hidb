@@ -28,7 +28,7 @@ WEBSITE = ["www.google.com", "www.microsoft.com", "www.bms.com", "www.apple.com"
 SUPERVISION = "The supervision of the company was very relaxed. The supervisor was always there to help and was always interested in my work. Most of the time I would work directly with the supervisor, but it wasn't like they chained a ball to my leg and monitored my every movements. The supervisor overall was very friendly and even took me out to lunch a few times!"
 RESPONSIBILITIES = "I had to show up on time, get coffee for people, assist in the given tasks, give weekly presentations on learning outcomes, and be energetic."
 RECOMMENDATIONS = "I would really recommend working at this company. They treat all of their interns with respect and integrity. My favorite part of working at this company was the on-hands experience and interaction with professionals. In addition,I have expanded my network by meeting new people, which will ultimately help me in the future."
-LIKERT = ["Strongly disagree", "Disagree", "Neither agree nor disagree", "Agree", "Strongly agree"]
+LIKERT = ["Strongly disagree", "Disagree", "Agree", "Strongly agree"]
 count = 0
 
 user_output.puts "murtaza:"
@@ -118,12 +118,12 @@ user_output.puts "murtaza:"
   supervisor_phone = "(#{rand.to_s[2..4]}) #{rand.to_s[2..4]}-#{rand.to_s[2..5]}"
   supervisor_email = "#{supervisor_name.gsub(/ /,'').downcase}@gmail.com"
   responsibilities = RESPONSIBILITIES
-  satisfaction_1 = LIKERT[rand(5)]
-  satisfaction_2 = LIKERT[rand(5)]
-  satisfaction_3 = LIKERT[rand(5)]
-  outcome_1 = LIKERT[rand(5)]
-  outcome_2 = LIKERT[rand(5)]
-  outcome_3 = LIKERT[rand(5)]
+  satisfaction_1 = LIKERT[rand(4)]
+  satisfaction_2 = LIKERT[rand(4)]
+  satisfaction_3 = LIKERT[rand(4)]
+  outcome_1 = LIKERT[rand(4)]
+  outcome_2 = LIKERT[rand(4)]
+  outcome_3 = LIKERT[rand(4)]
   offer = BOOLEAN[rand(2)]
   recommendations = RECOMMENDATIONS
   

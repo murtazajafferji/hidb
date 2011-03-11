@@ -517,31 +517,6 @@ width:260px;
     margin: 0;
 }
 
-.user-form li{
-	display: inline;
-	list-style-type: none;
-}
-
-.user-form #styled-form { width:98%;}
-.user-form #styled-form fieldset { width: 98%;}
-
-.user-form label{
-	display:inline;
-	margin-right: 10px;
-}
-
-/*.user-form #user_major_input{
-	float:left;
-}
-
-.user-form #user_minor_input{
-	float:right;
-}*/
-
-.personal-info label{
-	display:block;
-}
-
 .internship-form #styled-form {width:98%;}
 .internship-form #styled-form fieldset { width: 98%;}
 
@@ -558,6 +533,12 @@ width:260px;
 #feedback h2{
 	color: #D9D7FC;
 }
+
+.internship-form li{
+	float: left;
+	padding-right: 20px !important;
+}
+
 
 /*---------- left aligned button ----------*/
 .btn { position: relative; background: #aaa; padding: 2px; margin: 0px; color: #fff; text-decoration: none; cursor: pointer; }
