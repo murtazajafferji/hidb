@@ -10,7 +10,7 @@ class InternshipsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @internships }
-      format.csv { send_data @internships.to_comma if current_user.admin }
+      format.csv { send_data Internship.all.to_comma if current_user.admin }
     end
   end
 
