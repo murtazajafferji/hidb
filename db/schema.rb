@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(:version => 20110206130647) do
     t.boolean  "offer"
     t.text     "recommendations"
     t.boolean  "approved",           :default => false
+    t.string   "search_string"
     t.integer  "user_id",                               :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -105,6 +106,7 @@ ActiveRecord::Schema.define(:version => 20110206130647) do
     t.string   "major"
     t.string   "minor"
     t.string   "yog"
+    t.string   "search_string"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -33,6 +33,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string    :minor
       t.string    :yog
       
+      t.string    :search_string
+      
       t.timestamps
     end
     
