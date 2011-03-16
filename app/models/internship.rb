@@ -442,7 +442,6 @@ class Internship < ActiveRecord::Base
     (internship_fields + user_fields).each{|x| string << eval(x).to_s.downcase if !eval(x).blank?}
     string = string.join(" ")
     if self.search_string != string
-      puts string
       self.search_string = string
       save
     end
