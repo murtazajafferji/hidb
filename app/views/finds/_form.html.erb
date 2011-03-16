@@ -1,0 +1,24 @@
+<div class="internship-form">
+<%= semantic_form_for @internship, :html => { :id => "styled-form", :method => :get }, :url => advanced_search_path, :remote => true do |form| %>
+  <% form.inputs "Advanced Search", :id => "optional" do %>	
+    <%= form.input :how, :label => "How did you find/identify this opportunity?", :as => :select, :collection => Item.find(:all, :conditions => {:collection => "how"}, :order => :number).collect{|x| x.value}, :input_html => { :style => 'width: 200px;' } %>
+		<%= form.input :semester, :as => :check_boxes, :collection => Item.find(:all, :conditions => {:collection => "semester"}, :order => :number).collect{|x| x.value} %>
+		<%= form.input :year, :as => :select, :collection => Internship::YEAR, :name => :year %>
+		<%= form.input :credit, :label => "For credit?", :as => :radio %>
+		<%= form.input :course, :label => "Course Name" %>
+		<%= form.input :compensation, :as => :select, :collection => Item.find(:all, :conditions => {:collection => "compensation"}, :order => :number).collect{|x| x.value} %>
+		<%= form.input :hours, :label => "Hours per week", :as => :select, :collection => Item.find(:all, :conditions => {:collection => "hours"}, :order => :number).collect{|x| x.value} %>
+		<%= form.input :industry, :as => :select, :collection => Item.find(:all, :conditions => {:collection => "industry"}, :order => :number).collect{|x| x.value}, :input_html => { :style => 'width: 200px;' } %>
+		<%= form.input :company_name %>
+		<%= form.input :company_department %>
+		<%= form.input :city %>
+		<%= form.input :state, :as => :select, :collection => Item.find(:all, :conditions => {:collection => "state"}, :order => :number).collect{|x| x.value} %>
+		<%= form.input :country, :as => :select, :collection => Item.find(:all, :conditions => {:collection => "country"}, :order => :number).collect{|x| x.value} %>
+		<%= form.input :public_transport, :as => :radio %>
+		<%= form.input :offer, :label => "Received offer after?", :as => :radio %>
+  <% end %>
+  <% form.buttons do %>
+    <%= form.commit_button %>
+  <% end %>
+<% end %>
+</div>

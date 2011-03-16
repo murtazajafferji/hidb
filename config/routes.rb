@@ -60,11 +60,12 @@ Hidb::Application.routes.draw do
 
   resources :finds do
     collection do
-      get :quran_search
+      get :advanced_search
     end
     member do
     end
   end
+  match 'advanced_search' => 'finds#advanced_search', :as => :advanced_search
   
   resources :words do
     collection do

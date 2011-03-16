@@ -78,7 +78,8 @@ _gaq.push(['_trackPageview']);
 
 			<div id="usernav">
 				<ul>
-					<% if current_user %>
+					<% if current_user %>'
+					<li><%= link_to "Advanced Search", advanced_search_path %></li>
 					<li><%= link_to "New Internship", new_internship_path %></li>
 					<li><%= link_to current_user.profile[:name], current_user %></li>
 					<li><%= link_to "Logout", logout_path %></li>

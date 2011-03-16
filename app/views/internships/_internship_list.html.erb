@@ -1,3 +1,4 @@
+<% if !internships.blank? %>
 <table class="datagrid">
   <tr>
     <th><%= link_to "Field/Industry", sort_url("sort", "industry") %></th>
@@ -34,3 +35,7 @@
 <br />
 
 <%# link_to 'New Internship', new_internship_path %>
+
+<% else %>
+<center><%= "Sorry. We did not find any internships matching your request." %></center>
+<% end %>

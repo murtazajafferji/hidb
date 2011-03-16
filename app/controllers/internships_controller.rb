@@ -46,6 +46,7 @@ class InternshipsController < ApplicationController
   # POST /internships.xml
   def create
     @internship = Internship.new(params[:internship])
+    @internship.semester = @internship.semester.join(" ").strip if @internship.semester
     @internship.user_id = current_user.id
 
     respond_to do |format|

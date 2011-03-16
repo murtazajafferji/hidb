@@ -37,35 +37,38 @@ class FindsController < ApplicationController
     end
   end
   
-  def quran_search
-    if params[:sipara]
-      @qurans = Quran.sipara(params[:sipara].to_i)
-      @name = @qurans[0].sipara_name if !@qurans.blank?
-    end
-    
-    if params[:surat]
-      @qurans = Quran.surat(params[:surat].to_i)
-      @name = "Surat: #{@qurans[0].surat_name_arabic}</p>" if !@qurans.blank?
-    end
-    
-    if params[:ayat]
-      ayat = params[:ayat].gsub(/[^0-9\-:]/, "").split(':')
-      if ayat[1].include? "-"
-        ayat = ayat[0].to_a + ayat[1].split("-")
-        @qurans = Quran.find(:all, :order => :ayat, :conditions => {:surat => ayat[0].to_i, :ayat => (ayat[1].to_i..ayat[2].to_i).to_a, :kind => :ayat}).to_a
-        @name = "#{@qurans[0].name} - #{@qurans.last.name} #{@qurans[0].surat_name_arabic}</p>" if !@qurans.blank?
-      else
-        @qurans = Quran.find(:first, :conditions => {:surat => ayat[0].to_i, :ayat => ayat[1].to_i, :kind => :ayat}).to_a
-        @name = "#{@qurans[0].name} #{@qurans[0].surat_name_arabic}</p>" if !@qurans.blank?
+  def advanced_search
+    fields = ["how", "semester", "year",  "course", "compensation", "hours", "industry", "company_name", "company_department", "city", "state", "country" ]
+    boolean = ["credit","public_transport", "offer"]
+    @internship = Internship.new
+    if params[:internship]
+      internship = Internship.new(params[:internship])
+      internship.semester = internship.semester.join(" ").strip if internship.semester
+      array = []
+      fields.each{|x| array << ":#{x} => \"#{eval("internship." + x)}\"" if !eval("internship." + x).blank?}
+      boolean.each{|x| array << ":#{x} => #{eval("internship." + x)}" if !eval("internship." + x).blank?}
+      string = array.join(", ")
+      if !string.blank?
+        @internships = eval("Internship.find(:all, :conditions => {#{string}})")
       end
     end
-    
+        
+    # if advanced_search[:year]
+    #   @internships = Internship.all
+    # end
+            
+
     respond_to do |wants|
-      wants.html { redirect_to @qurans }
-      wants.xml { render :xml => @qurans }
+      if @internships 
+      wants.html #{ redirect_to @internships }
+      wants.xml #{ render :xml => @internships }
       wants.js {
-        render(:update) {|page| page.replace_html 'quran_search', :partial => 'qurans/quran_search', :locals => {:qurans => @qurans, :name => @name}}
+        render(:update) {|page| page.replace_html 'results', :partial => 'internships/internship_list', :locals => {:internships => @internships}}
       }    
+      else 
+      	wants.html 
+        wants.xml
+      end
     end
   end
         

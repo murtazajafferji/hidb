@@ -4,9 +4,6 @@
 	<p><%= "Search Results for \"#{$query}\"" %><p>
 	<% if !@results.blank? %>
 	<%= render :partial => 'internships/internship_list', :locals => {:internships => @results} %>
-		<%# @results.each_with_index do |result, i| %>
-		  <%# "#{i + 1}. " %><%# link_to "Internship", result if result.class == Internship%><%# link_to "#{result.first_name} #{result.last_name}", result if (result.class == User and result.first_name and result.last_name) %> <%# link_to "(#{result.user.first_name} #{result.user.last_name})", result if (result.class == Internship and result.user.first_name and result.user.last_name) %>
-		<%# end %>
 	<% else %>
 		<center><%= "Sorry. We did not find any results for \"#{$query}\"." %></center>
 	<% end %>
