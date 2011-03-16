@@ -81,11 +81,12 @@ class FindsController < ApplicationController
       if !string.blank?
         @internships = eval("Internship.find(:all, :conditions => [#{string}])")
       end
+      
+      if !internship.search_string.blank?
+        query_set = internship.search_string.downcase.split.to_set
+  	    @internships = @internships.collect{|x| x if query_set.subset?(x.search_string.split.to_set)}
+  	  end
     end
-        
-    # if advanced_search[:year]
-    #   @internships = Internship.all
-    # end
             
 
     respond_to do |wants|

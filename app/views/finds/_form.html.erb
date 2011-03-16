@@ -29,6 +29,7 @@ $(document).ready(function(){
 		<%= form.input :country, :as => :select, :collection => Item.find(:all, :conditions => {:collection => "country"}, :order => :number).collect{|x| x.value} %>
 		<%= form.input :public_transport, :as => :radio, :collection => {"Yes" => 't', "No" => 'f', "Either" => ' '}.sort.reverse %>
 		<%= form.input :offer, :label => "Received offer after?", :as => :radio, :collection => {"Yes" => 't', "No" => 'f', "Either" => ' '}.sort.reverse %>
+		<%= form.input :search_string %>
   <% end %>
   <% form.buttons do %>
     <%= form.commit_button :label => "Search" %>
