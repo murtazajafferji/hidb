@@ -39,18 +39,47 @@ class FindsController < ApplicationController
   end
   
   def advanced_search
-    fields = ["how", "semester", "year",  "course", "compensation", "hours", "industry", "company_name", "company_department", "city", "state", "country" ]
+    text = ["course", "company_name", "company_department", "city"]
+    fields = ["how", "semester", "year",  "compensation", "hours", "industry", "state", "country" ]
     boolean = ["credit","public_transport", "offer"]
     @internship = Internship.new
     if params[:internship]
       internship = Internship.new(params[:internship])
       internship.semester = internship.semester.join(" ").strip if internship.semester
-      array = []
-      fields.each{|x| array << ":#{x} => \"#{eval("internship." + x)}\"" if !eval("internship." + x).blank?}
-      boolean.each{|x| array << ":#{x} => #{eval("internship." + x)}" if !eval("internship." + x).blank?}
-      string = array.join(", ")
+      # array = []
+      # text_array = []
+      # text.each{|x| text_array << "LOWER(x) LIKE '#{eval("internship." + x).downcase}'" if !eval("internship." + x).blank?}
+      # array << "\"#{text_array.join(" and ")}\"" if !text_array.blank?
+      # fields.each{|x| array << ":#{x} => \"#{eval("internship." + x)}\"" if !eval("internship." + x).blank?}
+      # boolean.each{|x| array << ":#{x} => #{eval("internship." + x)}" if !eval("internship." + x).nil?}
+      # string = array.join(", ")
+      
+      first = []
+      second = []
+      text.each{|x| 
+        if !eval("internship." + x).blank?
+          first << "LOWER(#{x}) LIKE ?" 
+          second << "'%#{eval("internship." + x).downcase}%'"
+        end
+      }
+      fields.each{|x| 
+        if !eval("internship." + x).blank?
+          first << "#{x} = ?" 
+          second << "'#{eval("internship." + x)}'"
+        end
+      }
+      boolean.each{|x| 
+        if !eval("internship." + x).nil?
+          first << "#{x} = ?" 
+          second << "#{eval("internship." + x).to_s}"
+        end
+      }
+      string = "\"#{first.join(" and ")}\", " if !first.blank?
+      string += second.join(", ") if !second.blank?
+      
+    puts "Internship.find(:all, :conditions => [#{string}])"
       if !string.blank?
-        @internships = eval("Internship.find(:all, :conditions => {#{string}})")
+        @internships = eval("Internship.find(:all, :conditions => [#{string}])")
       end
     end
         
