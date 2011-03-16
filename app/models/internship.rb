@@ -445,8 +445,6 @@ class Internship < ActiveRecord::Base
       puts string
       self.search_string = string
       save
-    else 
-      puts "FAIL" + string
     end
   end
 

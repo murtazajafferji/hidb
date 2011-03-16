@@ -1,7 +1,7 @@
 <% title "Search Results for \"#{$query}\"" %>
 
 <div class="search-result">
-	<p><%= "Search Results for \"#{$query}\"" %><p>
+	<p><%= "Search Results for \"#{$query}\"" %></p>
 	<% if !@results.blank? %>
 	<%= render :partial => 'internships/internship_list', :locals => {:internships => @results} %>
 	<% else %>

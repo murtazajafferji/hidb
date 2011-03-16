@@ -32,6 +32,7 @@ class FindsController < ApplicationController
         else 
         	wants.html 
           wants.xml
+          wants.csv { send_data Internship.find_all_by_id(params[:internships]).to_comma if current_user.admin } if params[:internships]
         end
       end
     end
@@ -64,10 +65,12 @@ class FindsController < ApplicationController
       wants.xml #{ render :xml => @internships }
       wants.js {
         render(:update) {|page| page.replace_html 'results', :partial => 'internships/internship_list', :locals => {:internships => @internships}}
-      }    
+      }  
+      wants.csv { send_data @internships.to_comma if current_user.admin }
       else 
       	wants.html 
         wants.xml
+        wants.csv { send_data Internship.find_all_by_id(params[:internships]).to_comma if current_user.admin } if params[:internships]
       end
     end
   end

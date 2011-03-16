@@ -1,4 +1,6 @@
 <% if !internships.blank? %>
+<%= link_to("Download", :internships => internships, :format => :csv) if current_user and current_user.admin %>
+
 <table class="datagrid">
   <tr>
     <th><%= link_to "Field/Industry", sort_url("sort", "industry") %></th>
