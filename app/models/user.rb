@@ -33,6 +33,8 @@ class User < ActiveRecord::Base
   # before_update :email_changed_notification
   
   before_create :make_activation_code
+  
+  after_save :make_search_string
 
   # HACK HACK HACK -- how to do attr_accessible from here?
   # prevents a user from submitting a crafted form that bypasses activation
@@ -145,6 +147,10 @@ class User < ActiveRecord::Base
     "2019",
     "2020"]
     
+  def make_search_string
+    internships.each{|x| x.make_search_string}
+  end
+  
   def required
     !email.blank? and !major.blank? and !yog.blank? and !first_name.blank? and !last_name.blank?
   end

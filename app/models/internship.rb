@@ -1,5 +1,6 @@
 class Internship < ActiveRecord::Base
   belongs_to :user
+  after_save :make_search_string
   
   comma do
     user :login
@@ -432,6 +433,21 @@ class Internship < ActiveRecord::Base
     
     # Execute the query
     self.all(query_params)
+  end
+  
+  def make_search_string
+    internship_fields = ["semester", "year", "course", "hours", "industry", "company_name", "company_department", "city", "state", "country", "website", "user_id"]
+    user_fields = ["user.first_name", "user.last_name", "user.email", "user.major", "user.minor"]
+    string = []
+    (internship_fields + user_fields).each{|x| string << eval(x).to_s.downcase if !eval(x).blank?}
+    string = string.join(" ")
+    if self.search_string != string
+      puts string
+      self.search_string = string
+      save
+    else 
+      puts "FAIL" + string
+    end
   end
 
       
