@@ -1,7 +1,5 @@
 Hidb::Application.routes.draw do
-  
-  resources :reports
-  match 'download' => 'reports#download', :as => :download
+    match 'download' => 'reports#download', :as => :download
 
   resources :items
   
