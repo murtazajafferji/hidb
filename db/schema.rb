@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(:version => 20110206130647) do
     t.boolean  "offer"
     t.text     "review"
     t.boolean  "approved",           :default => false
-    t.string   "search_string"
+    t.text     "search_string"
     t.integer  "user_id",                               :null => false
     t.datetime "created_at"
     t.datetime "updated_at"

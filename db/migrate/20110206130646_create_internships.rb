@@ -31,7 +31,7 @@ class CreateInternships < ActiveRecord::Migration
       #t.text :recommendations
       t.text :review
       t.boolean :approved, :default => false
-      t.string :search_string
+      t.text :search_string
       
       t.references :user,  :null => false
 
