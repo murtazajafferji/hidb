@@ -1,31 +1,22 @@
 <div class="internship-form">
 <%= semantic_form_for @internship, :html => { :id => "styled-form" } do |form| %>
   <% form.inputs "Required", :id => "required" do %>	
-    <%= form.input :how, :label => "How did you find/identify this opportunity?", :as => :select, :collection => Item.find(:all, :conditions => {:collection => "how"}, :order => :number).collect{|x| x.value}, :input_html => { :style => 'width: 200px;' } %>
-		<%= form.input :semester, :as => :check_boxes, :collection => Item.find(:all, :conditions => {:collection => "semester"}, :order => :number).collect{|x| x.value} %>
+		<%= form.input :semester, :as => :check_boxes, :collection => Internship::SEMESTER %>
 		<%= form.input :year, :as => :select, :collection => Internship::YEAR %>
-		<%= form.input :credit, :label => "For credit?", :as => :radio %>
-		<%= form.input :course, :label => "Course Name" %>
-		<%= form.input :compensation, :as => :select, :collection => Item.find(:all, :conditions => {:collection => "compensation"}, :order => :number).collect{|x| x.value} %>
-		<%= form.input :hours, :label => "Hours per week", :as => :select, :collection => Item.find(:all, :conditions => {:collection => "hours"}, :order => :number).collect{|x| x.value} %>
-		<%= form.input :industry, :as => :select, :collection => Item.find(:all, :conditions => {:collection => "industry"}, :order => :number).collect{|x| x.value}, :input_html => { :style => 'width: 200px;' } %>
+		<%= form.input :compensation, :as => :select, :collection => Internship::COMPENSATION %>
+		<%= form.input :hours, :label => "Hours per week", :as => :select, :collection => Internship::HOURS %>
+		<%= form.input :industry, :as => :select, :collection => Internship::INDUSTRY, :input_html => { :style => 'width: 200px;' } %>
 		<%= form.input :company_name %>
 		<%= form.input :company_department %>
 		<%= form.input :city %>
-		<%= form.input :state, :as => :select, :collection => Item.find(:all, :conditions => {:collection => "state"}, :order => :number).collect{|x| x.value} %>
-		<%= form.input :country, :as => :select, :collection => Item.find(:all, :conditions => {:collection => "country"}, :order => :number).collect{|x| x.value} %>
+		<%= form.input :state, :as => :select, :collection => Internship::STATE %>
+		<%= form.input :country, :as => :select, :collection => Internship::COUNTRY %>
 		<%= form.input :website, :label => "Organization website" %>
 		<%= form.input :public_transport, :as => :radio %>
 		<%= form.input :supervision, :label => "Details of supervision" %>
 		<%= form.input :responsibilities %>
-		<%= form.input :satisfaction_1, :label => Item.find(:first,:conditions => {:collection => "satisfaction", :number => 1}).value, :as => :radio, :collection => Item.find(:all, :conditions => {:collection => "likert"}, :order => :number).collect{|x| x.value} %>
-		<%= form.input :satisfaction_2, :label => Item.find(:first, :conditions => {:collection => "satisfaction", :number => 2}).value, :as => :radio, :collection => Item.find(:all, :conditions => {:collection => "likert"}, :order => :number).collect{|x| x.value} %>
-		<%= form.input :satisfaction_3,  :label => Item.find(:first, :conditions => {:collection => "satisfaction", :number => 3}).value,:as => :radio, :collection => Item.find(:all, :conditions => {:collection => "likert"}, :order => :number).collect{|x| x.value} %>
-		<%= form.input :outcome_1, :label => Item.find(:first, :conditions => {:collection => "outcome", :number => 1}).value, :as => :radio, :collection => Item.find(:all, :conditions => {:collection => "likert"}, :order => :number).collect{|x| x.value} %>
-		<%= form.input :outcome_2, :label => Item.find(:first, :conditions => {:collection => "outcome", :number => 2}).value, :as => :radio, :collection => Item.find(:all, :conditions => {:collection => "likert"}, :order => :number).collect{|x| x.value} %>
-		<%= form.input :outcome_3, :label => Item.find(:first, :conditions => {:collection => "outcome", :number => 3}).value, :as => :radio, :collection => Item.find(:all, :conditions => {:collection => "likert"}, :order => :number).collect{|x| x.value} %>
 		<%= form.input :offer, :label => "Offer?", :hint => "Did this internship result in an offer of extended/full-time work?", :as => :radio %>
-		<%= form.input :recommendations, :hint => "Recommendations for students interested in this internship" %>
+		<%= form.input :review %>
   <% end %>
   <% form.inputs :name => "Optional", :id => "optional" do %>
 	<%= form.input :supervisor_name %>

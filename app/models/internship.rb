@@ -17,11 +17,8 @@ class Internship < ActiveRecord::Base
     user :yog
     user :created_at
     user :updated_at
-    how
     semester
     year
-    credit
-    course
     compensation
     hours
     industry
@@ -37,37 +34,14 @@ class Internship < ActiveRecord::Base
     supervisor_phone
     supervisor_email
     responsibilities
-    satisfaction_1
-    satisfaction_2
-    satisfaction_3
-    outcome_1
-    outcome_2
-    outcome_3
     offer
-    recommendations
+    review
     approved
     user_id
     created_at
     updated_at
   end
 
-
-    HOW = [
-    "Hiatt NACElink",
-    "Hiatt Emails",
-    "Faculty contact",
-    "Family contact",
-    "Did research and contacted on my own",
-    "Brandeis Staff recommendation",
-    "Brandeis Student recommendation",
-    "Other online resource (Career Search, Idealist.org)",
-    "Hiatt On or off-campus recruiting opportunity",
-    "My current job or internship",
-    "Created the internship on my own",
-    "Career/Internship fair",
-    "Alumni Contact",
-    "Other (please explain)"]
-    
     SEMESTER =
     ["Fall",
       "Spring",
@@ -81,8 +55,7 @@ class Internship < ActiveRecord::Base
       "Weekly Salary",
       "Parking Costs",
       "Food Provisions",
-      "Transportation Costs",
-      "Brandeis Internship Funding"]
+      "Transportation Costs"]
       
     INDUSTRY = [
       "Accounting Services",
@@ -436,7 +409,7 @@ class Internship < ActiveRecord::Base
   end
   
   def make_search_string
-    internship_fields = ["semester", "year", "course", "hours", "industry", "company_name", "company_department", "city", "state", "country", "website", "user_id"]
+    internship_fields = ["semester", "year", "hours", "industry", "company_name", "company_department", "city", "state", "country", "website", "user_id"]
     user_fields = ["user.first_name", "user.last_name", "user.email", "user.major", "user.minor"]
     string = []
     (internship_fields + user_fields).each{|x| string << eval(x).to_s.downcase if !eval(x).blank?}

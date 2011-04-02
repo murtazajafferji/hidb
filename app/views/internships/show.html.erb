@@ -29,10 +29,6 @@
 	<dd><%= @internship.company_department if @internship.company_department %></dd>
 	<dt>Hours per week(not including travel)</dt>
 	<dd><%= @internship.hours if @internship.hours %></dd>
-	<dt>Course</dt>
-	<dd><%= @internship.course if @internship.course %></dd>
-	<dt>Internship Done for Credit?</dt>
-	<dd><%= @internship.credit ? "Yes" : "No" if !@internship.credit.nil? %></dd>
 	<dt>Compensation Received</dt>
 	<dd><%= @internship.compensation if @internship.compensation %></dd>
 	<br>
@@ -46,25 +42,13 @@
 </div>
 
 <div id="internship-main"> 
-  <h1>Internship Name (still to be implemented..)</h1>
+  <h1>Internship Name</h1>
   <dt>Internship Duties</dt>
     <dl> <%= @internship.responsibilities if @internship.responsibilities %> </dl>
   <dt>Details of Supervision</dt>
     <dl> <%= @internship.supervision if @internship.supervision %> </dl>
-  <dt>Satisfaction Q1</dt>
-    <dl><%= @internship.satisfaction_1 if @internship.satisfaction_1 %> </dl>
-  <dt>Satisfaction Q2</dt>
-    <dl><%= @internship.satisfaction_2 if @internship.satisfaction_2 %> </dl>
-  <dt>Satisfaction Q3</dt>
-    <dl><%= @internship.satisfaction_3 if @internship.satisfaction_3 %> </dl>
-  <dt>Learning Outcome 1</dt>
-    <dl><%= @internship.outcome_1 if @internship.outcome_1 %></dl>
-  <dt>Learning Outcome 2</dt>
-    <dl><%= @internship.outcome_2 if @internship.outcome_2 %></dl>
-  <dt>Learning Outcome 3</dt>
-    <dl><%= @internship.outcome_3 if @internship.outcome_3 %></dl>
-  <dt>Recommendations for students interested in this internship</dt>
-    <dl><%= @internship.recommendations if @internship.recommendations %></dl>   
+  <dt>Review</dt>
+    <dl><%= @internship.review if @internship.review %></dl>   
 	<br>
 </div>
 </div>

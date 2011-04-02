@@ -1,8 +1,0 @@
-<% title "Item List" %>
-
-<h2>Item List</h2>
-<h2><%= link_to "New Item", new_item_path %></h2>
-<% Item.separated_by_collection.each do |x| %>
-<h2><%= x.first.collection.capitalize %></h2>
-<%= render(:partial => 'items/item_list', :locals => {:items => x}) %>
-<% end %>

@@ -1,6 +1,5 @@
 class FindsController < ApplicationController
   require 'lib/string.rb'
-  before_filter :require_user, :only => [:index]
   
   def index
     if params[:user]

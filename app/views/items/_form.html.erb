@@ -1,9 +1,0 @@
-<%= semantic_form_for @item, :html => { :id => "styled-form" } do |form| %>
-  <% form.inputs do %>	
-		<%= form.input :collection, :as => :select, :collection => Item.collection_names %>
-    <%= form.input :value %>
-  <% end %>
-  <% form.buttons do %>
-    <%= form.commit_button %>
-  <% end %>
-<% end %>

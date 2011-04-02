@@ -7,7 +7,6 @@ LAST_NAME = ["Smith", "Johnson", "Williams", "Jones", "Brown", "Davis", "Miller"
 MAJOR = ["Undeclared", "African and Afro-American Studies", "American Studies", "Anthropology", "Art History", "Biochemistry", "Biological Physics", "Biology", "Business", "Chemistry", "Classical Studies", "Comparative Literature", "Computer Science", "Creative Writing", "East Asian Studies", "Economics", "Education Studies", "English and American Literature", "Environmental Studies", "European Cultural Studies", "Film, Television, and Interactive Media", "Fine Arts", "French and Francophone Studies", "German Language and Literature", "Health: Science, Society, and Policy", "Hebrew Language and Literature", "Hispanic Studies", "History", "Independent Interdisciplinary", "International and Global Studies", "Islamic and Middle Eastern Studies", "Italian Studies", "Language and Linguistics", "Latin American and Latino Studies", "Music", "Neuroscience", "Philosophy", "Physics", "Psychology", "Russian  Studies", "Sociology", "Studio Art", "Theater Arts", "Women's &and Gender Studies"]
 MINOR = ["Undeclared", "African and Afro-American Studies", "Art History", "Business", "Computer Science", "Creative Writing", "East Asian Studies", "Economics", "Education Studies", "English and American Literature", "Environmental Studies", "Film, Television, and Interactive Media", "Fine Arts", "French and Francophone Studies", "German Language and Literature", "Hebrew Language and Literature", "Hispanic Studies", "History", "History of Ideas", "International and Global Studies", "Internet Studies", "Islamic and Middle Eastern Studies", "Italian Studies", "Journalism", "Language and Linguistics", "Latin American and Latino Studies", "Legal Studies", "Mathematics", "Medieval and Renaissance Studies", "Music", "Near Eastern and Judaic Studies", "Peace, Conflict and Coexistence", "Philosophy", "Physics", "Politics", "Religious Studies", "Russian  Studies", "Social Justice and Social Policy", "South Asian Studies", "Teacher Education", "Theater Arts", "Women's and Gender Studies", "Yiddish and East European Jewish Culture"]
 YOG = ["2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020"]
-HOW = ["Hiatt NACElink", "Hiatt Emails", "Faculty contact", "Family contact", "Did research and contacted on my own", "Brandeis Staff recommendation", "Brandeis Student recommendation", "Other online resource (Career Search, Idealist.org)", "Hiatt On or off-campus recruiting opportunity", "My current job or internship", "Created the internship on my own", "Career/Internship fair", "Alumni Contact", "Other (please explain)"]
 SEMESTER = ["Fall", "Spring", "Summer"]
 COMPENSATION = ["None", "Lump Stipend from company", "Hourly Pay", "Weekly Salary", "Parking Costs", "Food Provisions", "Transportation Costs", "Brandeis Internship Funding"]  
 INDUSTRY = ["Accounting Services", "Administrative, Technical, Manual, and Professional Services", "Advertising and Marketing/Public Relations/Media Relations", "Agriculture", "Architecture and Urban Planning", "Biotechnology and Pharmaceutical", "Education - Pre-k to 12", "Education - Early Childhood", "Energy/ Utilities / Alternative Energies", "Environment and Conservation", "Finance and Banking", "Fine & Performing Arts", "Food and Beverage", "Foundations", "Government - Federal", "Government - State & Local", "Government - International", "Health Care", "Hospitality (Restaurant, Hotel, Travel)", "Human & Social Services", "Information Technology/Computers", "Insurance", "International", "Law", "Management & Economic Consulting", "Manufacturing", "Media (Broadcast, Print, Digital)", "Military", "Museum, Library, Archives", "Non-Profit", "Publishing and Journalism", "Real Estate", "Religion", "Research", "Retail & Wholesale Trade", "Sports", "Transportation", "Other"]
@@ -19,7 +18,6 @@ BOOLEAN = [true, false]
 PERSISTENCE_TOKEN = "07d21add8837fc6548560638e83b17c7bb9f0634a3caf637cec5864acfd9cf88c1fa715adb90a788cb831c76c747dd6010462737fe16f38534c96a40041e7969"
 SINGLE_ACCESS_TOKEN = "551u1H9kUUt80TuKaVqW"
 PERISHABLE_TOKEN = "NyuQw4yZYZOVsN5DzqVO"
-COURSE =["COSI12B", "COSI31A", "MATH140A", "HSSP96A", "UWS32A", "COSI21B", "ENG44A", "HIST78A", "BUS6A", "BUS10A"]
 COMPANY_NAME = ["Google", "Microsoft", "Bristol-Myers Squibb", "Apple", "BP", "Brandeis University", "Addidas", "Boston Children's Hospital", "RBS", "PWC"]
 COMPANY_DEPARTMENT = ["Human Resources", "Technology", "Marketing", "Information Technology", "Accounting", "Logistics", "Administration", "Communication", "Finance", "Consumer Affairs"]
 CITY = ["New York City", "Boston", "Chicago", "Dallas", "Irving", "Seattle", "San Francisco", "Los Angeles", "Houston", "Philadelphia"]
@@ -27,8 +25,7 @@ CITY_HASH = {"New York City" => 'NY', "Boston" => 'MA', "Chicago" => 'IL', "Dall
 WEBSITE = ["www.google.com", "www.microsoft.com", "www.bms.com", "www.apple.com", "www.bp.com", "www.brandeis.edu", "www.addidas.com", "www.childrenshospital.org", "www.rbs.com", "www.pwc.org"]
 SUPERVISION = "The supervision of the company was very relaxed. The supervisor was always there to help and was always interested in my work. Most of the time I would work directly with the supervisor, but it wasn't like they chained a ball to my leg and monitored my every movements. The supervisor overall was very friendly and even took me out to lunch a few times!"
 RESPONSIBILITIES = "I had to show up on time, get coffee for people, assist in the given tasks, give weekly presentations on learning outcomes, and be energetic."
-RECOMMENDATIONS = "I would really recommend working at this company. They treat all of their interns with respect and integrity. My favorite part of working at this company was the on-hands experience and interaction with professionals. In addition,I have expanded my network by meeting new people, which will ultimately help me in the future."
-LIKERT = ["Strongly disagree", "Disagree", "Agree", "Strongly agree"]
+REVIEW = "I would really recommend working at this company. They treat all of their interns with respect and integrity. My favorite part of working at this company was the on-hands experience and interaction with professionals. In addition,I have expanded my network by meeting new people, which will ultimately help me in the future."
 count = 0
 
 user_output.puts "murtaza:"
@@ -96,11 +93,8 @@ user_output.puts "murtaza:"
   i = rand(5) + 1
   i.times do
     
-  how = HOW[rand(14)]
   semester = SEMESTER[rand(3)]
   year = YEAR[rand(5)]
-  credit = BOOLEAN[rand(2)]
-  course = COURSE[rand(10)]
   compensation = COMPENSATION[rand(8)]
   hours = HOURS[rand(25)]
   industry = INDUSTRY[rand(38)]
@@ -118,21 +112,12 @@ user_output.puts "murtaza:"
   supervisor_phone = "(#{rand.to_s[2..4]}) #{rand.to_s[2..4]}-#{rand.to_s[2..5]}"
   supervisor_email = "#{supervisor_name.gsub(/ /,'').downcase}@gmail.com"
   responsibilities = RESPONSIBILITIES
-  satisfaction_1 = LIKERT[rand(4)]
-  satisfaction_2 = LIKERT[rand(4)]
-  satisfaction_3 = LIKERT[rand(4)]
-  outcome_1 = LIKERT[rand(4)]
-  outcome_2 = LIKERT[rand(4)]
-  outcome_3 = LIKERT[rand(4)]
   offer = BOOLEAN[rand(2)]
-  recommendations = RECOMMENDATIONS
+  review = REVIEW
   
   internship_output.puts "#{count}:"
-  internship_output.puts "  how: \"#{how}\""
   internship_output.puts "  semester: \"#{semester}\""
   internship_output.puts "  year: \"#{year}\""
-  internship_output.puts "  credit: #{credit}"
-  internship_output.puts "  course: #{course}"
   internship_output.puts "  compensation: #{compensation}"
   internship_output.puts "  hours: #{hours}"
   internship_output.puts "  industry: \"#{industry}\""
@@ -148,14 +133,8 @@ user_output.puts "murtaza:"
   internship_output.puts "  supervisor_phone: \"#{supervisor_phone}\""
   internship_output.puts "  supervisor_email: \"#{supervisor_email}\""
   internship_output.puts "  responsibilities: \"#{responsibilities}\""
-  internship_output.puts "  satisfaction_1: \"#{satisfaction_1}\""
-  internship_output.puts "  satisfaction_2: \"#{satisfaction_2}\""
-  internship_output.puts "  satisfaction_3: \"#{satisfaction_3}\""
-  internship_output.puts "  outcome_1: \"#{outcome_1}\""
-  internship_output.puts "  outcome_2: \"#{outcome_2}\""
-  internship_output.puts "  outcome_3: \"#{outcome_3}\""
   internship_output.puts "  offer: #{offer}"
-  internship_output.puts "  recommendations: \"#{recommendations}\""
+  internship_output.puts "  review: \"#{review}\""
   internship_output.puts "  user: \"#{first_name} #{last_name}\""  
   count += 1
   end

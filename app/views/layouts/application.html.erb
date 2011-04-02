@@ -64,8 +64,8 @@ _gaq.push(['_trackPageview']);
 			<div id="topnav">
 				<ul>
 					<li id="homebutton"><%= link_to "Home", root_path %></li>
-					<li><%= link_to "Hiatt", "http://www.brandeis.edu/hiatt/" %></li>
-					<li><%= link_to "NACElink", "https://brandeisu-csm.symplicity.com/students/" %></li>
+					<li><%# link_to "Hiatt", "http://www.brandeis.edu/hiatt/" %></li>
+					<li><%# link_to "NACElink", "https://brandeisu-csm.symplicity.com/students/" %></li>
 					<% if current_user %>
 					<li><%= link_to "Internship List", internships_path %></li>
 					<% end %>

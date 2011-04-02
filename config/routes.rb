@@ -1,7 +1,5 @@
 Hidb::Application.routes.draw do
     match 'download' => 'reports#download', :as => :download
-
-  resources :items
   
   resources :internships
   match '/unapproved' => 'internships#unapproved', :as => :unapproved
@@ -102,7 +100,7 @@ Hidb::Application.routes.draw do
   match "/resume" => "info#resume", :as => :resume
   match "/test" => "info#test", :as => :test
   
-  root :to => "user_sessions#new" 
+  root :to => "internships#index" 
 
   # match 'controllerinfo' => '#index', :as => :with_options
   # match 'controllergames' => '#index', :as => :with_options

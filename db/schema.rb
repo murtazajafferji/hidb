@@ -26,11 +26,8 @@ ActiveRecord::Schema.define(:version => 20110206130647) do
   add_index "access_tokens", ["key"], :name => "index_access_tokens_on_key", :unique => true
 
   create_table "internships", :force => true do |t|
-    t.string   "how"
     t.string   "semester"
     t.string   "year"
-    t.boolean  "credit"
-    t.string   "course"
     t.string   "compensation"
     t.string   "hours"
     t.string   "industry"
@@ -46,14 +43,8 @@ ActiveRecord::Schema.define(:version => 20110206130647) do
     t.string   "supervisor_phone"
     t.string   "supervisor_email"
     t.text     "responsibilities"
-    t.string   "satisfaction_1"
-    t.string   "satisfaction_2"
-    t.string   "satisfaction_3"
-    t.string   "outcome_1"
-    t.string   "outcome_2"
-    t.string   "outcome_3"
     t.boolean  "offer"
-    t.text     "recommendations"
+    t.text     "review"
     t.boolean  "approved",           :default => false
     t.string   "search_string"
     t.integer  "user_id",                               :null => false
