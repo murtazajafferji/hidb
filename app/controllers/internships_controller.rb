@@ -1,5 +1,5 @@
 class InternshipsController < ApplicationController
-  before_filter :require_user, :only => [:create, :update, :destroy]
+  before_filter :require_user, :only => [:create, :update, :destroy, :new]
   before_filter :require_admin, :only => [:unapproved]
   # GET /internships
   # GET /internships.xml

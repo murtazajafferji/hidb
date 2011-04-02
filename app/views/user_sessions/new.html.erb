@@ -5,14 +5,15 @@
 <!-- authentication_type should be "user" or "session", based on controller -->
 <%= oauth_login_hidden_input %>
 <fieldset>
-  <p>Click to log in with your Brandeis email address</p>
+  <p>Login with Facebook, LinkedIn, Google Account</p>
   <div class='oauth_providers'>
     <ul>
+      <% %w(facebook linked_in google).each do |name| %>
       <li class='oauth_provider'>
-        <%= image_tag "/images/icons/brandeis.png" %>
-        <%= radio_button_tag :oauth_provider, "google", :checked => "checked" %>
-				<%= radio_button_tag :oauth_provider, "google", :checked => "checked" %>
+        <%= image_tag "/images/icons/#{name}.png" %>
+        <%= radio_button_tag :oauth_provider, name %>
       </li>
+      <% end %>
     </ul>
   </div>
 </fieldset>

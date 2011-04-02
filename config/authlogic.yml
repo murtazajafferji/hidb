@@ -1,4 +1,8 @@
 connect:
+  facebook:
+    key: "174349512614081"
+    secret: "c81d7efe209761920c59f6258154014d"
+    label: "Facebook"
   google:
     key: "hidb.heroku.com"
     secret: "DIVrmYpFVSPTMH/UOZGDa7PT"
