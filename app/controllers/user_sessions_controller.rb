@@ -12,7 +12,7 @@ class UserSessionsController < ApplicationController
     # because oauth and openid use redirects
     @user_session.save do |result|
       if result
-        flash[:notice] = "You must login with a Brandeis email address."
+        flash[:notice] = "You have successfully logged in."
         #redirect_to current_user ? profile_url(current_user) : login_url
         redirect_to root_path
         #redirect_to edit_user_path(current_user)

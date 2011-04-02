@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :require_user, :only => [:follow, :unfollow, :edit, :update]
+  before_filter :require_user, :only => [:follow, :unfollow, :edit, :update, :show]
   before_filter :require_no_user, :only => [:new, :create]
   before_filter :admin_only, :only => :detonate
 
