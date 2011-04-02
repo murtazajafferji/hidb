@@ -85,6 +85,7 @@ _gaq.push(['_trackPageview']);
 					<li><%= link_to "Logout", logout_path %></li>
 					<%# end %>
 					<% else %>
+					<li><%= link_to "Register", new_user_session_path %></li>
 					<% end %>
 				</ul>
 			</div>
