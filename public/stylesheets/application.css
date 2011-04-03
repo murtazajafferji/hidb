@@ -25,7 +25,7 @@ body {
 	background-image:url(../images/blue-bg.jpg);
 	background-position: top;
 	background-repeat: no-repeat;
-	height:170px;
+	height:96px;
 }
 
 h2 {
@@ -442,10 +442,10 @@ width:260px;
 	background:#025D8C;
 	/*background:#003366;*/
 	border: 2px solid  #0E3B5A;
-    float: right;
-    padding-right: 2px;
-    vertical-align: top;
-    width: 70%;
+  float: right;
+  padding-right: 2px;
+  vertical-align: top;
+  width: 70%;
 	padding-left: 5px;
 	
 }
@@ -456,6 +456,7 @@ width:260px;
 	font-style:bold;
 
 }
+
 #internship-main dt{
 	margin-top: 10px;
 	font-size:17px;
@@ -464,7 +465,6 @@ width:260px;
 	color: orange;
 	
 }
-
 
 #internship-main dl{
 	font-size:14px;
@@ -487,30 +487,35 @@ width:260px;
 #internship-summary a{
 	color:#FCFBE3;
 }
+
 #internship-summary h1 {
     padding-top: 10px;
 	padding-left: 10px;
 	padding-right: 10px;
 	font-size: 14px;
 }
+
 #internship-summary h1{
 	font-style:bold;
 	font-style:italic;
 }
+
 #internship-summary hr{
 	color:black;
-	
 }
+
 #internship-summary dl {
     font-size: 12px;
     margin: 10px;
 }
+
 #internship-summary dt {
     font-weight: bold;
 	color: #B3C7EB;
     line-height: 1.25em;
     margin-top: 10px;
 }
+
 #internship-summary dd {
     font-weight: normal;
     line-height: 1.25em;
@@ -539,6 +544,10 @@ width:260px;
 	padding-right: 20px !important;
 }
 
+#ads {
+	float: right;
+	margin-right: 20px;
+}
 
 /*---------- left aligned button ----------*/
 .btn { position: relative; background: #aaa; padding: 2px; margin: 0px; color: #fff; text-decoration: none; cursor: pointer; }

@@ -13,7 +13,7 @@ body, html {
 }
 
 body {
-  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: Tahoma,sans-serif;
   font-size: 14px;
   /*color: #b1d4ed;*/
   /*background-image: url(../images/page-bg.jpg);*/
@@ -30,10 +30,10 @@ h1 {
 
 h2 {
   font-size: 24px;
-  font-family: Georgia, "Times New Roman", serif;
+  /*font-family: Georgia, "Times New Roman", serif;*/
   margin-bottom: 15px;
   text-align: center;
-	color: #D9D7FC;
+	/*color: #D9D7FC;*/
 }
 
 h2.word {
@@ -195,21 +195,13 @@ a {
 }
 
 #logo {
-  margin: 0px 0px 0px 0px;
-  text-align: center;
-  display: block;
+	width:auto;
+	height:26px;
+	margin:auto;
+	margin-bottom:10px;
+	text-align:center;
 }
 
-#logo a {
-  margin: 0 auto;
-  display: block;
-  overflow: hidden;
-  text-indent: -9999em;
-  background: url(../images/logo.png) no-repeat;
-  width: 184px;
-  height: 100px;
-  padding-bottom: 5px;
-}
 
 /*#logo a:hover {
   background: url(../images/animated-logo.png) no-repeat;
@@ -234,11 +226,10 @@ a {
 
 /* Search */
 .search { 
-	width:260px; 
-	height:40px; 
-	padding: 10px;
-	margin-left: auto;   
-	margin-right: auto
+height:29px; 
+margin:auto;
+margin-bottom:20px;
+width:260px; 
 }
 
 .search form { 
@@ -255,13 +246,13 @@ a {
 	float:left; 
 	border:0; 
 	height:20px;
-    background:#f1f1f1; 
+  background:#f1f1f1; 
 	border:solid 2px #a9bac4; 
 /*	border:solid 5px #BBBBBB;*/
 }
 
 #word_search:hover { 
-	border:solid 2px #66FF00;
+	border:solid 2px #00BFF3;
 	background:#fff;  
 }
 
@@ -961,6 +952,112 @@ input:focus {
   font-size: 24px;
 	clear: both;
 	text-align: right;
+}
+
+#internship-main {
+	background:#025D8C;
+	/*background:#003366;*/
+	border: 2px solid  #0E3B5A;
+  float: right;
+  padding-right: 2px;
+  vertical-align: top;
+  width: 70%;
+	padding-left: 5px;
+	
+}
+
+#internship-main h1{
+	color:white;
+	font-size:25px;
+	font-style:bold;
+
+}
+
+#internship-main dt{
+	margin-top: 10px;
+	font-size:17px;
+	text-align:left;
+	/*color: #B3C7EB;*/
+	color: orange;
+	
+}
+
+#internship-main dl{
+	font-size:14px;
+	padding-left: 5px;
+	text-align:left;
+	color:white;
+}
+
+#internship-summary {
+    
+    padding: 0 2px;
+    width: 25%;
+	color: white;
+	background:#025D8C;
+	border: 2px solid  #0E3B5A;
+    float: left;
+    vertical-align: top;
+}
+
+#internship-summary a{
+	color:#FCFBE3;
+}
+
+#internship-summary h1 {
+    padding-top: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 14px;
+}
+
+#internship-summary h1{
+	font-style:bold;
+	font-style:italic;
+}
+
+#internship-summary hr{
+	color:black;
+}
+
+#internship-summary dl {
+    font-size: 12px;
+    margin: 10px;
+}
+
+#internship-summary dt {
+    font-weight: bold;
+	color: #B3C7EB;
+    line-height: 1.25em;
+    margin-top: 10px;
+}
+
+#internship-summary dd {
+    font-weight: normal;
+    line-height: 1.25em;
+    margin: 0;
+}
+
+.internship-form #styled-form {width:98%;}
+.internship-form #styled-form fieldset { width: 98%;}
+
+#feedback p{
+	text-align: left;
+	color: white;
+}
+
+#feedback label{
+	font-size: 14px;
+	color: #D9D7FC;
+}
+
+#feedback h2{
+	color: #D9D7FC;
+}
+
+.internship-form li{
+	float: left;
+	padding-right: 20px !important;
 }
 
 /*---------- left aligned button ----------*/

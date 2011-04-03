@@ -92,7 +92,7 @@ _gaq.push(['_trackPageview']);
 		</div>
     <div id='wrapper'>
       <%= render :partial => "shared/logo" %>
-			<%= render :partial => "shared/search" %>
+			<%= render :partial => "shared/search" %>			
         <div class='container'>
             <div class='content'>
               <%= yield %>
@@ -106,5 +106,7 @@ _gaq.push(['_trackPageview']);
       </div>
       <% end %>
     </div>
+		<%= render :partial => 'layouts/ads' %>
+
   </body>
 </html>
