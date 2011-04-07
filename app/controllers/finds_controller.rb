@@ -38,9 +38,9 @@ class FindsController < ApplicationController
   end
   
   def advanced_search
-    text = ["course", "company_name", "company_department", "city"]
-    fields = ["how", "semester", "year",  "compensation", "hours", "industry", "state", "country" ]
-    boolean = ["credit","public_transport", "offer"]
+    text = ["company_name", "company_department", "city"]
+    fields = ["semester", "year",  "compensation", "hours", "industry", "state", "country" ]
+    boolean = ["public_transport", "offer"]
     @internship = Internship.new
     if params[:internship]
       internship = Internship.new(params[:internship])
