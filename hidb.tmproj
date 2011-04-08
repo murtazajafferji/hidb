@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>app/views/shared/_search.html.erb</string>
+	<string>app/controllers/finds_controller.rb</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -26,28 +26,14 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>7</integer>
+				<integer>15</integer>
 				<key>line</key>
-				<integer>43</integer>
+				<integer>42</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>7</integer>
-		</dict>
-		<key>app/controllers/items_controller.rb</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>0</integer>
-				<key>line</key>
-				<integer>1</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
+			<integer>35</integer>
 		</dict>
 		<key>app/controllers/user_sessions_controller.rb</key>
 		<dict>
@@ -92,20 +78,6 @@
 				<key>line</key>
 				<integer>17</integer>
 			</dict>
-		</dict>
-		<key>app/models/item.rb</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>5</integer>
-				<key>line</key>
-				<integer>9</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
 		</dict>
 		<key>app/models/user.rb</key>
 		<dict>
@@ -444,17 +416,15 @@
 		<string>app/views/internships/_form.html.erb</string>
 		<string>app/views/users/_form.html.erb</string>
 		<string>app/views/internships/show.html.erb</string>
-		<string>app/controllers/items_controller.rb</string>
 		<string>app/views/users/show.html.erb</string>
 		<string>app/controllers/users_controller.rb</string>
 		<string>app/controllers/user_sessions_controller.rb</string>
 		<string>vendor/plugins/comma/lib/comma/render_as_csv.rb</string>
 		<string>app/models/user.rb</string>
-		<string>app/models/item.rb</string>
 	</array>
 	<key>showFileHierarchyDrawer</key>
-	<true/>
+	<false/>
 	<key>windowFrame</key>
-	<string>{{207, -27}, {1104, 578}}</string>
+	<string>{{270, 389}, {1104, 578}}</string>
 </dict>
 </plist>
