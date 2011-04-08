@@ -75,12 +75,12 @@ a:active {
 	/*background-repeat: no-repeat;*/
   position: relative;
 	border: 1px solid #FFF;
-  width: 80%;
+  width: 700px;
   height: auto;
   padding: 20px;
-  margin:0 auto;
   z-index:3;
 overflow: hidden;
+float: left;
 }
 
 .shadow {
@@ -92,6 +92,8 @@ overflow: hidden;
 	margin:0 auto;
 	z-index:1;
 	margin-top:-55px;
+	float: left;
+	margin-left: 100px;
 }
 
 .content {
@@ -545,8 +547,52 @@ width:260px;
 }
 
 #ads {
-	float: right;
-	margin-right: 20px;
+	float: left;
+	width: 0px;
+	padding-left: 20px;
+}
+
+#sidebar {
+  width: 150px;
+  padding-top: 80px;
+  float: left;
+
+}
+
+#sidebar li {
+  margin-bottom: 4px;
+}
+
+#sidebar li a {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 1px;
+  padding: 6px 10px;
+  text-transform: uppercase;
+  background-color: #124b72;
+	color: #FFF;
+	text-decoration: none;
+	
+
+}
+
+#sidebar li a:hover {
+  border-left: solid 2px white;
+  padding-left: 8px;
+}
+
+#sidebar .section {
+  line-height: 13px;
+  padding: 5px;
+  font-size: 10px;
+}
+
+#sidebar h3 {
+  font-weight: bold;
+}
+
+#sidebar p {
+  margin-bottom: 8px;
 }
 
 /*---------- left aligned button ----------*/
