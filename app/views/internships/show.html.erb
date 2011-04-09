@@ -49,13 +49,13 @@
 <div id="internship-main"> 
   <h1>Internship Name</h1>
   <dt>Description</dt>
-    <dl><%= @internship.description if @internship.description %></dl>
+    <dl><%= @internship.description.html_safe if @internship.description %></dl>
   <dt>Responsibilities</dt>
-    <dl> <%= @internship.responsibilities if @internship.responsibilities %> </dl>   
+    <dl> <%= @internship.responsibilities.html_safe if @internship.responsibilities %> </dl>   
   <dt>Requirements</dt>
-    <dl><%= @internship.requirements if @internship.requirements %></dl>
+    <dl><%= @internship.requirements.html_safe if @internship.requirements %></dl>
   <dt>Review</dt>
-    <dl><%= @internship.review if @internship.review %></dl>
+    <dl><%= @internship.review.html_safe if @internship.review %></dl>
 	<br>
 </div>
 </div>
