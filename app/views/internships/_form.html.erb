@@ -3,8 +3,6 @@
   <% form.inputs "Required", :id => "required" do %>	
 		<%= form.input :semester, :as => :check_boxes, :collection => Internship::SEMESTER %>
 		<%= form.input :year, :as => :select, :collection => Internship::YEAR %>
-		<%= form.input :compensation, :as => :select, :collection => Internship::COMPENSATION %>
-		<%= form.input :hours, :label => "Hours per week", :as => :select, :collection => Internship::HOURS %>
 		<%= form.input :industry, :as => :select, :collection => Internship::INDUSTRY, :input_html => { :style => 'width: 200px;' } %>
 		<%= form.input :company_name %>
 		<%= form.input :company_department %>
@@ -12,16 +10,13 @@
 		<%= form.input :state, :as => :select, :collection => Internship::STATE %>
 		<%= form.input :country, :as => :select, :collection => Internship::COUNTRY %>
 		<%= form.input :website, :label => "Organization website" %>
-		<%= form.input :public_transport, :as => :radio %>
-		<%= form.input :supervision, :label => "Details of supervision" %>
+		<%= form.input :paid, :label => "Compensation", :as => :radio, :collection => {"Paid" => 't', "Unpaid" => 'f'}.sort.reverse %>
+		<%= form.input :full_time, :label => "Commitment", :as => :radio, :collection => {"Full-time" => 't', "Part-time" => 'f'}.sort.reverse %>	
 		<%= form.input :responsibilities %>
-		<%= form.input :offer, :label => "Offer?", :hint => "Did this internship result in an offer of extended/full-time work?", :as => :radio %>
 		<%= form.input :review %>
   <% end %>
   <% form.inputs :name => "Optional", :id => "optional" do %>
-	<%= form.input :supervisor_name %>
-	<%= form.input :supervisor_phone %>
-	<%= form.input :supervisor_email %>
+
   <% end %>
   <% form.buttons do %>
     <%= form.commit_button %>

@@ -27,28 +27,35 @@
     <dd><%= @internship.industry if @internship.industry %></dd>
     <dt>Company Department</dt>
 	<dd><%= @internship.company_department if @internship.company_department %></dd>
-	<dt>Hours per week(not including travel)</dt>
-	<dd><%= @internship.hours if @internship.hours %></dd>
-	<dt>Compensation Received</dt>
-	<dd><%= @internship.compensation if @internship.compensation %></dd>
+	<dt>Compensation</dt>
+	<dd><%= @internship.paid ? "Paid" : "Unpaid" unless @internship.paid.nil? %></dd>
+	<dt>Commitment</dt>
+	<dd><%= @internship.full_time ? "Full-time" : "Part-time" unless @internship.full_time.nil? %></dd>
 	<br>
 	<hr>
-	<dt>Student's Name</dt>
+	<h1><%= @internship.past ? "Intern" : "Poster" %></h1>
+	<dt>Name</dt>
 	<dd><%= link_to "#{@internship.user.first_name} #{@internship.user.last_name}", @internship.user if @internship.user %></dd>
-	<dt>Student's Year of Graduation</dt>
+	<dt>Year of Graduation</dt>
 	<dd><%= @internship.user.yog if @internship.user.yog %></dd>
+	<dt>Major</dt>
+	<dd><%= @internship.user.major if @internship.user.major %></dd>
+	<dt>LinkedIn</dt>
+	<dd><%= @internship.user.linkedin if @internship.user.linkedin %></dd>
 	<br>
 	<img src="/images/logo.png" alt="The Internship Database" width="150">
 </div>
 
 <div id="internship-main"> 
   <h1>Internship Name</h1>
-  <dt>Internship Duties</dt>
-    <dl> <%= @internship.responsibilities if @internship.responsibilities %> </dl>
-  <dt>Details of Supervision</dt>
-    <dl> <%= @internship.supervision if @internship.supervision %> </dl>
+  <dt>Description</dt>
+    <dl><%= @internship.review if @internship.description %></dl>
+  <dt>Responsibilities</dt>
+    <dl> <%= @internship.responsibilities if @internship.responsibilities %> </dl>   
+  <dt>Requirements</dt>
+    <dl><%= @internship.review if @internship.requirements %></dl>
   <dt>Review</dt>
-    <dl><%= @internship.review if @internship.review %></dl>   
+    <dl><%= @internship.review if @internship.review %></dl>
 	<br>
 </div>
 </div>

@@ -9,6 +9,7 @@ Hidb::Application.routes.draw do
     end
     member do
       post :approve
+      post :set_type
     end
   end
 

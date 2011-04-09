@@ -16,16 +16,14 @@ $(document).ready(function(){
   <% form.inputs "Advanced Search", :id => "optional" do %>	
 		<%= form.input :semester, :as => :check_boxes, :collection => Internship::SEMESTER %>
 		<%= form.input :year, :as => :select, :collection => Internship::YEAR, :name => :year %>
-		<%= form.input :compensation, :as => :select, :collection => Internship::COMPENSATION %>
-		<%= form.input :hours, :label => "Hours per week", :as => :select, :collection => Internship::HOURS %>
 		<%= form.input :industry, :as => :select, :collection => Internship::INDUSTRY %>
 		<%= form.input :company_name %>
 		<%= form.input :company_department %>
 		<%= form.input :city %>
 		<%= form.input :state, :as => :select, :collection => Internship::STATE %>
 		<%= form.input :country, :as => :select, :collection => Internship::COUNTRY %>
-		<%= form.input :public_transport, :as => :radio, :collection => {"Yes" => 't', "No" => 'f', "Either" => ' '}.sort.reverse %>
-		<%= form.input :offer, :label => "Received offer after?", :as => :radio, :collection => {"Yes" => 't', "No" => 'f', "Either" => ' '}.sort.reverse %>
+		<%= form.input :paid, :label => "Compensation", :as => :radio, :collection => {"Paid" => 't', "Unpaid" => 'f'}.sort.reverse %>
+		<%= form.input :full_time, :label => "Commitment", :as => :radio, :collection => {"Full-time" => 't', "Part-time" => 'f'}.sort.reverse %>
 		<%= form.input :search_string %>
   <% end %>
   <% form.buttons do %>

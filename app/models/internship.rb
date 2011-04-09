@@ -7,20 +7,16 @@ class Internship < ActiveRecord::Base
     user :email
     user :login_count
     user :url
-    user :name
+    user :username
     user :admin
-    user :super
     user :first_name
     user :last_name
     user :major
-    user :minor
     user :yog
     user :created_at
     user :updated_at
     semester
     year
-    compensation
-    hours
     industry
     company_name
     company_department
@@ -28,13 +24,7 @@ class Internship < ActiveRecord::Base
     state
     country
     website
-    public_transport
-    supervision
-    supervisor_name
-    supervisor_phone
-    supervisor_email
     responsibilities
-    offer
     review
     approved
     user_id
@@ -96,33 +86,6 @@ class Internship < ActiveRecord::Base
       "Sports",
       "Transportation",
       "Other"]
-      
-      HOURS = 
-      ["1",
-      "2",
-      "3",
-      "4",
-      "5",
-      "6",
-      "7",
-      "8",
-      "9",
-      "10",
-      "11",
-      "12",
-      "13",
-      "14",
-      "15",
-      "16",
-      "17",
-      "18",
-      "19",
-      "20",
-      "25",
-      "30",
-      "35",
-      "40",
-      "40+"]
       
       COUNTRY =[ 
        "United States", 
@@ -409,8 +372,8 @@ class Internship < ActiveRecord::Base
   end
   
   def make_search_string
-    internship_fields = ["semester", "year", "hours", "industry", "company_name", "company_department", "city", "state", "country", "website", "user_id"]
-    user_fields = ["user.first_name", "user.last_name", "user.email", "user.major", "user.minor"]
+    internship_fields = ["semester", "year", "industry", "company_name", "company_department", "city", "state", "country", "website", "user_id"]
+    user_fields = ["user.first_name", "user.last_name", "user.email", "user.major", "user.username"]
     string = []
     (internship_fields + user_fields).each{|x| string << eval(x).to_s.downcase if !eval(x).blank?}
     string = string.join(" ")

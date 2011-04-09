@@ -6,8 +6,8 @@ class CreateInternships < ActiveRecord::Migration
       t.string :year
       #t.boolean :credit
       #t.string :course
-      t.string :compensation
-      t.string :hours
+      #t.string :compensation
+      #t.string :hours
       t.string :industry
       t.string :company_name
       t.string :company_department
@@ -15,11 +15,11 @@ class CreateInternships < ActiveRecord::Migration
       t.string :state
       t.string :country
       t.string :website
-      t.boolean :public_transport
-      t.text :supervision
-      t.string :supervisor_name
-      t.string :supervisor_phone
-      t.string :supervisor_email
+      #t.boolean :public_transport
+      #t.text :supervision
+      #t.string :supervisor_name
+      #t.string :supervisor_phone
+      #t.string :supervisor_email
       t.text :responsibilities
       #t.string :satisfaction_1
       #t.string :satisfaction_2
@@ -27,11 +27,18 @@ class CreateInternships < ActiveRecord::Migration
       #t.string :outcome_1
       #t.string :outcome_2
       #t.string :outcome_3
-      t.boolean :offer
+      #t.boolean :offer
       #t.text :recommendations
       t.text :review
-      t.boolean :approved, :default => false
+	    t.text :description
+	    t.text :requirements
+	    t.boolean :paid
+      t.boolean :full_time
+      t.boolean :approved, :default => true
       t.text :search_string
+      t.date :deadline
+      t.boolean :available
+      t.boolean :past
       
       t.references :user,  :null => false
 

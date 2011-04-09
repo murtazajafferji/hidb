@@ -28,8 +28,6 @@ ActiveRecord::Schema.define(:version => 20110206130647) do
   create_table "internships", :force => true do |t|
     t.string   "semester"
     t.string   "year"
-    t.string   "compensation"
-    t.string   "hours"
     t.string   "industry"
     t.string   "company_name"
     t.string   "company_department"
@@ -37,17 +35,18 @@ ActiveRecord::Schema.define(:version => 20110206130647) do
     t.string   "state"
     t.string   "country"
     t.string   "website"
-    t.boolean  "public_transport"
-    t.text     "supervision"
-    t.string   "supervisor_name"
-    t.string   "supervisor_phone"
-    t.string   "supervisor_email"
     t.text     "responsibilities"
-    t.boolean  "offer"
     t.text     "review"
-    t.boolean  "approved",           :default => false
+    t.text     "description"
+    t.text     "requirements"
+    t.boolean  "paid"
+    t.boolean  "full_time"
+    t.boolean  "approved",           :default => true
     t.text     "search_string"
-    t.integer  "user_id",                               :null => false
+    t.date     "deadline"
+    t.boolean  "available"
+    t.boolean  "past"
+    t.integer  "user_id",                              :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -74,14 +73,14 @@ ActiveRecord::Schema.define(:version => 20110206130647) do
 
   create_table "users", :force => true do |t|
     t.string   "login",               :limit => 40
-    t.string   "email"
+    t.string   "email",               :limit => 100
     t.string   "crypted_password"
     t.string   "password_salt"
-    t.string   "persistence_token",                                    :null => false
-    t.string   "single_access_token",                                  :null => false
-    t.string   "perishable_token",                                     :null => false
-    t.integer  "login_count",                       :default => 0,     :null => false
-    t.integer  "failed_login_count",                :default => 0,     :null => false
+    t.string   "persistence_token",                                     :null => false
+    t.string   "single_access_token",                                   :null => false
+    t.string   "perishable_token",                                      :null => false
+    t.integer  "login_count",                        :default => 0,     :null => false
+    t.integer  "failed_login_count",                 :default => 0,     :null => false
     t.datetime "last_request_at"
     t.datetime "current_login_at"
     t.datetime "last_login_at"
@@ -90,13 +89,13 @@ ActiveRecord::Schema.define(:version => 20110206130647) do
     t.integer  "active_token_id"
     t.string   "url"
     t.string   "name"
-    t.boolean  "admin",                             :default => false
-    t.boolean  "super",                             :default => false
+    t.string   "username"
+    t.boolean  "admin",                              :default => false
     t.string   "first_name"
     t.string   "last_name"
     t.string   "major"
-    t.string   "minor"
     t.string   "yog"
+    t.string   "linkedin"
     t.string   "search_string"
     t.datetime "created_at"
     t.datetime "updated_at"

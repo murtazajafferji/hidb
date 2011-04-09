@@ -1,6 +1,9 @@
 <h2>Internship Form</h2>
 <% if current_user and current_user.required  %>
+<%# button_to "Opportunity", set_type_internship_path(:internship => @internship), :method => :post, :remote => true, :class => "btn approve", :id => "approve" %>
+<%# button_to "Past", set_type_internship_path(:internship => @internship), :method => :post, :remote => true, :class => "btn unapprove", :id => "unapprove" %>
 <p>Please provide the details of your internship</p>
+<div id="form"></div>
 <%= render 'form' %>
 <% else %>
 <p>Please fill out some information about yourself before proceeding</p>

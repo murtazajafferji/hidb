@@ -13,13 +13,12 @@ class User < ActiveRecord::Base
     email
     login_count
     url
-    name
+    username
+    linkedin
     admin
-    self.super
     first_name
     last_name
     major
-    minor
     yog
     created_at
     updated_at
@@ -39,7 +38,7 @@ class User < ActiveRecord::Base
   # HACK HACK HACK -- how to do attr_accessible from here?
   # prevents a user from submitting a crafted form that bypasses activation
   # anything else you want your user to change should be added here.
-  attr_accessible :login, :email, :name, :password, :password_confirmation, :url, :preference, :first_name, :last_name, :major, :minor, :yog, :admin
+  attr_accessible :login, :email, :password, :password_confirmation, :url, :preference, :first_name, :last_name, :major, :yog, :admin, :username, :linkedin
   
   preference :comment_notification, :default => true
   
@@ -152,7 +151,8 @@ class User < ActiveRecord::Base
   end
   
   def required
-    !email.blank? and !major.blank? and !yog.blank? and !first_name.blank? and !last_name.blank?
+    #!email.blank? and !major.blank? and !yog.blank? and !first_name.blank? and !last_name.blank?
+    !username.blank?
   end
 
   def login=(value)
@@ -163,13 +163,13 @@ class User < ActiveRecord::Base
     write_attribute :email, (value ? value.downcase : nil)
   end
   
-  def username
-    if !name.nil? and name != ""
-      name
-    else
-      login
-    end
-  end
+  # def username
+  #   if !name.nil? and name != ""
+  #     name
+  #   else
+  #     login
+  #   end
+  # end
   
   def make_slug
     self.url = self.login.to_url
