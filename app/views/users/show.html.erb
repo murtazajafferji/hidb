@@ -40,7 +40,11 @@
 	
 	<%="<tr><th>Graduation</th><td>#{@user.yog}</td></tr>".html_safe if !@user.yog.blank? %>
 
-	<%="<tr><th>Internships</th><td>".html_safe + @user.internships.each_with_index{|internship, i| link_to "#{i + 1}. #{internship.company_name}<br>".html_safe, internship} + "</td></tr>".html_safe if !@user.internships.blank?  %>
+	<%="<tr><th>Internships</th><td>".html_safe if !@user.internships.blank? %> 
+	<%	@user.internships.each_with_index do |internship, i| %>
+	<%=	link_to "#{i + 1}. <br>".html_safe, internship %>
+	<% end %>
+	<%="</td></tr>".html_safe if !@user.internships.blank? %>
 
 </table>
 <div class="actions">

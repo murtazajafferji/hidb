@@ -7,3 +7,7 @@ connect:
     key: "internshipdatabase.org"
     secret: "TtTHtxlE0fFwNf4Vc56JpWFO"
     label: "Google"
+  linked_in:
+    key: CpeaaGd4tO-SdWQx4-YW0rjmuHvdLVqI0YPfC1QS7KWwNik4vc5HADg4wdwl99u4
+    secret: vhOIA6EvxHddhfW25uJ2gU9Lm5Drja-_lGHv2rQmUdnK1XeckKNFvJ_F29n3YqXr
+    label: "LinkedIn"  
