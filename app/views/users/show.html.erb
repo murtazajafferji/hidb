@@ -32,42 +32,15 @@
 </div>
 <table class="datagrid">
 	
-	<tr>
-    <th>First Name</th>
-		<td><%= @user.first_name if @user.first_name %></td>
-  </tr>
+	<%="<tr><th>First Name</th><td>#{@user.first_name}</td></tr>".html_safe if !@user.first_name.blank? %>
 
-	<tr>
-    <th>Last Name</th>
-		<td><%= @user.last_name if @user.last_name %></td>
-  </tr>
+	<%="<tr><th>Last Name</th><td>#{@user.last_name}</td></tr>".html_safe if !@user.last_name.blank? %>
+	<%="<tr><th>Email</th><td>#{@user.email}</td></tr>".html_safe if !@user.email.blank? %>
+	<%="<tr><th>Major</th><td>#{@user.major}</td></tr>".html_safe if !@user.major.blank? %>
+	
+	<%="<tr><th>Graduation</th><td>#{@user.yog}</td></tr>".html_safe if !@user.yog.blank? %>
 
-	<tr>
-    <th>Email</th>
-		<td><%= @user.email if @user.email %></td>
-  </tr>
-
-	<tr>
-    <th>Major</th>
-		<td><%= @user.major if @user.major %></td>
-  </tr>
-
-	<tr>
-    <th>Minor</th>
-		<td><%= @user.minor if @user.minor %></td>
-  </tr>
-
-	<tr>
-    <th>Graduation</th>
-		<td><%= @user.yog if @user.yog %></td>
-  </tr>
-
-	<tr>
-    <th>Internships</th>
-			<td><% @user.internships.each_with_index do |internship, i| %>
-				<%= link_to "#{i + 1}. #{internship.company_name}", internship %><br>
-			<% end %></td>
-  </tr>
+	<%="<tr><th>Internships</th><td>".html_safe + @user.internships.each_with_index{|internship, i| link_to "#{i + 1}. #{internship.company_name}<br>".html_safe, internship} + "</td></tr>".html_safe if !@user.internships.blank?  %>
 
 </table>
 <div class="actions">

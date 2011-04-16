@@ -123,18 +123,12 @@ class InternshipsController < ApplicationController
   end
   
   def set_type 
-    past = Internship.find(params[:past])
-    internship.past = past
-    if internship.save(false)
-      flash[:notice] = "You have approved this internship"
-    else
-      flash[:error] = 'Something has gone horribly wrong.'
-    end
+    past = eval(params[:past])
     respond_to do |wants|
       wants.html { redirect_to :back }
       wants.xml  { render :xml => @user }
       wants.js {
-        render(:update) {|page| page.replace_html 'form', :partial => 'internships/form', :locals => {:past => past}}
+        render(:update) {|page| page.replace_html 'form', :partial => 'internships/form', :locals => {:@internship => Internship.new, :past => past}}
       }
     end
   end

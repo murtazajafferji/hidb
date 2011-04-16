@@ -1,6 +1,7 @@
 <div class="internship-form">
 <%= semantic_form_for @internship, :html => { :id => "styled-form" } do |form| %>
   <% form.inputs "Required", :id => "required" do %>	
+		<%= form.input :available, :input_html => { :checked => "checked" } if past == false %>
 		<%= form.input :semester, :as => :check_boxes, :collection => Internship::SEMESTER %>
 		<%= form.input :year, :as => :select, :collection => Internship::YEAR %>
 		<%= form.input :industry, :as => :select, :collection => Internship::INDUSTRY, :input_html => { :style => 'width: 200px;' } %>
@@ -12,9 +13,12 @@
 		<%= form.input :website, :label => "Organization website" %>
 		<%= form.input :paid, :label => "Compensation", :as => :radio, :collection => {"Paid" => 't', "Unpaid" => 'f'}.sort.reverse %>
 		<%= form.input :full_time, :label => "Commitment", :as => :radio, :collection => {"Full-time" => 't', "Part-time" => 'f'}.sort.reverse %>	
-		<%= form.input :deadline %>
+		<%= form.input :deadline if past == false%>
 		<%= form.input :responsibilities %>
-		<%= form.input :review %>
+		<%= form.input :review if past %>
+		<%= form.input :requirements if past == false %>
+		<%= form.input :past, :value => true, :as => :hidden if past%>
+		<%= form.input :past, :value => false, :as => :hidden if past == false %>
   <% end %>
   <% form.inputs :name => "Optional", :id => "optional" do %>
 

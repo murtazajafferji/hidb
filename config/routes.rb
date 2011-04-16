@@ -1,8 +1,5 @@
 Hidb::Application.routes.draw do
-    match 'download' => 'reports#download', :as => :download
-  
-  resources :internships
-  match '/unapproved' => 'internships#unapproved', :as => :unapproved
+  match 'download' => 'reports#download', :as => :download
   
   resources :internships do
     collection do
@@ -13,6 +10,9 @@ Hidb::Application.routes.draw do
     end
   end
 
+  #resources :internships
+  match '/unapproved' => 'internships#unapproved', :as => :unapproved
+  
   match 'logout' => 'user_sessions#destroy', :as => :logout
   match 'login' => 'user_sessions#new', :as => :login
   match 'authenticate' => 'user_sessions#create', :as => :authenticate, :via => :post
@@ -30,15 +30,6 @@ Hidb::Application.routes.draw do
   match '/change/:token' => 'users#change_email', :as => :change, :token => nil
   match '/home' => 'users#home', :as => :home
   
-  match 'quran_search' => 'qurans#search', :as => :quran_search
-  resources :qurans do
-    collection do
-      get :random_ayat
-  end
-    member do
-  end
-    
-  end
   resources :users do
     collection do
       get :top
