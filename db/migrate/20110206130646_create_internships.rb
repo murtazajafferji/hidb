@@ -10,8 +10,9 @@ class CreateInternships < ActiveRecord::Migration
       #t.string :hours
       t.string :industry
       t.string :company_name
-      t.string :company_department
-      t.string :city
+      #t.string :company_department
+      t.string :job_field
+	  t.string :city
       t.string :state
       t.string :country
       t.string :website
@@ -34,11 +35,12 @@ class CreateInternships < ActiveRecord::Migration
 	    t.text :requirements
 	    t.boolean :paid
       t.boolean :full_time
-      t.boolean :approved, :default => true
+      #t.boolean :approved, :default => true
       t.text :search_string
       t.date :deadline
       t.boolean :available
       t.boolean :past
+      t.string :name
       
       t.references :user,  :null => false
 

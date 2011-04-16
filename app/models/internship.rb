@@ -2,6 +2,8 @@ class Internship < ActiveRecord::Base
   belongs_to :user
   after_save :make_search_string
   
+  validates_presence_of :available, :company_name, :description, :semester, :year, :job_field, :paid, :full_time, :past, :available
+  
   comma do
     user :login
     user :email
@@ -19,19 +21,23 @@ class Internship < ActiveRecord::Base
     year
     industry
     company_name
-    company_department
+    job_field
     city
     state
     country
     website
     responsibilities
     review
-    approved
+    #approved
     user_id
     created_at
     updated_at
   end
 
+  FIELDS = ["Accounting and Auditing", "Administrative", "Advertising and Marketing", "Advocacy", "Analyst", "Consultant", "Counseling", "Customer Service", "Design", "Educator/Instructor", "Engineering", "Event Planning", "Fundraising and Development", "Health Care Practitioner", "Human Resources and Recruiting", "Information Technology", "Legal Practitioner", "Management", "Other", "Performer/Artist", "Project Management", "Research ", "Sales", "Writer/Editor"]
+  
+  INDUSTRY = ["Administrative, Technical, Manual, and Professional Services", "Advertising and Marketing, and Public Relations", "Agriculture", "Architecture and Urban Planning", "Biotech/Pharmaceutical", "Education K-12", "Education, Early Childhood", "Energy, Utilities, and Alternative Energy", "Environment and Conservation", "Finance and Banking", "Fine and Performing Arts", "Food and Beverage", "Foundations", "Government", "Government -  International", "Government - Federal", "Government - State, Local", "Healthcare", "Higher Education", "Hospitality (Restaurant, Hotel, Travel, Recreation)", "Human and Social Services", "Information Technology/Computers", "Insurance", "International", "Law", "Management and Economic Consulting", "Manufacturing", "Media (Broadcast, Print, Digital)", "Military", "Museum, Library, Archives", "Other", "Public and Media Relations", "Publishing", "Real Estate", "Religion", "Retail and Wholesale Trade", "Sports", "Transportation Services"]
+  
     SEMESTER =
     ["Fall",
       "Spring",
@@ -47,45 +53,45 @@ class Internship < ActiveRecord::Base
       "Food Provisions",
       "Transportation Costs"]
       
-    INDUSTRY = [
-      "Accounting Services",
-      "Administrative, Technical, Manual, and Professional Services",
-      "Advertising and Marketing/Public Relations/Media Relations",
-      "Agriculture",
-      "Architecture and Urban Planning",
-      "Biotechnology and Pharmaceutical",
-      "Education - Pre-k to 12",
-      "Education - Early Childhood",
-      "Energy/ Utilities / Alternative Energies",
-      "Environment and Conservation",
-      "Finance and Banking",
-      "Fine & Performing Arts",
-      "Food and Beverage",
-      "Foundations",
-      "Government - Federal",
-      "Government - State & Local",
-      "Government - International",
-      "Health Care",
-      "Hospitality (Restaurant, Hotel, Travel)",
-      "Human & Social Services",
-      "Information Technology/Computers",
-      "Insurance",
-      "International",
-      "Law",
-      "Management & Economic Consulting",
-      "Manufacturing",
-      "Media (Broadcast, Print, Digital)",
-      "Military",
-      "Museum, Library, Archives",
-      "Non-Profit",
-      "Publishing and Journalism",
-      "Real Estate",
-      "Religion",
-      "Research",
-      "Retail & Wholesale Trade",
-      "Sports",
-      "Transportation",
-      "Other"]
+    # INDUSTRY = [
+    #   "Accounting Services",
+    #   "Administrative, Technical, Manual, and Professional Services",
+    #   "Advertising and Marketing/Public Relations/Media Relations",
+    #   "Agriculture",
+    #   "Architecture and Urban Planning",
+    #   "Biotechnology and Pharmaceutical",
+    #   "Education - Pre-k to 12",
+    #   "Education - Early Childhood",
+    #   "Energy/ Utilities / Alternative Energies",
+    #   "Environment and Conservation",
+    #   "Finance and Banking",
+    #   "Fine & Performing Arts",
+    #   "Food and Beverage",
+    #   "Foundations",
+    #   "Government - Federal",
+    #   "Government - State & Local",
+    #   "Government - International",
+    #   "Health Care",
+    #   "Hospitality (Restaurant, Hotel, Travel)",
+    #   "Human & Social Services",
+    #   "Information Technology/Computers",
+    #   "Insurance",
+    #   "International",
+    #   "Law",
+    #   "Management & Economic Consulting",
+    #   "Manufacturing",
+    #   "Media (Broadcast, Print, Digital)",
+    #   "Military",
+    #   "Museum, Library, Archives",
+    #   "Non-Profit",
+    #   "Publishing and Journalism",
+    #   "Real Estate",
+    #   "Religion",
+    #   "Research",
+    #   "Retail & Wholesale Trade",
+    #   "Sports",
+    #   "Transportation",
+    #   "Other"]
       
       COUNTRY =[ 
        "United States", 
@@ -372,7 +378,7 @@ class Internship < ActiveRecord::Base
   end
   
   def make_search_string
-    internship_fields = ["semester", "year", "industry", "company_name", "company_department", "city", "state", "country", "website", "user_id"]
+    internship_fields = ["semester", "year", "industry", "company_name", "job_field", "city", "state", "country", "website", "user_id"]
     user_fields = ["user.first_name", "user.last_name", "user.email", "user.major", "user.username"]
     string = []
     (internship_fields + user_fields).each{|x| string << eval(x).to_s.downcase if !eval(x).blank?}

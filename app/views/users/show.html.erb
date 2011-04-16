@@ -37,8 +37,8 @@
 	<%="<tr><th>Last Name</th><td>#{@user.last_name}</td></tr>".html_safe if !@user.last_name.blank? %>
 	<%="<tr><th>Email</th><td>#{@user.email}</td></tr>".html_safe if !@user.email.blank? %>
 	<%="<tr><th>Major</th><td>#{@user.major}</td></tr>".html_safe if !@user.major.blank? %>
-	
 	<%="<tr><th>Graduation</th><td>#{@user.yog}</td></tr>".html_safe if !@user.yog.blank? %>
+	<%="<tr><th>LinkedIn</th><td>#{@user.linkedin}</td></tr>".html_safe if !@user.linkedin.blank? %>
 
 	<%="<tr><th>Internships</th><td>".html_safe if !@user.internships.blank? %> 
 	<%	@user.internships.each_with_index do |internship, i| %>

@@ -3,30 +3,30 @@
 <p id="notice"><%= notice %></p>
 
 <div id="approve-button">
-	<% if current_user and current_user.admin == true %>
-		<% if @internship.approved == false %>
-	  	<%= button_to "Approve", approve_internship_path(:internship => @internship), :method => :post, :remote => true, :class => "btn approve", :id => "approve", :onclick => "$('#approve').toggle();$('#unapprove').toggle();" %>
-	<%= button_to "Unapprove", approve_internship_path(:internship => @internship), :method => :post, :remote => true, :class => "btn unapprove", :id => "unapprove", :onclick => "$('#approve').toggle();$('#unapprove').toggle();", :style => "display:none;" %>
-			<% else %>
-			<%= button_to "Approve", approve_internship_path(:internship => @internship), :method => :post, :remote => true, :class => "btn approve", :id => "approve", :onclick => "$('#approve').toggle();$('#unapprove').toggle();", :style => "display:none;" %>
-			<%= button_to "Unapprove", approve_internship_path(:internship => @internship), :method => :post, :remote => true, :class => "btn unapprove", :id => "unapprove", :onclick => "$('#approve').toggle();$('#unapprove').toggle();" %>
-			<% end %>
-	<% end %>	
+	<%# if current_user and current_user.admin == true %>
+		<%# if @internship.approved == false %>
+	  	<%# button_to "Approve", approve_internship_path(:internship => @internship), :method => :post, :remote => true, :class => "btn approve", :id => "approve", :onclick => "$('#approve').toggle();$('#unapprove').toggle();" %>
+	<%# button_to "Unapprove", approve_internship_path(:internship => @internship), :method => :post, :remote => true, :class => "btn unapprove", :id => "unapprove", :onclick => "$('#approve').toggle();$('#unapprove').toggle();", :style => "display:none;" %>
+			<%# else %>
+			<%# button_to "Approve", approve_internship_path(:internship => @internship), :method => :post, :remote => true, :class => "btn approve", :id => "approve", :onclick => "$('#approve').toggle();$('#unapprove').toggle();", :style => "display:none;" %>
+			<%# button_to "Unapprove", approve_internship_path(:internship => @internship), :method => :post, :remote => true, :class => "btn unapprove", :id => "unapprove", :onclick => "$('#approve').toggle();$('#unapprove').toggle();" %>
+			<%# end %>
+	<%# end %>	
 </div>
 <div id="internship-wrapper">
 <div id="internship-summary">
-  <h1> Internship Summary</h1>
+  <h1> Internship Summary </h1>
   <dl>
-    <dt>Company Name</dt>
+    <dt>Company/Employer Name</dt>
     <dd><%= @internship.company_name if @internship.company_name %></dd>
     <dt>Location</dt>
     <dd><%= @internship.city if @internship.city %>, <%= @internship.state if @internship.state %></dd>
-	<dt>Company Website</dt>
-	<dd><a href=<%= @internship.website if @internship.website %>><%= @internship.website if @internship.website %></a></dd>
+	<dt>Company/Employer Website</dt>
+	<dd><a href=<%= @internship.website.include?("http://") ? @internship.website : ("http://" + @internship.website) if @internship.website %>><%= @internship.website if @internship.website %></a></dd>
     <dt>Industry</dt>
     <dd><%= @internship.industry if @internship.industry %></dd>
-    <dt>Company Department</dt>
-	<dd><%= @internship.company_department if @internship.company_department %></dd>
+    <dt>Field</dt>
+	<dd><%= @internship.job_field if @internship.job_field %></dd>
 	<dt>Compensation</dt>
 	<dd><%= @internship.paid ? "Paid" : "Unpaid" unless @internship.paid.nil? %></dd>
 	<dt>Commitment</dt>
@@ -41,21 +41,17 @@
 	<dt>Major</dt>
 	<dd><%= @internship.user.major if @internship.user.major %></dd>
 	<dt>LinkedIn</dt>
-	<dd><%= @internship.user.linkedin if @internship.user.linkedin %></dd>
+	<dd><a href=<%= @internship.user.linkedin if @internship.user.linkedin %>><%= @internship.user.linkedin if @internship.user.linkedin %></a></dd>
 	<br>
 	<img src="/images/logo.png" alt="The Internship Database" width="150">
 </div>
 
 <div id="internship-main"> 
-  <h1>Internship Name</h1>
-  <dt>Description</dt>
-    <dl><%= @internship.description.html_safe if @internship.description %></dl>
-  <dt>Responsibilities</dt>
-    <dl> <%= @internship.responsibilities.html_safe if @internship.responsibilities %> </dl>   
-  <dt>Requirements</dt>
-    <dl><%= @internship.requirements.html_safe if @internship.requirements %></dl>
-  <dt>Review</dt>
-    <dl><%= @internship.review.html_safe if @internship.review %></dl>
+  <h1><%= @internship.name ? "#{@internship.name }" : "Internship at #{@internship.company_name} " if @internship.name or @internship.company_name %><%= @internship.past ? "(Review)" : @internship.available ? "(Opportunity)" : (Time.now < @nternship.deadline) ? "(Position Filled)" : "(Deadline past)" %></h1>
+  <%= "<dt>Description</dt><dl>#{@internship.description.html_safe}</dl>".html_safe if @internship.description %>
+  <%= "<dt>Responsibilities</dt><dl>#{@internship.responsibilities.html_safe}</dl>".html_safe if @internship.responsibilities %>  
+  <%= "<dt>Requirements</dt><dl>#{@internship.requirements.html_safe}</dl>".html_safe if !@internship.past and @internship.requirements %>
+  <%= "<dt>Review</dt><dl>#{@internship.review.html_safe}</dl>".html_safe if @internship.past and @internship.review %>
 	<br>
 </div>
 </div>

@@ -19,7 +19,7 @@ STATE = ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'DC', 'FL', 'GA', 'HI',
 #PERISHABLE_TOKEN = "NyuQw4yZYZOVsN5DzqVO"
 #COURSE =["COSI12B", "COSI31A", "MATH140A", "HSSP96A", "UWS32A", "COSI21B", "ENG44A", "HIST78A", "BUS6A", "BUS10A"]
 #COMPANY_NAME = ["Google", "Microsoft", "Bristol-Myers Squibb", "Apple", "BP", "Brandeis University", "Addidas", "Boston Children's Hospital", "RBS", "PWC"]
-#COMPANY_DEPARTMENT = ["Human Resources", "Technology", "Marketing", "Information Technology", "Accounting", "Logistics", "Administration", "Communication", "Finance", "Consumer Affairs"]
+#JOB_FIELD = ["Human Resources", "Technology", "Marketing", "Information Technology", "Accounting", "Logistics", "Administration", "Communication", "Finance", "Consumer Affairs"]
 #CITY = ["New York City", "Boston", "Chicago", "Dallas", "Irving", "Seattle", "San Francisco", "Los Angeles", "Houston", "Philadelphia"]
 #CITY_HASH = {"New York City" => 'NY', "Boston" => 'MA', "Chicago" => 'IL', "Dallas" => 'TX', "Irving" => 'TX', "Seattle" => 'WA', "San Francisco" => 'CA', "Los Angeles" => 'CA', "Houston" => 'TX', "Philadelphia" => 'PA'}
 #WEBSITE = ["www.google.com", "www.microsoft.com", "www.bms.com", "www.apple.com", "www.bp.com", "www.brandeis.edu", "www.addidas.com", "www.childrenshospital.org", "www.rbs.com", "www.pwc.org"]

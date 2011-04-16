@@ -5,7 +5,7 @@ class InternshipsController < ApplicationController
   # GET /internships.xml
   def index    
     @internships = Internship.sort params
-    @internships = @internships.collect{|x| x if x.approved }
+    @internships = @internships.collect{|x| x }
 
     respond_to do |format|
       format.html # index.html.erb
@@ -119,6 +119,29 @@ class InternshipsController < ApplicationController
       wants.html { redirect_to :back }
       wants.xml  { render :xml => @user }
       #wants.js
+    end
+  end
+  
+  def opportunities    
+    @internships = Internship.sort params
+    @internships = @internships.collect{|x| x if x.available}
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @internships }
+      format.csv { send_data @internships.all.to_comma if current_user.admin }
+    end
+  end
+  
+  def reviews    
+    @internships = Internship.sort params
+    @internships = @internships.collect{|x| x if x.past}
+    #@internships = @internships.sort{|a, b| a.created_at < b.created_at}
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @internships }
+      format.csv { send_data Internship.all.to_comma if current_user.admin }
     end
   end
   

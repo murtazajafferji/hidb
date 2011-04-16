@@ -441,7 +441,8 @@ width:260px;
 }
 
 #internship-main {
-	background:#025D8C;
+	/*background:#025D8C;*/
+	background:#FFFDDF;
 	/*background:#003366;*/
 	border: 2px solid  #0E3B5A;
   float: right;
@@ -453,7 +454,7 @@ width:260px;
 }
 
 #internship-main h1{
-	color:white;
+	color:black;
 	font-size:25px;
 	font-style:bold;
 
@@ -464,7 +465,7 @@ width:260px;
 	font-size:17px;
 	text-align:left;
 	/*color: #B3C7EB;*/
-	color: orange;
+	color: #BA2727;
 	
 }
 
@@ -472,15 +473,16 @@ width:260px;
 	font-size:14px;
 	padding-left: 5px;
 	text-align:left;
-	color:white;
+	color:black;
 }
 
 #internship-summary {
     
     padding: 0 2px;
     width: 25%;
-	color: white;
-	background:#025D8C;
+	color: black;
+	/*background:#025D8C;*/
+	background:#FFFDDF;
 	border: 2px solid  #0E3B5A;
     float: left;
     vertical-align: top;
@@ -513,7 +515,7 @@ width:260px;
 
 #internship-summary dt {
     font-weight: bold;
-	color: #B3C7EB;
+	color: #BA2727;
     line-height: 1.25em;
     margin-top: 10px;
 }
@@ -522,6 +524,10 @@ width:260px;
     font-weight: normal;
     line-height: 1.25em;
     margin: 0;
+}
+
+#internship-summary a {
+    color:blue;
 }
 
 .internship-form #styled-form {width:98%;}
@@ -595,6 +601,53 @@ width:260px;
   margin-bottom: 8px;
 }
 
+#set-type {
+  position:relative;
+  float:left;
+  left:50%;
+}
+
+#set-type li {
+  position:relative;
+  float:left;
+  left:-50%;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+#form {
+	clear: both;
+}
+
+pre{
+	display:block;
+	font:100% "Courier New", Courier, monospace;
+	padding:10px;
+	border:1px solid #bae2f0;
+	background:#e3f4f9;	
+	margin:.5em 0;
+	overflow:auto;
+	width:800px;
+}
+
+img{border:none;}
+
+#preview{
+	position:absolute;
+	border:1px solid #ccc;
+	background:#333;
+	padding:5px;
+	display:none;
+	color:#fff;
+	z-index: 50000;	
+}
+
+#nightmare {
+	float: right;
+
+}
+
+
 /*---------- left aligned button ----------*/
 .btn { position: relative; background: #aaa; padding: 2px; margin: 0px; color: #fff; text-decoration: none; cursor: pointer; }
 .btn * { font-style: normal; background-image: url('../images/btn2.png'); background-repeat: no-repeat; display: block; position: relative; }
@@ -626,6 +679,8 @@ width:260px;
 .btn.external { background: #2ae; padding: 0px; border: 1px solid #FFF;}
 .btn.approve { background: #2cda0b; padding: 3px; font-size: 12px; width: 80px;}
 .btn.unapprove { background: #e31b1b; padding: 3px; font-size: 12px; width: 80px;}
+.btn.opportunity { background: #2ae; padding: 3px; font-size: 16px; width: 100px;}
+.btn.past { background: #9d4; padding: 3px; font-size: 16px; width: 100px;}
 .btn.make_admin { background: #2cda0b; padding: 3px; font-size: 12px; width: 110px;}
 .btn.remove_admin { background: #e31b1b; padding: 3px; font-size: 12px; width: 110px;}
 .btn.download { background: #e31b1b; padding: 0px;}

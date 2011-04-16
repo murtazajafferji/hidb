@@ -1,8 +1,10 @@
 <h2>Internship Form</h2>
+<div id="select-type"><p>Please select the type of internship you are submitting<p></div>
+<div id="set-type">
 <% if current_user and current_user.required  %>
-<%= button_to "Opportunity", set_type_internship_path(:id => 0, :past => "false"), :method => :post, :remote => true, :class => "btn approve", :id => "approve" %>
-<%= button_to "Past", set_type_internship_path(:id => 0, :past => "true"), :method => :post, :remote => true, :class => "btn unapprove", :id => "unapprove" %>
-<p>Please provide the details of your internship</p>
+<li><%= button_to "Opportunity", set_type_internship_path(:id => 0, :past => "false"), :method => :post, :remote => true, :class => "btn opportunity", :id => "approve", :onclick => "$('#select-type').hide();" %></li>
+<li><%= button_to "Past", set_type_internship_path(:id => 0, :past => "true"), :method => :post, :remote => true, :class => "btn past", :id => "unapprove", :onclick => "$('#select-type').hide();" %></li>
+</div>
 <div id="form"></div>
 <%# render 'form' %>
 <% else %>
@@ -11,4 +13,4 @@
 <% end %>
 
 
-<%= link_to 'Back', internships_path %>
+<%# link_to 'Back', internships_path %>

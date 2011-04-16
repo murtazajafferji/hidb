@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(:version => 20110206130647) do
     t.string   "year"
     t.string   "industry"
     t.string   "company_name"
-    t.string   "company_department"
+    t.string   "job_field"
     t.string   "city"
     t.string   "state"
     t.string   "country"
@@ -41,12 +41,12 @@ ActiveRecord::Schema.define(:version => 20110206130647) do
     t.text     "requirements"
     t.boolean  "paid"
     t.boolean  "full_time"
-    t.boolean  "approved",           :default => true
     t.text     "search_string"
     t.date     "deadline"
     t.boolean  "available"
     t.boolean  "past"
-    t.integer  "user_id",                              :null => false
+    t.string   "name"
+    t.integer  "user_id",          :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

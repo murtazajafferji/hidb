@@ -16,7 +16,7 @@ PERSISTENCE_TOKEN = "07d21add8837fc6548560638e83b17c7bb9f0634a3caf637cec5864acfd
 SINGLE_ACCESS_TOKEN = "551u1H9kUUt80TuKaVqW"
 PERISHABLE_TOKEN = "NyuQw4yZYZOVsN5DzqVO"
 COMPANY_NAME = ["Google", "Microsoft", "Bristol-Myers Squibb", "Apple", "BP", "Brandeis University", "Addidas", "Boston Children's Hospital", "RBS", "PWC"]
-COMPANY_DEPARTMENT = ["Human Resources", "Technology", "Marketing", "Information Technology", "Accounting", "Logistics", "Administration", "Communication", "Finance", "Consumer Affairs"]
+JOB_FIELD= ["Human Resources", "Technology", "Marketing", "Information Technology", "Accounting", "Logistics", "Administration", "Communication", "Finance", "Consumer Affairs"]
 CITY = ["New York City", "Boston", "Chicago", "Dallas", "Irving", "Seattle", "San Francisco", "Los Angeles", "Houston", "Philadelphia"]
 CITY_HASH = {"New York City" => 'NY', "Boston" => 'MA', "Chicago" => 'IL', "Dallas" => 'TX', "Irving" => 'TX', "Seattle" => 'WA', "San Francisco" => 'CA', "Los Angeles" => 'CA', "Houston" => 'TX', "Philadelphia" => 'PA'}
 WEBSITE = ["www.google.com", "www.microsoft.com", "www.bms.com", "www.apple.com", "www.bp.com", "www.brandeis.edu", "www.addidas.com", "www.childrenshospital.org", "www.rbs.com", "www.pwc.org"]
@@ -70,7 +70,7 @@ user_output.puts "murtaza:"
   year = YEAR[rand(5)]
   industry = INDUSTRY[rand(38)]
   company_name = COMPANY_NAME[j = rand(10)]
-  company_department = COMPANY_DEPARTMENT[rand(10)]
+  job_field = JOB_FIELD[rand(10)]
   city = CITY[rand(10)]
   state = CITY_HASH[city]
   #state = STATE[rand(51)]
@@ -94,7 +94,7 @@ user_output.puts "murtaza:"
   internship_output.puts "  year: \"#{year}\""
   internship_output.puts "  industry: \"#{industry}\""
   internship_output.puts "  company_name: \"#{company_name}\""
-  internship_output.puts "  company_department: \"#{company_department}\""
+  internship_output.puts "  job_field: \"#{job_field}\""
   internship_output.puts "  city: \"#{city}\""
   internship_output.puts "  state: \"#{state}\""
   internship_output.puts "  country: \"#{country}\""

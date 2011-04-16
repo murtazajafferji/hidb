@@ -4,7 +4,7 @@
     <th><%= link_to "City", sort_url("sort", "city") %></th>
     <th><%= link_to "State", sort_url("sort", "state") %></th>
 <th><%= link_to "Company Name", sort_url("sort", "company_name") %></th>
-<th><%= link_to "Department/Program", sort_url("sort", "company_department") %></th>
+<th><%= link_to "Field", sort_url("sort", "job_field") %></th>
 <th><%= link_to "Semester", sort_url("sort", "semester") %></th>
 <th><%= link_to "Year", sort_url("sort", "year") %></th>
 <th>Student</th>
@@ -18,7 +18,7 @@
 	<td><%= internship.city if internship.city %></td>
 	<td><%= internship.state if internship.state %></td>
 	<td><%= internship.company_name if internship.company_name %></td>
-	<td><%= internship.company_department if internship.company_department %></td>
+	<td><%= internship.job_field if internship.job_field %></td>
 	<td><%= internship.semester if internship.semester %></td>
 	<td><%= internship.year if internship.year %></td>
 	<td><%= link_to "#{internship.user.first_name} #{internship.user.last_name}", internship.user if internship.user %></td>

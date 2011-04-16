@@ -18,7 +18,7 @@ $(document).ready(function(){
 		<%= form.input :year, :as => :select, :collection => Internship::YEAR, :name => :year %>
 		<%= form.input :industry, :as => :select, :collection => Internship::INDUSTRY %>
 		<%= form.input :company_name %>
-		<%= form.input :company_department %>
+		<%= form.input :job_field %>
 		<%= form.input :city %>
 		<%= form.input :state, :as => :select, :collection => Internship::STATE %>
 		<%= form.input :country, :as => :select, :collection => Internship::COUNTRY %>

@@ -12,6 +12,9 @@ Hidb::Application.routes.draw do
 
   #resources :internships
   match '/unapproved' => 'internships#unapproved', :as => :unapproved
+  match '/opportunities' => 'internships#opportunities', :as => :opportunities
+  match '/reviews' => 'internships#reviews', :as => :reviews
+  
   
   match 'logout' => 'user_sessions#destroy', :as => :logout
   match 'login' => 'user_sessions#new', :as => :login
