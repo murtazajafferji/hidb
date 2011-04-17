@@ -18,7 +18,7 @@
 <% internships.each do |internship| %>
 <% if internship %>
   <tr>
-	<td><%= (Time.now - internship.created_at < 86400) ? "#{time_ago_in_words((Time.now - internship.created_at).seconds.ago)} ago" : internship.created_at.strftime("%b %d, %Y") if internship.created_at %></td>
+	<td><%= (Time.now - internship.created_at < 86400) ? "#{time_ago_in_words((Time.now - internship.created_at).seconds.ago)} ago" : internship.created_at.strftime("%b %e, %Y") if internship.created_at %></td>
 	<td><%= internship.job_field if internship.job_field %></td>
 	<td><%= internship.city if internship.city %></td>
 	<td><%= internship.state if internship.state %></td>

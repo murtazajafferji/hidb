@@ -15,49 +15,41 @@
 	<%# if current_user and current_user.admin == true %>
 	<%# end %>
 </div>
-<div id="internship-wrapper">
-<div id="internship-summary">
+<div class="internship-wrapper">
+<div class="internship-summary">
   <h1> Internship Summary </h1>
 <div id="votes">
 	<%= render :partial => 'internships/votes', :locals => {:internship => @internship} %>
 </div>
   <dl>
-    <dt>Company/Employer Name</dt>
-    <dd><%= @internship.company_name if @internship.company_name %></dd>
-    <dt>Location</dt>
-    <dd><%= @internship.city if @internship.city %>, <%= @internship.state if @internship.state %></dd>
-	<dt>Company/Employer Website</dt>
-	<dd><a href=<%= @internship.website.include?("http://") ? @internship.website : ("http://" + @internship.website) if @internship.website %>><%= @internship.website if @internship.website %></a></dd>
-    <dt>Industry</dt>
-    <dd><%= @internship.industry if @internship.industry %></dd>
-    <dt>Field</dt>
-	<dd><%= @internship.job_field if @internship.job_field %></dd>
-	<dt>Compensation</dt>
-	<dd><%= @internship.paid ? "Paid" : "Unpaid" unless @internship.paid.nil? %></dd>
-	<dt>Commitment</dt>
-	<dd><%= @internship.full_time ? "Full-time" : "Part-time" unless @internship.full_time.nil? %></dd>
-	<br>
-	<hr>
-	<h1><%= @internship.past ? "Intern" : "Poster" %></h1>
-	<dt>Name</dt>
-	<dd><%= link_to "#{@internship.user.first_name} #{@internship.user.last_name}", @internship.user if @internship.user %></dd>
-	<dt>Year of Graduation</dt>
-	<dd><%= @internship.user.yog if @internship.user.yog %></dd>
-	<dt>Major</dt>
-	<dd><%= @internship.user.major if @internship.user.major %></dd>
-	<dt>LinkedIn</dt>
-	<dd><a href=<%= @internship.user.linkedin if @internship.user.linkedin %>><%= @internship.user.linkedin if @internship.user.linkedin %></a></dd>
-	<br>
-	<img src="/images/logo.png" alt="The Internship Database" width="150">
+	<%= "<dt>Date Submitted</dt><dd>#{@internship.created_at.strftime("%b %e, %Y")}</dd>".html_safe if @internship.created_at %>
+	<%= "<dt>Deadline</dt><dd>#{@internship.deadline.strftime("%b %e, %Y")}</dd>".html_safe if !@internship.deadline.blank? %>
+	<%= "<dt>Company/Employer Name</dt><dd>#{@internship.company_name}</dd>".html_safe if !@internship.company_name.blank? %>
+	<%= "<dt>Location</dt><dd>#{@internship.city if !@internship.city.blank?}#{',' if (!@internship.city.blank? and !@internship.state.blank?)} #{@internship.state if !@internship.state.blank?}</dd>".html_safe if !@internship.city.blank? or !@internship.state.blank? %>
+	<%= "<dt>Company/Employer Website</dt><dd><a href=#{@internship.website.include?("http://") ? @internship.website : ("http://" + @internship.website) if !@internship.website.blank?}>#{@internship.website}</a></dd>".html_safe if !@internship.website.blank? %>
+    <%= "<dt>Industry</dt><dd>#{@internship.industry}</dd>".html_safe if !@internship.industry.blank? %>
+    <%= "<dt>Field</dt><dd>#{@internship.job_field}</dd>".html_safe if !@internship.job_field.blank? %> 
+	<%= "<dt>Compensation</dt><dd>#{@internship.paid ? "Paid" : "Unpaid"}</dd>".html_safe unless @internship.paid.nil? %>
+	<%= "<dt>Commitment</dt><dd>#{@internship.full_time ? "Full-time" : "Part-time"}</dd>".html_safe unless @internship.full_time.nil? %>
 </div>
-
-<div id="internship-main"> 
-  <h1><%= @internship.name ? "#{@internship.name }" : "Internship at #{@internship.company_name} " if @internship.name or @internship.company_name %><%= @internship.past ? "(Review)" : @internship.available ? "(Opportunity)" : (Time.now < @nternship.deadline) ? "(Position Filled)" : "(Deadline past)" %></h1>
-  <%= "<dt>Description</dt><dl>#{@internship.description.html_safe}</dl>".html_safe if @internship.description %>
-  <%= "<dt>Responsibilities</dt><dl>#{@internship.responsibilities.html_safe}</dl>".html_safe if @internship.responsibilities %>  
-  <%= "<dt>Requirements</dt><dl>#{@internship.requirements.html_safe}</dl>".html_safe if !@internship.past and @internship.requirements %>
-  <%= "<dt>Review</dt><dl>#{@internship.review.html_safe}</dl>".html_safe if @internship.past and @internship.review %>
+<div class="internship-section">
+<div class="internship-main"> 
+  <h1><%= @internship.name ? "#{@internship.name }" : "Internship at #{@internship.company_name} " if @internship.name or @internship.company_name %><%= @internship.past ? " (Review)" : @internship.available ? "" : (Time.now < @internship.deadline) ? " (Position Filled)" : " (Deadline past)" %></h1>
+  <%= "<dt>Description</dt><dl>#{simple_format(@internship.description, :class => 'simple-format')}</dl>".html_safe if !@internship.description.blank? %>
+  <%= "<dt>Responsibilities</dt><dl>#{simple_format(@internship.responsibilities, :class => 'simple-format')}</dl>".html_safe if !@internship.responsibilities.blank? %>  
+  <%= "<dt>Skills/Requirements</dt><dl>#{simple_format(@internship.requirements, :class => 'simple-format')}</dl>".html_safe if !@internship.past and !@internship.requirements.blank? %>
+  <%= "<dt>Review</dt><dl>#{simple_format(@internship.review.html_safe, :class => 'simple-format')}</dl>".html_safe if @internship.past and !@internship.review.blank? %>
 	<br>
+
+</div>
+<div class="internship-summary" id="poster">
+	<h1><%= @internship.past ? "Intern" : "Poster" %></h1>
+	<%= "<dt>Name:</dt><dd>#{link_to "#{@internship.user.first_name} #{@internship.user.last_name}", @internship.user}</dd>".html_safe if !@internship.user.blank? %>
+	<%= "<dt>Year of Graduation:</dt><dd>#{@internship.user.yog}</dd>".html_safe if !@internship.user.yog.blank? %>
+	<%= "<dt>Major:</dt><dd>#{@internship.user.major}</dd>".html_safe if !@internship.user.major.blank? %>
+	<%= "<dt>LinkedIn:</dt><dd><a href=#{@internship.user.linkedin.include?("http://") ? @internship.user.linkedin : ("http://" + @internship.user.linkedin) if !@internship.user.linkedin.blank?}>#{@internship.user.linkedin}</a></dd>".html_safe if !@internship.user.linkedin.blank? %>
+
+</div>
 </div>
 </div>
 <% if current_user and current_user.id == @internship.user_id %>

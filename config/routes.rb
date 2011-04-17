@@ -9,6 +9,7 @@ Hidb::Application.routes.draw do
       post :set_type
       post :vote_up
       post :vote_down
+      post :available
     end
   end
 

@@ -440,27 +440,26 @@ width:260px;
   background: url(../images/logo_small.png) center 4px no-repeat;
 }
 
-#internship-main {
+.internship-main {
 	/*background:#025D8C;*/
 	background:#FFFDDF;
 	/*background:#003366;*/
 	border: 2px solid  #0E3B5A;
   float: right;
   padding-right: 2px;
-  vertical-align: top;
   width: 70%;
 	padding-left: 5px;
 	
 }
 
-#internship-main h1{
+.internship-main h1{
 	color:black;
-	font-size:25px;
+	font-size:20px;
 	font-style:bold;
 
 }
 
-#internship-main dt{
+.internship-main dt{
 	margin-top: 10px;
 	font-size:17px;
 	text-align:left;
@@ -469,14 +468,14 @@ width:260px;
 	
 }
 
-#internship-main dl{
+.internship-main dl{
 	font-size:14px;
 	padding-left: 5px;
 	text-align:left;
 	color:black;
 }
 
-#internship-summary {
+.internship-summary {
     
     padding: 0 2px;
     width: 25%;
@@ -485,49 +484,59 @@ width:260px;
 	background:#FFFDDF;
 	border: 2px solid  #0E3B5A;
     float: left;
-    vertical-align: top;
 }
 
-#internship-summary a{
+.internship-summary a{
 	color:#FCFBE3;
 }
 
-#internship-summary h1 {
+.internship-summary h1 {
     padding-top: 10px;
 	padding-left: 10px;
 	padding-right: 10px;
 	font-size: 14px;
+	font-weight:bold;
 }
 
-#internship-summary h1{
-	font-style:bold;
-	font-style:italic;
-}
-
-#internship-summary hr{
+.internship-summary hr{
 	color:black;
 }
 
-#internship-summary dl {
+.internship-summary dl {
     font-size: 12px;
     margin: 10px;
 }
 
-#internship-summary dt {
+.internship-summary dt {
     font-weight: bold;
 	color: #BA2727;
     line-height: 1.25em;
     margin-top: 10px;
 }
 
-#internship-summary dd {
+.internship-summary dd {
     font-weight: normal;
     line-height: 1.25em;
     margin: 0;
 }
 
-#internship-summary a {
+.internship-summary a {
     color:blue;
+}
+
+#poster {
+    float: right;
+    padding-left: 5px;
+    padding-right: 2px;
+    width: 70%;
+	margin-top: 10px;
+	padding-bottom: 10px;
+}
+
+#poster dt{
+	margin-top: 0px;
+	float: left;
+	margin-right: 5px;
 }
 
 .internship-form #styled-form {width:98%;}
@@ -576,9 +585,8 @@ width:260px;
   padding: 6px 10px;
   text-transform: uppercase;
   background-color: #124b72;
-	color: #FFF;
-	text-decoration: none;
-	
+  color: #FFF;
+  text-decoration: none;	
 
 }
 
@@ -637,7 +645,7 @@ pre{
 
 img{border:none;}
 
-#preview{
+#preview {
 	position:absolute;
 	border:1px solid #ccc;
 	background:#333;
@@ -647,12 +655,19 @@ img{border:none;}
 	z-index: 50000;	
 }
 
-#nightmare {
+#image-preview {
 	float: right;
 
 }
+.simple-format {
+	color:black;
+	font-size:14px;
+	text-align:left;
+}
 
-
+#message{
+  color: red;
+}
 /*---------- left aligned button ----------*/
 .btn { position: relative; background: #aaa; padding: 2px; margin: 0px; color: #fff; text-decoration: none; cursor: pointer; }
 .btn * { font-style: normal; background-image: url('../images/btn2.png'); background-repeat: no-repeat; display: block; position: relative; }
@@ -676,8 +691,8 @@ img{border:none;}
 .btn.inaccurate { background: #292C37; padding: 0px; width: 20%;}
 .btn.mature { background: #57493C; padding: 0px; width: 20%;}
 .btn.offensive { background: #9F111B; padding: 0px; width: 20%;}
-.voted input.btn{ border: inset 2px; background: #444; padding: 0px; width: 20%;}
-.voted input.btn:hover{ background: #444;}
+.btn.voted{ border: inset 2px; background: #444; padding: 2px; font-size: 12px; width: 80px;}
+.btn.voted:hover{ background: #444;}
 .btn.stats { background: #176092; padding: 0px; border: 1px solid #a1b0bb;}
 .btn.comment { background: #176092; padding: 0px; border: 1px solid #a1b0bb;}
 .btn.add-comment { background: #2ae; padding: 0px; vertical-align: bottom; margin-bottom: 2px;}
@@ -691,7 +706,7 @@ img{border:none;}
 .btn.make_admin { background: #2cda0b; padding: 3px; font-size: 12px; width: 110px;}
 .btn.remove_admin { background: #e31b1b; padding: 3px; font-size: 12px; width: 110px;}
 .btn.download { background: #e31b1b; padding: 0px;}
-.btn:hover { background-color: #a00; color: #fff; }
+.btn:hover { border: 2px solid #00BFF3; color: #fff; }
 .btn:active { background-color: #444; color: #fff; }
 .btn[class] {  background-image: url('../images/shade.png'); background-position: bottom; }
 

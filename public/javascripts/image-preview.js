@@ -24,7 +24,7 @@ this.imagePreview = function(){
 		var c = (this.t != "") ? "<br/>" + this.t : "";
 		$("body").append("<p id='preview'><img src='"+ this.href +"' alt='Image preview' />"+ c +"</p>");								 
 		$("#preview")
-			.css("top",(e.pageY - xOffset) + "px" - 500)
+			.css("top",(e.pageY - xOffset - 375) + "px")
 			.css("left",(e.pageX + yOffset) + "px")
 			.fadeIn("fast");						
     },
@@ -34,7 +34,7 @@ this.imagePreview = function(){
     });	
 	$("a.preview").mousemove(function(e){
 		$("#preview")
-			.css("top",(e.pageY - xOffset) + "px" - 500)
+			.css("top",(e.pageY - xOffset - 375) + "px")
 			.css("left",(e.pageX + yOffset) + "px");
 	});			
 };

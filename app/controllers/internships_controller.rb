@@ -193,6 +193,37 @@ class InternshipsController < ApplicationController
     end
   end
   
+  def available 
+    internship = Internship.find(params[:internship])
+    user = current_user
+    
+    if internship.available
+      internship.available = false
+      
+      if internship.save(false)
+        flash[:notice] = "Thanks for the info!"
+      else
+        flash[:error] = 'Something has gone horribly wrong.'
+      end
+    else
+      internship.available = true
+      
+      if internship.save(false)
+        flash[:notice] = "Thanks for the info!"
+      else
+        flash[:error] = 'Something has gone horribly wrong.'
+      end
+    end
+    respond_to do |wants|
+      wants.html { redirect_to :back }
+      wants.xml  { render :xml => @user }
+      wants.js {
+        render(:update) {|page| page.replace_html 'votes', :partial => 'internships/votes', :locals => {:internship => internship}}
+      }
+    end
+
+  end
+  
   def opportunities    
     @internships = Internship.sort params
     @internships = @internships.collect{|x| x if x.available}
