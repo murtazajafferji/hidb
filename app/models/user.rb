@@ -1,15 +1,17 @@
-class User < ActiveRecord::Base  
+class User < ActiveRecord::Base
   has_many :internships
   
   #validates_format_of :yog, :with => /\d\d\d\d/, :if => :yog?
   
+  acts_as_voter
+  has_karma :internships
   
   acts_as_authentic do |config|
     config.validate_email_field    = false
     config.validate_login_field    = false
     config.validate_password_field = false
     config.login_field = 'email'
-  end
+  end  
   
   comma do
     login

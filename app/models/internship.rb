@@ -1,8 +1,10 @@
-class Internship < ActiveRecord::Base
+class Internship < ActiveRecord::Base  
   belongs_to :user
   after_save :make_search_string
   
-  validates_presence_of :available, :company_name, :description, :semester, :year, :job_field, :paid, :full_time, :past, :available
+  validates_presence_of :company_name, :description, :semester, :year, :job_field, :paid, :full_time#, :past, :available
+
+  acts_as_voteable
   
   comma do
     user :login

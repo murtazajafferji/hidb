@@ -1,5 +1,5 @@
 class InternshipsController < ApplicationController
-  before_filter :require_user, :only => [:create, :update, :destroy, :new]
+  before_filter :require_user, :only => [:create, :update, :destroy, :new, :vote_up, :vote_down]
   before_filter :require_admin, :only => [:unapproved]
   # GET /internships
   # GET /internships.xml
@@ -53,6 +53,7 @@ class InternshipsController < ApplicationController
         format.html { redirect_to(internships_path, :notice => 'Internship was successfully created.') }
         format.xml  { render :xml => @internship, :status => :created, :location => @internship }
       else
+        flash[:error] = @internship.errors.full_messages.join("<br>")
         format.html { render :action => "new" }
         format.xml  { render :xml => @internship.errors, :status => :unprocessable_entity }
       end
@@ -122,6 +123,66 @@ class InternshipsController < ApplicationController
     end
   end
   
+  def vote_up 
+    internship = Internship.find(params[:internship])
+    user = current_user
+    
+    if !user.voted_for?(internship)
+      user.vote_for(internship)
+      
+      if internship.save(false)
+        flash[:notice] = "Thanks for the info!"
+      else
+        flash[:error] = 'Something has gone horribly wrong.'
+      end
+    else
+      user.unvote(internship)
+      
+      if internship.save(false)
+        flash[:notice] = "Thanks for the info!"
+      else
+        flash[:error] = 'Something has gone horribly wrong.'
+      end
+    end
+    respond_to do |wants|
+      wants.html { redirect_to :back }
+      wants.xml  { render :xml => @user }
+      wants.js {
+        render(:update) {|page| page.replace_html 'votes', :partial => 'internships/votes', :locals => {:internship => internship}}
+      }
+    end
+  end
+  
+  def vote_down 
+    internship = Internship.find(params[:internship])
+    user = current_user
+    
+    if !user.voted_against?(internship)
+      user.vote_against(internship)
+      
+      if internship.save(false)
+        flash[:notice] = "Thanks for the info!"
+      else
+        flash[:error] = 'Something has gone horribly wrong.'
+      end
+    else
+      user.unvote(internship)
+      
+      if internship.save(false)
+        flash[:notice] = "Thanks for the info!"
+      else
+        flash[:error] = 'Something has gone horribly wrong.'
+      end
+    end
+    respond_to do |wants|
+      wants.html { redirect_to :back }
+      wants.xml  { render :xml => @user }
+      wants.js {
+        render(:update) {|page| page.replace_html 'votes', :partial => 'internships/votes', :locals => {:internship => internship}}
+      }
+    end
+  end
+  
   def opportunities    
     @internships = Internship.sort params
     @internships = @internships.collect{|x| x if x.available}
@@ -136,8 +197,7 @@ class InternshipsController < ApplicationController
   def reviews    
     @internships = Internship.sort params
     @internships = @internships.collect{|x| x if x.past}
-    #@internships = @internships.sort{|a, b| a.created_at < b.created_at}
-
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @internships }
@@ -146,12 +206,17 @@ class InternshipsController < ApplicationController
   end
   
   def set_type 
+    fields = ["semester", "year", "industry", "company_name", "job_field", "city", "state", "country", "website", "responsibilities", "review", "description", "requirements", "paid", "full_time", "search_string", "deadline", "available", "past", "name"]
+    internship = Internship.new
+    fields.each do |x| 
+      eval("internship.#{x}=params[:internship][:#{x}]") if eval("internship.#{x}")
+    end
     past = eval(params[:past])
     respond_to do |wants|
       wants.html { redirect_to :back }
       wants.xml  { render :xml => @user }
       wants.js {
-        render(:update) {|page| page.replace_html 'form', :partial => 'internships/form', :locals => {:@internship => Internship.new, :past => past}}
+        render(:update) {|page| page.replace_html 'form', :partial => 'internships/form', :locals => {:@internship => internship, :past => past}}
       }
     end
   end

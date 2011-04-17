@@ -1,12 +1,18 @@
 <h2>Internship Form</h2>
 <% if current_user and current_user.required  %>
 <div id="select-type">
-<p>Please select the type of internship you are submitting<p></div>
-<div id="set-type">
-<li><%= button_to "Opportunity", set_type_internship_path(:id => 0, :past => "false"), :method => :post, :remote => true, :class => "btn opportunity", :id => "approve", :onclick => "$('#select-type').hide();" %></li>
-<li><%= button_to "Past", set_type_internship_path(:id => 0, :past => "true"), :method => :post, :remote => true, :class => "btn past", :id => "unapprove", :onclick => "$('#select-type').hide();" %></li>
+	<% if !@internship.changed? %>
+<p>Please select the type of internship you are submitting<p>
+	<% end %></div>
+<div class="centered-buttons">
+<li><%= button_to "Opportunity", set_type_internship_path(:id => 0, :past => "false", :internship => @internship.changes), :method => :post, :remote => true, :class => "btn opportunity", :id => "approve", :onclick => "$('#select-type').hide();" %></li>
+<li><%= button_to "Past", set_type_internship_path(:id => 0, :past => "true", :internship => @internship.changes), :method => :post, :remote => true, :class => "btn past", :id => "unapprove", :onclick => "$('#select-type').hide();" %></li>
 </div>
-<div id="form"></div>
+<div id="form">
+	<% if @internship.changed? %>
+	<%= render :partial => 'internships/form', :locals => {:@internship => @internship} %>
+	<% end %>
+</div>
 <%# render 'form' %>
 <% else %>
 <p>Please fill out some information about yourself before proceeding</p>

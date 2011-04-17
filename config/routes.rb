@@ -7,6 +7,8 @@ Hidb::Application.routes.draw do
     member do
       post :approve
       post :set_type
+      post :vote_up
+      post :vote_down
     end
   end
 

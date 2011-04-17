@@ -12,7 +12,7 @@ class CreateInternships < ActiveRecord::Migration
       t.string :company_name
       #t.string :company_department
       t.string :job_field
-	  t.string :city
+	    t.string :city
       t.string :state
       t.string :country
       t.string :website

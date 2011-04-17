@@ -12,10 +12,15 @@
 			<%# button_to "Unapprove", approve_internship_path(:internship => @internship), :method => :post, :remote => true, :class => "btn unapprove", :id => "unapprove", :onclick => "$('#approve').toggle();$('#unapprove').toggle();" %>
 			<%# end %>
 	<%# end %>	
+	<%# if current_user and current_user.admin == true %>
+	<%# end %>
 </div>
 <div id="internship-wrapper">
 <div id="internship-summary">
   <h1> Internship Summary </h1>
+<div id="votes">
+	<%= render :partial => 'internships/votes', :locals => {:internship => @internship} %>
+</div>
   <dl>
     <dt>Company/Employer Name</dt>
     <dd><%= @internship.company_name if @internship.company_name %></dd>

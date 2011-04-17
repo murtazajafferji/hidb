@@ -9,17 +9,17 @@
 		<%= form.input :semester, :as => :check_boxes, :collection => Internship::SEMESTER %>
 		<%= form.input :year, :as => :select, :collection => Internship::YEAR if past %>
 		<%= form.input :year, :as => :select, :selected => Time.now.year, :collection => Internship::YEAR if past == false %>
-		<%= form.input :job_field, :as => :select, :collection => Internship::JOB_FIELD if past%>
+		<%= form.input :job_field, :as => :select, :collection => Internship::JOB_FIELD %>
 		<%= form.input :paid, :label => "Compensation", :as => :radio, :collection => {"Paid" => 't', "Unpaid" => 'f'}.sort.reverse %>
 		<%= form.input :full_time, :label => "Commitment", :as => :radio, :collection => {"Full-time" => 't', "Part-time" => 'f'}.sort.reverse %>	
 		<%= form.input :deadline if past == false%>
 		<%= form.input :review if past %>
-		<%= form.input :past, :value => true, :as => :hidden if past %>
-		<%= form.input :available, :value => false, :as => :hidden if past %>
-		<%= form.input :past, :value => false, :as => :hidden if past == false %>
+		<%= form.input :past, :value => "true", :as => :hidden if past %>
+		<%= form.input :available, :value => "false", :as => :hidden if past %>
+		<%= form.input :past, :value => "false", :as => :hidden if past == false %>
   <% end %>
   <% form.inputs :name => "Optional", :id => "optional" do %>
-	<%= form.input :name, :label => "Internship Name", :required => true %>
+	<%= form.input :name, :label => "Internship Name" %>
 	<%= form.input :city %>
 	<%= form.input :state, :as => :select, :collection => Internship::STATE %>
 	<%= form.input :country, :as => :select, :selected => "United States", :collection => Internship::COUNTRY %>
