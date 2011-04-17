@@ -1,6 +1,7 @@
-
-<%= pluralize(internship.votes_for, "#{internship.votes_for}") %>
+<%= (current_user and current_user.voted_for?(internship)) ? internship.past ? "".html_safe : "You have applied<br>".html_safe : internship.past ? '' : "You have not applied yet<br>".html_safe  %>
+<%= (pluralize(internship.votes_for, "person") + (internship.past ? (internship.votes_for == 1) ? " finds this helpful<br>" : " find this helpful<br>" : (internship.votes_for == 1) ? " has applied<br>" : " have applied<br>")).html_safe  %>
+<%= (pluralize(internship.votes_against, "person") + ((internship.votes_against == 1) ? " has flagged this<br>" : " have flagged this<br>")).html_safe  %>
 <div class="centered-buttons" id="vote-buttons">
-  	<li><%= button_to internship.past ? "Helpful" : "I Applied", vote_up_internship_path(:internship => internship), :method => :post, :remote => true, :class => "btn vote_up", :id => "approve" %></li>
-<li><%= button_to internship.past ? "Unhelpful" : "Flag", vote_down_internship_path(:internship => internship), :method => :post, :remote => true, :class => "btn vote_down", :id => "unapprove" %></li>
+  	<li><%= button_to internship.past ? (current_user and !current_user.voted_for?(internship)) ? "Helpful" : "Remove Vote" : (current_user and !current_user.voted_for?(internship)) ? "I Applied" : "I Didn't Apply", vote_up_internship_path(:internship => internship), :method => :post, :remote => true, :class => "btn vote_up", :id => "approve" %></li>
+  	<li><%= button_to (current_user and !current_user.voted_against?(internship)) ? "Flag" : "Unflag", vote_down_internship_path(:internship => internship), :method => :post, :remote => true, :class => "btn vote_down", :id => "approve" %></li>
 </div>

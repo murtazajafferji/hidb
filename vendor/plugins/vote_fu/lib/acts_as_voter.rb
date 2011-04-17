@@ -73,7 +73,7 @@ module PeteOnRails
         
         def unvote(voteable)
           if voted_on?(voteable)
-            vote = Vote.find(:voteable => voteable, :voter => self)
+            vote = Vote.find(:first, :conditions => ["voter_id = ? AND voter_type = ? AND voteable_id = ? AND voteable_type = ?",self.id, self.class.name, voteable.id, voteable.class.name])
             vote.destroy
           end
         end

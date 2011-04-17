@@ -1,5 +1,5 @@
 class InternshipsController < ApplicationController
-  before_filter :require_user, :only => [:create, :update, :destroy, :new, :vote_up, :vote_down]
+  before_filter :require_user, :only => [:create, :update, :destroy, :new]
   before_filter :require_admin, :only => [:unapproved]
   # GET /internships
   # GET /internships.xml
@@ -124,6 +124,7 @@ class InternshipsController < ApplicationController
   end
   
   def vote_up 
+    if current_user
     internship = Internship.find(params[:internship])
     user = current_user
     
@@ -151,6 +152,15 @@ class InternshipsController < ApplicationController
         render(:update) {|page| page.replace_html 'votes', :partial => 'internships/votes', :locals => {:internship => internship}}
       }
     end
+  else
+    respond_to do |wants|
+      wants.html { redirect_to :back }
+      wants.xml  { render :xml => @user }
+      wants.js {
+        render(:update) {|page| page.replace_html 'register', :partial => 'user_sessions/form', :locals => {:@user_session => UserSession.new}}
+      }
+    end
+  end
   end
   
   def vote_down 

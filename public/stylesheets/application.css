@@ -616,8 +616,8 @@ width:260px;
 }
 
 #vote-buttons li {
-  margin-left: 5px;
-  margin-right: 5px;
+  margin-left: 2px;
+  margin-right: 2px;
 }
 
 #form {
@@ -684,8 +684,8 @@ img{border:none;}
 .btn.external { background: #2ae; padding: 0px; border: 1px solid #FFF;}
 .btn.approve { background: #2cda0b; padding: 3px; font-size: 12px; width: 80px;}
 .btn.unapprove { background: #e31b1b; padding: 3px; font-size: 12px; width: 80px;}
-.btn.vote_up { background: #2cda0b; padding: 2px; font-size: 12px; width: 60px;}
-.btn.vote_down { background: #e31b1b; padding: 2px; font-size: 12px; width: 60px;}
+.btn.vote_up { background: #2cda0b; padding: 2px; font-size: 12px; width: 80px;}
+.btn.vote_down { background: #e31b1b; padding: 2px; font-size: 12px; width: 80px;}
 .btn.opportunity { background: #2ae; padding: 3px; font-size: 16px; width: 100px;}
 .btn.past { background: #9d4; padding: 3px; font-size: 16px; width: 100px;}
 .btn.make_admin { background: #2cda0b; padding: 3px; font-size: 12px; width: 110px;}
