@@ -15,7 +15,7 @@ class VoteFuMigration < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :votes
+    #drop_table :votes
   end
 
 end
