@@ -34,7 +34,7 @@
 <%= javascript_include_tag 'image-preview' %>
 <%= include_growlr.html_safe %>
 <%= feedback_includes %>
-<%= feedback_tab(:position => 'top') unless is_mobile_device? %>
+<%= feedback_tab(:position => 'left') unless is_mobile_device? %>
 <%# formtastic_stylesheet_link_tag %>
 
 <% if protect_against_forgery? %>
