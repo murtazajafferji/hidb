@@ -1,38 +1,25 @@
-<option value="2548">Administrative, Technical, Manual, and Professional Services</option>
-<option value="1090">Advertising and Marketing, and Public Relations</option>
-<option value="923">Agriculture</option>
-<option value="924">Architecture and Urban Planning</option>
-<option value="926">Biotech/Pharmaceutical</option>
-<option value="931">Education K-12</option>
-<option value="1094">Education, Early Childhood</option>
-<option value="932">Energy, Utilities, and Alternative Energy</option>
-<option value="934">Environment and Conservation</option>
-<option value="935">Finance and Banking</option>
-<option value="2552">Fine and Performing Arts</option>
-<option value="2545">Food and Beverage</option>
-<option value="2556">Foundations</option>
-<option value="937">Government</option>
-<option value="2558">Government -  International</option>
-<option value="2557">Government - Federal</option>
-<option value="2559">Government - State, Local</option>
-<option value="2507">Healthcare</option>
-<option value="2550">Higher Education</option>
-<option value="958">Hospitality (Restaurant, Hotel, Travel, Recreation)</option>
-<option value="2560">Human and Social Services</option>
-<option value="955">Information Technology/Computers</option>
-<option value="940">Insurance</option>
-<option value="941">International</option>
-<option value="942">Law</option>
-<option value="928">Management and Economic Consulting</option>
-<option value="2547">Manufacturing</option>
-<option value="2562">Media (Broadcast, Print, Digital)</option>
-<option value="1096">Military</option>
-<option value="1093">Museum, Library, Archives</option>
-<option value="944">Other</option>
-<option value="946">Public and Media Relations</option>
-<option value="1100">Publishing</option>
-<option value="947">Real Estate</option>
-<option value="948">Religion</option>
-<option value="950">Retail and Wholesale Trade</option>
-<option value="954">Sports</option>
-<option value="1101">Transportation Services</option>
+Accounting, Finance, and Insurance 
+Administrative and Clerical 
+Banking, Real Estate, and Mortgage Professionals
+Biotech, R&D, and Science 
+Building Construction and Skilled Trades 
+Business and Strategic Management 
+Creative and Design 
+Customer Support and Client Care 
+Editorial and Writing 
+Education and Training 
+Engineering 
+Food Services and Hospitality 
+Human Resources 
+Installation, Maintenance, and Repair 
+IT and Software Development 
+Legal 
+Logistics and Transportation 
+Manufacturing, Production, and Operations
+Marketing and Product 
+Medical and Health 
+Other 
+Project and Program Management 
+Quality Assurance and Safety 
+Sales, Retail, and Business Development 
+Security and Protective Services 
