@@ -1,6 +1,6 @@
 <% title (@user.first_name and @user.last_name) ? "#{@user.first_name} #{@user.last_name}'s profile" : "#{@profile[:name]}'s profile" %>
 
-<% if current_user.id == @user.id %>
+<% if current_user and current_user.id == @user.id %>
 	<%= "<h2>Hi #{@profile[:name]}!</h2>".html_safe  %>
 	<%# if @user.first_name.nil? or @user.last_name.nil? or @user.email.nil? or @user.major.nil? or @user.yog.nil? %>
 	<!-- <p>Please fill out some information about yourself before proceeding</p> -->
@@ -14,7 +14,7 @@
 		<%= "<h2>#{@profile[:name]}'s profile</h2>".html_safe %>
 	<% end %>
 <% end %><p>
-	<% if current_user.admin %>
+	<% if current_user and current_user.admin %>
 	<%= link_to "Approve internships!", unapproved_path %>
 	<% end %>
 <%= link_to "View internships!", internships_path %>
@@ -48,7 +48,7 @@
 
 </table>
 <div class="actions">
-<% if current_user.admin %>
+<% if current_user and current_user.admin %>
 Download CSV:
 <%= link_to "Internships", internships_path(:format => :csv) %>
 <%= link_to "Users", users_path(:format => :csv) %>
