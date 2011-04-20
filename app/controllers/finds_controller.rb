@@ -38,7 +38,7 @@ class FindsController < ApplicationController
   end
   
   def advanced_search
-    text = ["company_name", "field", "city"]
+    text = ["company_name", "job_field", "city"]
     fields = ["semester", "year", "industry", "state", "country" ]
     boolean = ["paid", "full_time", "available", "past"]
     @internship = Internship.new
