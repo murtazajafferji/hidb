@@ -9,7 +9,7 @@
 		<%= form.input :semester, :as => :check_boxes, :collection => Internship::SEMESTER %>
 		<%= form.input :year, :as => :select, :collection => Internship::YEAR if past %>
 		<%= form.input :year, :as => :select, :selected => Time.now.year, :collection => Internship::YEAR if past == false %>
-		<%= form.input :job_field, :as => :select, :collection => Internship::JOB_FIELD %>
+		<%= form.input :job_field, :as => :select, :collection => Internship::JOB_FIELD, :input_html => { :style => 'width: 200px;' } %>
 		<%= form.input :paid, :label => "Compensation", :as => :radio, :collection => {"Paid" => 't', "Unpaid" => 'f'}.sort.reverse %>
 		<%= form.input :full_time, :label => "Commitment", :as => :radio, :collection => {"Full-time" => 't', "Part-time" => 'f'}.sort.reverse %>
 		<% @internship.deadline = Date.today + 2.months if (@internship.deadline.blank? and past == false) %>

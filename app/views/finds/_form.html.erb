@@ -18,9 +18,9 @@ $(document).ready(function(){
 		<%= form.input :available, :label => "Availability", :as => :radio, :collection => {"Available" => 't', "Taken" => 'f', 'Either' => ' '}.sort.reverse %>
 		<%= form.input :semester, :as => :check_boxes, :collection => Internship::SEMESTER %>
 		<%= form.input :year, :as => :select, :collection => Internship::YEAR, :name => :year %>
-		<%= form.input :industry, :as => :select, :collection => Internship::INDUSTRY %>
+		<%= form.input :industry, :as => :select, :collection => Internship::INDUSTRY, :input_html => { :style => 'width: 200px;' } %>
 		<%= form.input :company_name %>
-		<%= form.input :job_field %>
+		<%= form.input :job_field, :as => :select, :collection => Internship::JOB_FIELD, :input_html => { :style => 'width: 200px;' } %>
 		<%= form.input :city %>
 		<%= form.input :state, :as => :select, :collection => Internship::STATE %>
 		<%= form.input :country, :as => :select, :collection => Internship::COUNTRY %>
