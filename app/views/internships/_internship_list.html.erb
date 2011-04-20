@@ -11,6 +11,7 @@
 <th><%= link_to "Field", sort_url("sort", "job_field") %></th>
 <th><%= link_to "Semester", sort_url("sort", "semester") %></th>
 <th><%= link_to "Year", sort_url("sort", "year") %></th>
+<th>Type</th>
 <th>Poster</th>
 <th>More Info</th>
   </tr>
@@ -26,6 +27,8 @@
 	<td><%= internship.job_field if internship.job_field %></td>
 	<td><%= internship.semester if internship.semester %></td>
 	<td><%= internship.year if internship.year %></td>
+	<td><%= internship.year if internship.year %></td>
+	<td><%= internship.past ? "Review" : internship.available ? "Opportunity" : (Time.now < internship.deadline) ? "Position Filled" : "Deadline past" %><td>
 	<td><%= link_to "#{internship.user.first_name} #{internship.user.last_name}", internship.user if internship.user %></td>
 	<td><%= link_to "Show", internship %></td>
     <!-- <td><%# link_to 'Show', internship %></td>
