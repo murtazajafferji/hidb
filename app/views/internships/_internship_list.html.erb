@@ -4,11 +4,10 @@
 <table class="datagrid">
   <tr>
 	<th><%= link_to "Date submitted", sort_url("sort", "created_at") %></th>
+	<th><%= link_to "Company Name", sort_url("sort", "company_name") %></th>
     <th><%= link_to "Field", sort_url("sort", "job_field") %></th>
     <th><%= link_to "City", sort_url("sort", "city") %></th>
     <th><%= link_to "State", sort_url("sort", "state") %></th>
-<th><%= link_to "Company Name", sort_url("sort", "company_name") %></th>
-<th><%= link_to "Field", sort_url("sort", "job_field") %></th>
 <th><%= link_to "Semester", sort_url("sort", "semester") %></th>
 <th><%= link_to "Year", sort_url("sort", "year") %></th>
 <th>Type</th>
@@ -20,11 +19,10 @@
 <% if internship %>
   <tr>
 	<td><%= (Time.now - internship.created_at < 86400) ? "#{time_ago_in_words((Time.now - internship.created_at).seconds.ago)} ago" : internship.created_at.strftime("%b %e, %Y") if internship.created_at %></td>
+	<td><%= internship.company_name if internship.company_name %></td>
 	<td><%= internship.job_field if internship.job_field %></td>
 	<td><%= internship.city if internship.city %></td>
 	<td><%= internship.state if internship.state %></td>
-	<td><%= internship.company_name if internship.company_name %></td>
-	<td><%= internship.job_field if internship.job_field %></td>
 	<td><%= internship.semester if internship.semester %></td>
 	<td><%= internship.year if internship.year %></td>
 	<td><%= internship.past ? "Review" : internship.available ? "Opportunity" : (Time.now < internship.deadline) ? "Position Filled" : "Deadline past" %></td>
