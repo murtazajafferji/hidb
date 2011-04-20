@@ -38,8 +38,7 @@
 	<%="<tr><th>Email</th><td>#{@user.email}</td></tr>".html_safe if !@user.email.blank? %>
 	<%="<tr><th>Major</th><td>#{@user.major}</td></tr>".html_safe if !@user.major.blank? %>
 	<%="<tr><th>Graduation</th><td>#{@user.yog}</td></tr>".html_safe if !@user.yog.blank? %>
-	<%="<tr><th>LinkedIn</th><td>#{@user.linkedin}</td></tr>".html_safe if !@user.linkedin.blank? %>
-
+	<%="<tr><th>LinkedIn</th><td><a href=#{@user.linkedin.include?("http://") ? @user.linkedin : ("http://" + @user.linkedin) if !@user.linkedin.blank?}>#{@user.linkedin}</a></td></tr>".html_safe if !@user.linkedin.blank? %>
 	<%="<tr><th>Internships</th><td>".html_safe if !@user.internships.blank? %> 
 	<%	@user.internships.each_with_index do |internship, i| %>
 	<%=	link_to "#{i + 1}. #{internship.internship_name}<br>".html_safe, internship %>
