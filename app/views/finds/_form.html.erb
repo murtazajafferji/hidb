@@ -14,7 +14,7 @@ $(document).ready(function(){
 <div class="internship-form">
 <%= semantic_form_for @internship, :html => { :id => "styled-form", :method => :get }, :url => advanced_search_path, :remote => true, :class => :autosubmit do |form| %>
   <% form.inputs "Advanced Search", :id => "optional" do %>	
-		<%= form.input :past, :label => "Type", :as => :radio, :collection => {"Past" => 't', "Opportunity" => 'f', 'Either' => ' '}.sort.reverse %>
+		<%= form.input :past, :label => "Type", :as => :radio, :collection => {"Review" => 't', "Opportunity" => 'f', 'Either' => ' '}.sort.reverse %>
 		<%= form.input :available, :label => "Availability", :as => :radio, :collection => {"Available" => 't', "Taken" => 'f', 'Either' => ' '}.sort.reverse %>
 		<%= form.input :semester, :as => :check_boxes, :collection => Internship::SEMESTER %>
 		<%= form.input :year, :as => :select, :collection => Internship::YEAR, :name => :year %>
