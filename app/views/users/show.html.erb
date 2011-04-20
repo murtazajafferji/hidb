@@ -42,7 +42,7 @@
 
 	<%="<tr><th>Internships</th><td>".html_safe if !@user.internships.blank? %> 
 	<%	@user.internships.each_with_index do |internship, i| %>
-	<%=	link_to "#{i + 1}. <br>".html_safe, internship %>
+	<%=	link_to "#{i + 1}. #{internship.internship_name}<br>".html_safe, internship %>
 	<% end %>
 	<%="</td></tr>".html_safe if !@user.internships.blank? %>
 

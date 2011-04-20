@@ -381,6 +381,10 @@ class Internship < ActiveRecord::Base
     self.all(query_params)
   end
   
+  def internship_name
+     !name.blank? ? name : !company_name.blank? ? "Internship at #{company_name}" : "Internship"
+  end
+  
   def make_search_string
     internship_fields = ["semester", "year", "industry", "company_name", "job_field", "city", "state", "country", "website", "user_id"]
     user_fields = ["user.first_name", "user.last_name", "user.email", "user.major", "user.username"]

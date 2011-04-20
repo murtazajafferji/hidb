@@ -34,7 +34,7 @@
 </div>
 <div class="internship-section">
 <div class="internship-main"> 
-  <h1><%= @internship.name ? "#{@internship.name }" : "Internship at #{@internship.company_name} " if @internship.name or @internship.company_name %><%= @internship.past ? " (Review)" : @internship.available ? "" : (Time.now < @internship.deadline) ? " (Position Filled)" : " (Deadline past)" %></h1>
+  <h1><%= @internship.internship_name %><%= @internship.past ? " (Review)" : @internship.available ? "" : (Time.now < @internship.deadline) ? " (Position Filled)" : " (Deadline past)" %></h1>
   <%= "<dt>Description</dt><dl>#{simple_format(@internship.description, :class => 'simple-format')}</dl>".html_safe if !@internship.description.blank? %>
   <%= "<dt>Responsibilities</dt><dl>#{simple_format(@internship.responsibilities, :class => 'simple-format')}</dl>".html_safe if !@internship.responsibilities.blank? %>  
   <%= "<dt>Skills/Requirements</dt><dl>#{simple_format(@internship.requirements, :class => 'simple-format')}</dl>".html_safe if !@internship.past and !@internship.requirements.blank? %>
