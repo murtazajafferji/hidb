@@ -3,7 +3,7 @@
 <%= (pluralize(internship.votes_against, "person") + ((internship.votes_against == 1) ? " has flagged this<br>" : " have flagged this<br>")).html_safe  %>
 <div class="centered-buttons" id="vote-buttons">
   	<li><%= button_to internship.past ?  "Helpful" : "Applied?", vote_up_internship_path(:internship => internship), :method => :post, :remote => true, :class => ((current_user and !current_user.voted_for?(internship)) or !current_user) ? "btn vote_up" : "btn voted", :id => "approve" %></li>
-	<% if current_user and current_user.id == internship.user_id %>
+	<% if current_user and current_user.id == internship.user_id and !internship.past %>
 	<li><%= button_to "Position filled", available_internship_path(:internship => internship), :method => :post, :remote => true, :class => (current_user and internship.available) ? "btn vote_down" : "btn voted", :id => "approve" %></li>
   	<% else %>
   	<li><%= button_to "Flag", vote_down_internship_path(:internship => internship), :method => :post, :remote => true, :class => ((current_user and !current_user.voted_against?(internship)) or !current_user) ? "btn vote_down" : "btn voted", :id => "approve" %></li>
