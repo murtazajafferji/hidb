@@ -164,6 +164,7 @@ class InternshipsController < ApplicationController
   end
   
   def vote_down 
+    if current_user
     internship = Internship.find(params[:internship])
     user = current_user
     
@@ -190,6 +191,15 @@ class InternshipsController < ApplicationController
       wants.js {
         render(:update) {|page| page.replace_html 'votes', :partial => 'internships/votes', :locals => {:internship => internship}}
       }
+    end
+    else
+      respond_to do |wants|
+        wants.html { redirect_to :back }
+        wants.xml  { render :xml => @user }
+        wants.js {
+          render(:update) {|page| page.replace_html 'register', :partial => 'user_sessions/form', :locals => {:@user_session => UserSession.new}}
+        }
+      end
     end
   end
   
