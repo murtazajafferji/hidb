@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   acts_as_voter
   has_karma :internships
   
+  validates_uniqueness_of :username
+  
   acts_as_authentic do |config|
     config.validate_email_field    = false
     config.validate_login_field    = false

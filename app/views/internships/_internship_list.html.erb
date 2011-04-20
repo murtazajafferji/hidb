@@ -28,7 +28,7 @@
 	<td><%= internship.semester if internship.semester %></td>
 	<td><%= internship.year if internship.year %></td>
 	<td><%= internship.year if internship.year %></td>
-	<td><%= internship.past ? "Review" : internship.available ? "Opportunity" : (Time.now < internship.deadline) ? "Position Filled" : "Deadline past" %><td>
+	<td><%= internship.past ? "Review" : internship.available ? "Opportunity" : (Time.now < internship.deadline) ? "Position Filled" : "Deadline past" %></td>
 	<td><%= link_to "#{internship.user.first_name} #{internship.user.last_name}", internship.user if internship.user %></td>
 	<td><%= link_to "Show", internship %></td>
     <!-- <td><%# link_to 'Show', internship %></td>
