@@ -81,7 +81,7 @@ class UsersController < ApplicationController
   
   def show
     puts "SESSION: #{session.inspect}"
-    puts @current_user.access_tokens.inspect
+    puts @current_user.access_tokens.inspect if current_user
     @user_size = User.count
     @user = User.find_by_url(params[:id])
     if @user.nil?
