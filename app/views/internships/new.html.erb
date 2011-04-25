@@ -5,8 +5,8 @@
 <p>Please select the type of internship you are submitting<p>
 	<% end %></div>
 <div class="centered-buttons">
-<li><%= button_to "Opportunity", set_type_internship_path(:id => 0, :past => "false", :internship => @internship.changes), :method => :post, :remote => true, :class => "btn opportunity", :id => "approve", :onclick => "$('#select-type').hide();" %></li>
-<li><%= button_to "Past", set_type_internship_path(:id => 0, :past => "true", :internship => @internship.changes), :method => :post, :remote => true, :class => "btn past", :id => "unapprove", :onclick => "$('#select-type').hide();" %></li>
+<li><%= button_to "Opportunity", set_type_path(:past => "false", :internship => @internship.changes), :method => :post, :remote => true, :class => "btn opportunity", :id => "approve", :onclick => "$('#select-type').hide();" %></li>
+<li><%= button_to "Past", set_type_path(:past => "true", :internship => @internship.changes), :method => :post, :remote => true, :class => "btn past", :id => "unapprove", :onclick => "$('#select-type').hide();" %></li>
 </div>
 <div id="form">
 	<% if @internship.changed? %>

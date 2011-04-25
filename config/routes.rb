@@ -6,7 +6,6 @@ Hidb::Application.routes.draw do
     end
     member do
       post :approve
-      post :set_type
       post :vote_up
       post :vote_down
       post :available
@@ -17,6 +16,7 @@ Hidb::Application.routes.draw do
   match '/unapproved' => 'internships#unapproved', :as => :unapproved
   match '/opportunities' => 'internships#opportunities', :as => :opportunities
   match '/reviews' => 'internships#reviews', :as => :reviews
+  match "/set_type" => "internships#set_type", :as => :set_type, :via => [:post]
   
   
   match 'logout' => 'user_sessions#destroy', :as => :logout

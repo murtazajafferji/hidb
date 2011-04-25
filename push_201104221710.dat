@@ -1,0 +1,1 @@
+{"local_tables_info":{"internships":2,"items":440,"schema_migrations":5,"access_tokens":1,"users":1,"votings":0,"sessions":0,"votes":1},"stream_state":{},"klass":"Taps::Push","table_filter":null,"completed_tables":[],"remote_url":"http://heroku:osui59a24am79x@taps3.heroku.com","database_url":"sqlite://db/development.sqlite3","session_uri":"/sessions/4093459817"}
