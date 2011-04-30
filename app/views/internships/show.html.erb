@@ -45,6 +45,7 @@
 <div class="internship-summary" id="poster">
 	<h1><%= @internship.past ? "Intern" : "Poster" %></h1>
 	<%= "<dt>Name:</dt><dd>#{link_to "#{@internship.user.first_name} #{@internship.user.last_name}", @internship.user}</dd>".html_safe if !@internship.user.blank? %>
+	<%= "<dt>School:</dt><dd>#{@internship.user.school}</dd>".html_safe if !@internship.user.school.blank? %>
 	<%= "<dt>Year of Graduation:</dt><dd>#{@internship.user.yog}</dd>".html_safe if !@internship.user.yog.blank? %>
 	<%= "<dt>Major:</dt><dd>#{@internship.user.major}</dd>".html_safe if !@internship.user.major.blank? %>
 	<%= "<dt>LinkedIn:</dt><dd><a href=#{@internship.user.linkedin.include?("http://") ? @internship.user.linkedin : ("http://" + @internship.user.linkedin) if !@internship.user.linkedin.blank?}>#{@internship.user.linkedin}</a></dd>".html_safe if !@internship.user.linkedin.blank? %>
