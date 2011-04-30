@@ -30,6 +30,8 @@
 			<% end %>
 	<% end %>
 </div>
+<center><%= "Click on edit to add #{itemize_type(@user.blank_fields)}." if current_user and current_user.id == @user.id and !@user.blank_fields.blank? %></center>
+
 <table class="datagrid">
 	
 	<%="<tr><th>First Name</th><td>#{@user.first_name}</td></tr>".html_safe if !@user.first_name.blank? %>
@@ -39,6 +41,7 @@
 	<%="<tr><th>Major</th><td>#{@user.major}</td></tr>".html_safe if !@user.major.blank? %>
 	<%="<tr><th>Graduation</th><td>#{@user.yog}</td></tr>".html_safe if !@user.yog.blank? %>
 	<%="<tr><th>LinkedIn</th><td><a href=#{@user.linkedin.include?("http://") ? @user.linkedin : ("http://" + @user.linkedin) if !@user.linkedin.blank?}>#{@user.linkedin}</a></td></tr>".html_safe if !@user.linkedin.blank? %>
+	<%="<tr><th>School</th><td>#{@user.school}</td></tr>".html_safe if !@user.school.blank? %>
 	<%="<tr><th>Internships</th><td>".html_safe if !@user.internships.blank? %> 
 	<%	@user.internships.each_with_index do |internship, i| %>
 	<%=	link_to "#{i + 1}. #{internship.internship_name}<br>".html_safe, internship %>

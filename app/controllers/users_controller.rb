@@ -50,7 +50,7 @@ class UsersController < ApplicationController
       if result
         flash[:notice] = "Account updated!"
         #redirect_to profile_url(@user)
-        redirect_to new_internship_path
+        redirect_to profile_url(@user)
       else
         raise @user.errors.inspect
         render :action => :edit
@@ -80,13 +80,14 @@ class UsersController < ApplicationController
   end
   
   def show
-    puts "SESSION: #{session.inspect}"
-    puts @current_user.access_tokens.inspect if current_user
-    @user_size = User.count
     @user = User.find_by_url(params[:id])
     if @user.nil?
       @user = User.find(params[:id])
     end
+
+    puts "SESSION: #{session.inspect}"
+    puts @current_user.access_tokens.inspect if current_user
+    @user_size = User.count
     @profile = @user.profile
   end
 

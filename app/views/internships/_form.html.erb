@@ -21,6 +21,7 @@
   <% end %>
   <% form.inputs :name => "Optional", :id => "optional" do %>
 	<%= form.input :name, :label => "Internship Name" %>
+	<% form.inputs :school, :label => "Student Restriction", :as => :select, :collection => User::SCHOOL  %>
 	<%= form.input :city %>
 	<%= form.input :state, :as => :select, :collection => Internship::STATE %>
 	<%= form.input :country, :as => :select, :selected => "United States", :collection => Internship::COUNTRY %>

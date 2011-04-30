@@ -1,2 +1,0 @@
-
-$.jGrowl('Company name can\'t be blank<br>Year can\'t be blank<br>Job field can\'t be blank<br>Paid can\'t be blank<br>Full time can\'t be blank');

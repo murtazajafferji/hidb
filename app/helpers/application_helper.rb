@@ -33,13 +33,13 @@ module ApplicationHelper
   def itemize_type types
   	string = ""
   	if types.length == 2
-  		string = types[0] + " " + I18n.t("and") + " " + types[1]
+  		string = types[0] + " " + "and" + " " + types[1]
   	else
  	  types.each_with_index do |type, index|
  	    if index < (types.length - 2)
  	      string += type + ", "
  	    elsif index == types.length - 2
- 	      string += type + ", " + I18n.t("and") + " "
+ 	      string += type + ", " + "and" + " "
  	    else
  	  	  string += type
  	    end

@@ -35,7 +35,7 @@ class Internship < ActiveRecord::Base
     created_at
     updated_at
   end
-
+  
   #JOB_FIELD = ["Accounting and Auditing", "Administrative", "Advertising and Marketing", "Advocacy", "Analyst", "Consultant", "Counseling", "Customer Service", "Design", "Educator/Instructor", "Engineering", "Event Planning", "Fundraising and Development", "Health Care Practitioner", "Human Resources and Recruiting", "Information Technology", "Legal Practitioner", "Management", "Other", "Performer/Artist", "Project Management", "Research ", "Sales", "Writer/Editor"]
   JOB_FIELD = ["Accounting, Finance, and Insurance ", "Administrative and Clerical ", "Banking, Real Estate, and Mortgage Professionals", "Biotech, R&D, and Science ", "Building Construction and Skilled Trades ", "Business and Strategic Management ", "Creative and Design ", "Customer Support and Client Care ", "Editorial and Writing ", "Education and Training ", "Engineering ", "Food Services and Hospitality ", "Human Resources ", "Installation, Maintenance, and Repair ", "IT and Software Development ", "Legal ", "Logistics and Transportation ", "Manufacturing, Production, and Operations", "Marketing and Product ", "Medical and Health ", "Other ", "Project and Program Management ", "Quality Assurance and Safety ", "Sales, Retail, and Business Development ", "Security and Protective Services "]
   
