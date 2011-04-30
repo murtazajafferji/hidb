@@ -42,7 +42,7 @@ class User < ActiveRecord::Base
   
   after_save :make_search_string
 
-  # HACK HACK HACK -- how to do attr_accessible from here?
+  # HACK HACK HACK ,  how to do attr_accessible from here?
   # prevents a user from submitting a crafted form that bypasses activation
   # anything else you want your user to change should be added here.
   attr_accessible :login, :email, :password, :password_confirmation, :url, :preference, :first_name, :last_name, :major, :yog, :admin, :username, :linkedin, :school
@@ -94,7 +94,7 @@ class User < ActiveRecord::Base
   # "Studio Art",
   # "Theater Arts",
   # "Women's &and Gender Studies"]
-  SCHOOL = ["None/Other", "Harvard University", "Princeton University", "Yale University", "Columbia University", "Stanford University", "University of Pennsylvania", "California Institute of Technology", "Massachusetts Institute of Technology", "Dartmouth College", "Duke University", "University of Chicago", "Northwestern University", "Johns Hopkins University", "Washington University in St. Louis", "Brown University", "Cornell University", "Rice University", "Vanderbilt University", "University of Notre Dame", "Emory University", "Georgetown University", "University of California--Berkeley", "Carnegie Mellon University", "University of Southern California", "University of California--Los Angeles", "University of Virginia", "Wake Forest University", "Tufts University", "University of Michigan--Ann Arbor", "University of North Carolina--Chapel Hill", "Boston College", "College of William and Mary", "New York University", "Brandeis University", "Georgia Institute of Technology", "University of California--San Diego", "Lehigh University", "University of Rochester", "University of California--Davis", "University of California--Santa Barbara", "Case Western Reserve University", "Rensselaer Polytechnic Institute", "University of California--Irvine", "University of Washington", "University of Texas--Austin", "University of Wisconsin--Madison", "Pennsylvania State University--University Park", "University of Illinois--Urbana-Champaign", "University of Miami", "Yeshiva University"].sort
+  SCHOOL = ["None/Other", "Harvard University", "Princeton University", "Yale University", "Columbia University", "Stanford University", "University of Pennsylvania", "California Institute of Technology", "Massachusetts Institute of Technology", "Dartmouth College", "Duke University", "University of Chicago", "Northwestern University", "Johns Hopkins University", "Washington University in St. Louis", "Brown University", "Cornell University", "Rice University", "Vanderbilt University", "University of Notre Dame", "Emory University", "Georgetown University", "University of California, Berkeley", "Carnegie Mellon University", "University of Southern California", "University of California, Los Angeles", "University of Virginia", "Wake Forest University", "Tufts University", "University of Michigan, Ann Arbor", "University of North Carolina, Chapel Hill", "Boston College", "College of William and Mary", "New York University", "Brandeis University", "Georgia Institute of Technology", "University of California, San Diego", "Lehigh University", "University of Rochester", "University of California, Davis", "University of California, Santa Barbara", "Case Western Reserve University", "Rensselaer Polytechnic Institute", "University of California, Irvine", "University of Washington", "University of Texas, Austin", "University of Wisconsin, Madison", "Pennsylvania State University, University Park", "University of Illinois, Urbana-Champaign", "University of Miami", "Yeshiva University"].sort
   
   MAJOR = ["Agricultural Sciences", "Anthropology", "Architecture and Environmental Design", "Art and Design", "Biological Sciences", "Business and Economics", "Chemistry", "Communications", "Computer Science", "Culture and Society", "Engineering", "Environmental Studies and Sciences", "Health and Physical Education", "History", "Humanities", "Languages and Literature", "Mathematics", "Media/Film and Television ", "Performing Arts ", "Philosophy", "Physical Sciences", "Physics", "Political Science ", "Psychology", "Sociology and Social Sciences", "Teacher Education", "Undeclared"]
 
@@ -230,7 +230,7 @@ class User < ActiveRecord::Base
   protected
     require 'digest/sha1'
     def secure_digest(*args)
-      Digest::SHA1.hexdigest(args.flatten.join('--'))
+      Digest::SHA1.hexdigest(args.flatten.join(', '))
     end
     
     def make_token
