@@ -1,7 +1,7 @@
 Hidb::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
   
-  SITE_NAME = "Hiatt Internship Database"
+  SITE_NAME = "The Internship Database"
   SITE_URL = "http://www.internshipdatabase.org"
   SITE_EMAIL = "noreply@internshipdatabase.org"
 

@@ -2,7 +2,7 @@
 <html>
 <head profile='http://gmpg.org/xfn/11'>
 	<meta charset="utf-8" />
-	<title>The Internship Database : <%= yield(:title) || "View Internships from other Brandeis Students" %></title>
+	<title>The Internship Database : <%= yield(:title) || "Find Internship Reviews or Opportunities" %></title>
 	<meta name="google-site-verification" content="prpLgqQEKhoSzaS96o3aIPQ6u4czl74V1cvjAuNwkkk" />
 	<!-- <meta name="google-site-verification" content="JW_hluXdWiBDeaLri74TwWs6B1mr6LMK3KleS75ZzZQ" /> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/> 
@@ -116,5 +116,26 @@ window._auth_token = "#{form_authenticity_token}";
 		
     </div>
 
+		<div id="footer">
+			<div id="info">
+				<ul>
+					<li id="terms"><%= link_to I18n.t("Terms of Service"), terms_path %></li>
+					<li id="privacy"><%= link_to I18n.t("Privacy"), privacy_path %></li>
+					<li id="about"><%= link_to I18n.t("About"), about_path %></li>
+					<!-- <li id="contact"><%# link_to I18n.t("Contact"), contact_path %></li> -->
+					<li id="resume"><%= link_to I18n.t("Resume"), resume_path %></li>
+				</ul>
+			</div>
+			<!-- <p id="i18n">
+							View this site in
+							<span><%# link_to I18n.t("English"), :locale => "en" %></span>
+							or
+							<span><%# link_to I18n.t("Chinese"), :locale => "zh" %></span>
+						</p> -->
+			<p id="all-rights-reserved">
+				<span><%= "© #{Time.now.year}. Murtaza Jafferji. All Rights Reserved." %></span>
+			</p>
+		</div>
+		
   </body>
 </html>

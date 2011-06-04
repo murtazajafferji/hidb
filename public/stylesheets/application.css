@@ -668,6 +668,26 @@ img{border:none;}
 #message{
   color: red;
 }
+
+#footer {
+  clear: both;
+  padding: 20px 0;
+  font-size: 12px;
+	width: 960px;
+	margin: auto;
+	text-align: center;
+}
+
+#footer li {
+  display: inline;
+  padding: 0 7px;
+}
+
+#all-rights-reserved span{
+	color: #000;
+	font-size: 10px;
+}
+
 /*---------- left aligned button ----------*/
 .btn { position: relative; background: #aaa; padding: 2px; margin: 0px; color: #fff; text-decoration: none; cursor: pointer; }
 .btn * { font-style: normal; background-image: url('../images/btn2.png'); background-repeat: no-repeat; display: block; position: relative; }

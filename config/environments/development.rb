@@ -1,10 +1,10 @@
 Hidb::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
   
-  SITE_NAME = "Hiatt Internship Database"
+  SITE_NAME = "The Internship Database"
   SITE_URL = "http://localhost:3000"
-  SITE_EMAIL = "noreply@hidb.com"
-
+  SITE_EMAIL = "noreply@internshipdatabase.org"
+  
   # In the development environment your application's code is reloaded on
   # every request.  This slows down response time but is perfect for development
   # since you don't have to restart the webserver when you make code changes.
